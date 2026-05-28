@@ -40,6 +40,8 @@
   --c-sage-light: #d6ddd5;
   --c-sage-tint: #c0c9b6;
   --c-sage-muted: #afb89b;
+  --c-eyebrow: #656f57;     /* darkened sage for small label TEXT on light bg
+                               (WCAG AA on white/wash; sage-muted alone fails) */
   --c-wash: #f0f3f0;        /* pale green wash */
   /* Darks */
   --c-slate: #2c3f46;       /* dark slate/teal */
@@ -109,6 +111,31 @@ h1, h2, h3, h4 {
 }
 img { max-width: 100%; display: block; }
 a { color: inherit; }
+
+/* ==========================================================================
+   GLOBAL KEYBOARD FOCUS (a11y, #18) — a clearly visible focus ring for
+   keyboard users on every interactive element. :focus-visible keeps the ring
+   off mouse clicks. Uses two outlines (slate + white offset) so it stays
+   legible on both light and dark backgrounds across all three focuses.
+   ========================================================================== */
+:focus-visible {
+  outline: 2px solid var(--c-slate);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, .9);
+  border-radius: 3px;
+}
+/* On dark surfaces (Workout / P&P dark nav, hero, footer) flip the ring to a
+   light sage so it reads against near-black/slate. */
+.focus-workout :focus-visible,
+.focus-pp :focus-visible,
+.site-footer :focus-visible,
+.cookie-banner :focus-visible {
+  outline-color: var(--c-sage);
+  box-shadow: 0 0 0 4px rgba(8, 13, 18, .55);
+}
+/* Form fields already show a focus box-shadow; don't double up the ring on
+   them when focused via keyboard — keep just the outline. */
+.field :focus-visible, .form :focus-visible { box-shadow: none; }
 .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
 
 /* ==========================================================================
@@ -125,7 +152,7 @@ a { color: inherit; }
    ========================================================================== */
 .eyebrow {
   font-family: var(--font-head); text-transform: uppercase;
-  letter-spacing: .3em; font-size: 13px; color: var(--c-sage-muted);
+  letter-spacing: .3em; font-size: 13px; color: var(--c-eyebrow);
   margin-bottom: 18px;
 }
 .kicker {
@@ -298,6 +325,11 @@ a { color: inherit; }
 }
 .site-nav .brand { display: flex; align-items: center; text-decoration: none; }
 .site-nav .brand img { height: 30px; width: auto; }
+/* The brand wordmark (logolight.png) renders as DARK text on transparent, so it
+   reads as-is on the light Klinik nav. On the dark Workout / People&Performance
+   navs it would be invisible, so knock it out to white. */
+.focus-workout .site-nav .brand img,
+.focus-pp .site-nav .brand img { filter: brightness(0) invert(1); }
 .site-nav .nav-links {
   display: flex; align-items: center; gap: clamp(14px, 3vw, 30px);
   font-family: var(--font-head); text-transform: uppercase;
