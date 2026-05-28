@@ -18,25 +18,15 @@
   .hero { display: grid; grid-template-columns: 1.1fr .9fr; min-height: 78vh; }
   .hero .text { display: flex; flex-direction: column; justify-content: center; padding: 80px clamp(24px,6vw,96px); }
   .hero .photo { background: url('../assets/images/source/vinnie-davida-soendergaard-photo-martin-kaufmann-dsc-4499.jpg') center/cover; }
-  .eyebrow { font-family: var(--font-head); text-transform: uppercase; letter-spacing: .3em; font-size: 13px; color: var(--c-sage-muted); margin-bottom: 18px; }
   .hero h1 { font-size: clamp(34px, 5vw, 58px); line-height: 1.05; margin-bottom: 22px; }
   .hero p { font-size: 18px; color: var(--c-text); max-width: 46ch; margin-bottom: 32px; }
 
-  .btn { display: inline-block; font-family: var(--font-head); text-transform: uppercase; letter-spacing: .12em;
-    font-size: 14px; text-decoration: none; padding: 15px 34px; border-radius: 999px;
-    background: var(--c-slate); color: #fff; transition: background .2s; }
-  .btn:hover { background: var(--c-near-black); }
-  .btn.ghost { background: transparent; color: var(--c-slate); border: 1px solid var(--c-slate); }
-  .btn.ghost:hover { background: var(--c-slate); color: #fff; }
-
-  section { padding: 72px 0; }
   .intro { background: #fff; }
   .intro .wrap { max-width: 720px; text-align: center; }
   .intro h2 { font-size: 30px; margin-bottom: 18px; }
   .intro p { font-size: 18px; color: var(--c-text); }
 
   .treatments .wrap { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); }
-  .card { background: #fff; border-radius: 16px; padding: 30px; border: 1px solid var(--c-sage-light); }
   .card h3 { font-size: 21px; margin-bottom: 8px; }
   .card .price { font-family: var(--font-head); color: var(--c-sage-muted); font-size: 15px; letter-spacing: .05em; }
 
@@ -55,7 +45,7 @@
   @media (max-width: 760px){ .hero { grid-template-columns: 1fr; } .hero .photo { min-height: 320px; order: -1; } }
 </style>
 </head>
-<body>
+<body class="focus-klinik">
   <!-- ===================================================================
        CANONICAL SHARED TOP-NAV (sub-sites) — see .site-nav in tokens.css.
        Identical structure on klinik / workout / people-performance; only the
@@ -84,14 +74,14 @@
     <div class="photo" role="img" aria-label="Kropsbehandling"></div>
   </header>
 
-  <section class="intro">
+  <section class="section intro">
     <div class="wrap">
       <h2>Tilbage til styrke og balance</h2>
       <p>Behandlingen løsner op, fremskynder restitutionsprocessen og hjælper dig tilbage efter belastning, stress eller skade. Roligt, grundigt og tilpasset din krop.</p>
     </div>
   </section>
 
-  <section class="treatments">
+  <section class="section treatments">
     <div class="wrap">
       <div class="card"><h3>Fysiurgisk massage</h3><p>Dybdegående behandling af muskler og spændinger.</p><div class="price">60 min</div></div>
       <div class="card"><h3>Restitution &amp; stræk</h3><p>Målrettet genopbygning efter træning eller skade.</p><div class="price">45 min</div></div>
@@ -99,7 +89,7 @@
     </div>
   </section>
 
-  <section class="booking" id="book">
+  <section class="section booking" id="book">
     <div class="wrap">
       <h2>Book din tid</h2>
       <p>Vælg en ledig tid i kalenderen, eller ring og hør nærmere. Klinikken ligger på Vejlegade 12, kld. th., 2100 København Ø.</p>

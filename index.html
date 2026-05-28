@@ -26,21 +26,21 @@
 
   .focuses { max-width: 1180px; margin: -36px auto 0; padding: 0 24px 72px;
     display: grid; gap: 22px; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); }
-  .card {
+  .tile {
     position: relative; border-radius: 16px; overflow: hidden; text-decoration: none;
     min-height: 460px; display: flex; flex-direction: column; justify-content: flex-end;
     color: #fff; box-shadow: 0 20px 40px -24px rgba(0,0,0,.4);
     transition: transform .25s ease, box-shadow .25s ease;
   }
-  .card:hover { transform: translateY(-6px); box-shadow: 0 28px 54px -24px rgba(0,0,0,.5); }
-  .card .bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform .5s ease; }
-  .card:hover .bg { transform: scale(1.05); }
-  .card .veil { position: absolute; inset: 0; }
-  .card .body { position: relative; padding: 28px; }
-  .card .tag { font-family: var(--font-head); text-transform: uppercase; letter-spacing: .18em; font-size: 12px; opacity: .9; }
-  .card h2 { font-size: 30px; margin: 6px 0 8px; }
-  .card p { margin: 0 0 16px; font-size: 15px; opacity: .92; max-width: 34ch; }
-  .card .go { font-family: var(--font-head); text-transform: uppercase; letter-spacing: .1em; font-size: 13px;
+  .tile:hover { transform: translateY(-6px); box-shadow: 0 28px 54px -24px rgba(0,0,0,.5); }
+  .tile .bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform .5s ease; }
+  .tile:hover .bg { transform: scale(1.05); }
+  .tile .veil { position: absolute; inset: 0; }
+  .tile .body { position: relative; padding: 28px; }
+  .tile .tag { font-family: var(--font-head); text-transform: uppercase; letter-spacing: .18em; font-size: 12px; opacity: .9; }
+  .tile h2 { font-size: 30px; margin: 6px 0 8px; }
+  .tile p { margin: 0 0 16px; font-size: 15px; opacity: .92; max-width: 34ch; }
+  .tile .go { font-family: var(--font-head); text-transform: uppercase; letter-spacing: .1em; font-size: 13px;
     border-top: 1px solid rgba(255,255,255,.3); padding-top: 14px; }
 
   /* Klinik — light & calm */
@@ -70,7 +70,7 @@
   </header>
 
   <main class="focuses">
-    <a class="card c-klinik" href="klinik/">
+    <a class="tile c-klinik" href="klinik/">
       <div class="bg"></div><div class="veil"></div>
       <div class="body">
         <div class="tag">Klinik</div>
@@ -80,7 +80,7 @@
       </div>
     </a>
 
-    <a class="card c-workout" href="workout/">
+    <a class="tile c-workout" href="workout/">
       <div class="bg"></div><div class="veil"></div>
       <div class="body">
         <div class="tag">Workout</div>
@@ -90,7 +90,7 @@
       </div>
     </a>
 
-    <a class="card c-pp" href="people-performance/">
+    <a class="tile c-pp" href="people-performance/">
       <div class="bg"></div><div class="veil"></div>
       <div class="body">
         <div class="tag">People &amp; Performance</div>

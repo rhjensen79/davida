@@ -20,23 +20,14 @@
   .hero::after { content:""; position:absolute; inset:0;
     background: linear-gradient(180deg, rgba(8,13,18,.55) 0%, rgba(8,13,18,.35) 40%, rgba(8,13,18,.95) 100%); }
   .hero .wrap { position: relative; z-index: 1; padding-bottom: 64px; padding-top: 120px; }
-  .kicker { display:inline-block; font-family: var(--font-head); font-weight: 600; text-transform: uppercase;
-    letter-spacing: .2em; font-size: 13px; color: var(--c-near-black); background: var(--c-sage);
-    padding: 6px 14px; border-radius: 4px; margin-bottom: 22px; }
   .hero h1 { font-size: clamp(44px, 9vw, 104px); font-weight: 700; line-height: .92; margin-bottom: 20px; }
   .hero p { font-size: 19px; max-width: 50ch; color: #d4d8d0; margin-bottom: 30px; }
-
-  .btn { display:inline-block; font-family: var(--font-head); font-weight: 600; text-transform: uppercase;
-    letter-spacing: .14em; font-size: 15px; text-decoration: none; padding: 17px 40px; border-radius: 4px;
-    background: var(--c-sage); color: var(--c-near-black); transition: transform .15s, background .2s; }
-  .btn:hover { transform: translateY(-2px); background: #c8d0b6; }
 
   .stats { background: var(--c-sage); color: var(--c-near-black); }
   .stats .wrap { display: grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap: 24px; padding: 44px 24px; text-align: center; }
   .stats .n { font-family: var(--font-head); font-weight: 700; font-size: 46px; line-height: 1; }
   .stats .l { text-transform: uppercase; letter-spacing: .12em; font-size: 13px; font-weight: 600; }
 
-  section { padding: 80px 0; }
   .about .wrap { max-width: 760px; }
   .about h2 { font-size: clamp(28px,4vw,44px); margin-bottom: 20px; }
   .about p { font-size: 18px; color: #c3c9bd; }
@@ -56,7 +47,7 @@
   .site-footer { --foot-bg: var(--c-near-black); --foot-fg: #8f978c; --foot-head: #fff; --foot-link: var(--c-sage); --foot-border: #1c252c; }
 </style>
 </head>
-<body>
+<body class="focus-workout">
   <!-- CANONICAL SHARED TOP-NAV (sub-sites) — see .site-nav in tokens.css. -->
   <nav class="site-nav">
     <a class="brand" href="../" aria-label="Vinnie Davida Søndergaard — forside">
@@ -79,7 +70,7 @@
     </div>
   </header>
 
-  <section class="stats">
+  <section class="section stats">
     <div class="wrap">
       <div><div class="n">12</div><div class="l">pladser pr. hold</div></div>
       <div><div class="n">60</div><div class="l">minutter</div></div>
@@ -87,14 +78,14 @@
     </div>
   </section>
 
-  <section class="about">
+  <section class="section about">
     <div class="wrap">
       <h2>Invester i din styrke og dit immunforsvar</h2>
       <p>Har du lyst til at investere i din sundhed, din styrke og dit immunforsvar? Så kom med under åben himmel. I smukke omgivelser lige ved vandet guider jeg dig igennem en time med både styrke, puls, balance og teknik. Træningen er altid med høj kvalitet, godt humør og afsluttende afspænding.</p>
     </div>
   </section>
 
-  <section class="schedule">
+  <section class="section schedule">
     <div class="wrap">
       <div class="slot"><div class="day">Mandag</div><div class="time">06:30</div><div class="spots">Få pladser tilbage</div></div>
       <div class="slot"><div class="day">Onsdag</div><div class="time">17:00</div><div class="spots">Ledige pladser</div></div>
@@ -102,7 +93,7 @@
     </div>
   </section>
 
-  <section class="signup" id="signup">
+  <section class="section signup" id="signup">
     <div class="wrap">
       <h2>Sikr dig en plads</h2>
       <p>Der er kun 12 pladser på hvert hold. Skriv dig op, så vender jeg tilbage med det hele.</p>
