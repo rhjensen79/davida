@@ -147,6 +147,45 @@
   .slots .continue.is-visible { display: block; }
   .slots .continue p { font-size: 14px; color: var(--c-text-soft); margin: 0 0 14px; text-align: left; }
 
+  /* ── Booking form + confirmation (issue #8) — calm Klinik tone ─────────── */
+  .book-step {
+    max-width: 640px; margin: 28px auto 0; text-align: left;
+    background: #fff; border: 1px solid var(--c-sage-light);
+    border-radius: 18px; padding: clamp(22px, 4vw, 40px);
+    box-shadow: 0 14px 44px rgba(44,63,70,.08);
+    scroll-margin-top: 90px;
+  }
+  .book-step .step-head { margin-bottom: 24px; }
+  .book-step .step-head h3 { font-family: var(--font-head); font-weight: 500; font-size: 22px; color: var(--c-slate); margin: 0 0 6px; }
+  .book-step .step-head p { font-size: 15px; color: var(--c-text-soft); margin: 0; max-width: 52ch; }
+  /* The prefilled date/time field reads from the calendar pick (visual). */
+  .book-step input[readonly] { background: var(--c-wash); color: var(--c-slate); cursor: default; }
+  .book-step .form-actions { margin-top: 4px; }
+  .book-step .form-note { font-size: 13px; color: var(--c-text-soft); margin: 14px 0 0; }
+
+  /* Confirmation / kvittering — static success state mockup. */
+  .booking-confirm { display: none; }
+  .booking-confirm.is-visible { display: block; }
+  .booking-confirm { text-align: left; border-color: var(--c-sage); }
+  .confirm-badge {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-family: var(--font-head); letter-spacing: .04em;
+    color: var(--c-slate); font-size: 15px; margin-bottom: 18px;
+  }
+  .confirm-badge .tick {
+    width: 32px; height: 32px; border-radius: 999px; flex: none;
+    background: var(--c-slate); color: #fff;
+    display: inline-flex; align-items: center; justify-content: center; font-size: 16px;
+  }
+  .booking-confirm h3 { font-family: var(--font-head); font-weight: 500; font-size: 23px; color: var(--c-slate); margin: 0 0 10px; }
+  .booking-confirm .lead { font-size: 16px; color: var(--c-text); margin: 0 0 22px; max-width: 52ch; }
+  .receipt { border: 1px solid var(--c-sage-light); border-radius: 12px; background: var(--c-wash); padding: 4px 20px; margin-bottom: 22px; }
+  .receipt .r-row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 13px 0; border-bottom: 1px solid var(--c-sage-light); }
+  .receipt .r-row:last-child { border-bottom: 0; }
+  .receipt .r-label { font-family: var(--font-head); text-transform: uppercase; letter-spacing: .08em; font-size: 11.5px; color: var(--c-sage-muted); }
+  .receipt .r-value { font-size: 15px; color: var(--c-slate); text-align: right; }
+  .booking-confirm .confirm-foot { font-size: 13.5px; color: var(--c-text-soft); margin: 0; }
+
   /* Klinik tone: light, calm top-nav; dark slate footer */
   .site-nav { --nav-bg: rgba(255,255,255,.92); --nav-fg: var(--c-slate); --nav-border: var(--c-sage-light); --nav-accent: var(--c-sage-muted); }
   .site-footer { --foot-bg: var(--c-slate); --foot-fg: #cdd4cf; --foot-head: #fff; --foot-link: #fff; }
@@ -337,8 +376,78 @@
         </div>
       </div>
 
-      <!-- Placeholder anchor for the booking form built in issue #8. -->
-      <div id="book-form" aria-hidden="true"></div>
+      <!-- ===================================================================
+           MOCK BOOKING FORM + CONFIRMATION (issue #8) — NON-FUNCTIONAL.
+           This form does NOT submit anywhere: no backend, no validation, no
+           network call. "Bekræft booking" is type="button" and only swaps the
+           form for the static kvittering panel below (visual demo). In
+           production a real scheduling system would handle the submit. The
+           "ønsket dato/tid" field is prefilled from the calendar pick (#7) by
+           assets/js/booking.js purely for show.
+           =================================================================== -->
+      <div class="book-step" id="book-form">
+        <div class="step-head">
+          <h3>Dine oplysninger</h3>
+          <p>Udfyld dine oplysninger, så vender jeg tilbage og bekræfter din tid. Demo — der reserveres ingen tid, og intet sendes.</p>
+        </div>
+        <form class="form" id="booking-form" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label for="bf-name">Navn</label>
+              <input type="text" id="bf-name" name="name" autocomplete="name" placeholder="Dit fulde navn">
+            </div>
+            <div class="field">
+              <label for="bf-phone">Telefon</label>
+              <input type="tel" id="bf-phone" name="phone" autocomplete="tel" placeholder="+45 …">
+            </div>
+          </div>
+          <div class="field">
+            <label for="bf-email">Email</label>
+            <input type="email" id="bf-email" name="email" autocomplete="email" placeholder="dig@eksempel.dk">
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="bf-treatment">Behandling</label>
+              <select id="bf-treatment" name="treatment">
+                <option value="Fysiurgisk massage">Fysiurgisk massage · 60 min</option>
+                <option value="Kropsbehandling">Kropsbehandling · 75 min</option>
+                <option value="Restitution &amp; stræk">Restitution &amp; stræk · 45 min</option>
+                <option value="Forløb">Forløb · efter aftale</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="bf-datetime">Ønsket dato/tid</label>
+              <input type="text" id="bf-datetime" name="datetime" readonly
+                     placeholder="Vælg en tid i kalenderen ovenfor"
+                     aria-describedby="bf-datetime-hint">
+            </div>
+          </div>
+          <div class="field">
+            <label for="bf-message">Besked / noter</label>
+            <textarea id="bf-message" name="message" placeholder="Fortæl gerne kort, hvad du oplever, eller hvad du har brug for."></textarea>
+          </div>
+          <div class="form-actions">
+            <!-- type="button": this is a non-functional mock, no real submit. -->
+            <button class="btn" type="button" id="bf-submit">Bekræft booking</button>
+            <p class="form-note">Demo-formular — ingen data gemmes eller sendes.</p>
+          </div>
+        </form>
+      </div>
+
+      <!-- Static confirmation / kvittering panel (mockup of the success state). -->
+      <div class="book-step booking-confirm" id="booking-confirm" role="status" aria-live="polite">
+        <span class="confirm-badge"><span class="tick" aria-hidden="true">✓</span> Booking modtaget</span>
+        <h3>Tak, <span id="bc-name">Anna Jensen</span>!</h3>
+        <p class="lead">Vi har modtaget din booking. Du får en bekræftelse på mail, og jeg vender tilbage, hvis der er spørgsmål.</p>
+        <div class="receipt">
+          <div class="r-row"><span class="r-label">Behandling</span><span class="r-value" id="bc-treatment">Fysiurgisk massage · 60 min</span></div>
+          <div class="r-row"><span class="r-label">Dato &amp; tid</span><span class="r-value" id="bc-datetime">Onsdag · kl. 10:00</span></div>
+          <div class="r-row"><span class="r-label">Navn</span><span class="r-value" id="bc-fullname">Anna Jensen</span></div>
+          <div class="r-row"><span class="r-label">Email</span><span class="r-value" id="bc-email">anna@eksempel.dk</span></div>
+          <div class="r-row"><span class="r-label">Klinik</span><span class="r-value">Vejlegade 12, kld. th.<br>2100 København Ø</span></div>
+        </div>
+        <p class="confirm-foot">Behov for at ændre? Ring 25 61 60 00 eller skriv til vinnie@davida-sondergaard.dk. (Demo — ingen rigtig booking er oprettet.)</p>
+      </div>
     </div>
   </section>
 
