@@ -1,4 +1,5 @@
-/* booking.js — Klinik mock booking calendar + time-slot picker (issue #7).
+/* booking.js — Klinik mock booking calendar + time-slot picker (#7) and the
+   booking form → confirmation swap (#8).
 
    NON-FUNCTIONAL / VISUAL ONLY. This generates a realistic-looking month
    calendar for the CURRENT month and a time-slot list, purely so the design
@@ -25,6 +26,10 @@
   var slotGrid = document.getElementById("slot-grid");
   var continueBox = document.getElementById("slots-continue");
   var continueSummary = document.getElementById("continue-summary");
+
+  // Booking form (issue #8) — visual-only prefill + confirmation swap.
+  var dtField = document.getElementById("bf-datetime");
+  var selectedLabel = null; // human-readable "<day>. <month> kl. <time>" of the pick
 
   var MONTHS = ["januar", "februar", "marts", "april", "maj", "juni",
     "juli", "august", "september", "oktober", "november", "december"];
@@ -110,6 +115,9 @@
           continueSummary.textContent = "Valgt: " + label + " kl. " + time +
             " — fysiurgisk massage. (Demo — ingen tid reserveres.)";
           continueBox.classList.add("is-visible");
+          // Reflect the pick in the booking form's read-only date/time field.
+          selectedLabel = label + " kl. " + time;
+          if (dtField) { dtField.value = selectedLabel; }
         });
       }
       slotGrid.appendChild(btn);
@@ -189,4 +197,37 @@
   });
 
   render();
+
+  // ── Booking form → confirmation panel (issue #8) ────────────────────────
+  // NON-FUNCTIONAL: nothing is submitted. The button only copies whatever was
+  // typed into the static kvittering panel and swaps the form out for it.
+  var submitBtn = document.getElementById("bf-submit");
+  var formStep = document.getElementById("book-form");
+  var confirmPanel = document.getElementById("booking-confirm");
+
+  if (submitBtn && formStep && confirmPanel) {
+    submitBtn.addEventListener("click", function () {
+      var name = (document.getElementById("bf-name").value || "").trim();
+      var email = (document.getElementById("bf-email").value || "").trim();
+      var treatmentSel = document.getElementById("bf-treatment");
+      var treatment = treatmentSel.options[treatmentSel.selectedIndex].text;
+      var datetime = (dtField && dtField.value) || selectedLabel || "Efter aftale";
+
+      var firstName = name ? name.split(" ")[0] : "tak";
+      setText("bc-name", name ? firstName : "tak for din booking");
+      setText("bc-fullname", name || "—");
+      setText("bc-email", email || "—");
+      setText("bc-treatment", treatment);
+      setText("bc-datetime", datetime);
+
+      formStep.style.display = "none";
+      confirmPanel.classList.add("is-visible");
+      confirmPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+
+  function setText(id, value) {
+    var el = document.getElementById(id);
+    if (el) { el.textContent = value; }
+  }
 })();
