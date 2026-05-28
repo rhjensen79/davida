@@ -1,4 +1,39 @@
-/* Shared design tokens — see design.md §3 & §4 */
+/* ==========================================================================
+   tokens.css — shared design tokens + component library
+   Single source of truth for primitives reused across all pages. See
+   design.md §3 (palette) & §4 (type).
+
+   ── COLOR TOKENS (--c-*) ───────────────────────────────────────────────
+     --c-sage, --c-sage-light, --c-sage-tint, --c-sage-muted, --c-wash,
+     --c-slate, --c-near-black, --c-sand, --c-text, --c-text-soft,
+     --c-white, --c-off
+
+   ── TYPE / LAYOUT TOKENS ────────────────────────────────────────────────
+     --font-head ("Oswald"), --font-body ("Work Sans"), --maxw (1080px)
+
+   ── COMPONENT KNOBS (override per focus; defaults below) ────────────────
+     Button : --btn-bg --btn-fg --btn-bg-hover --btn-fg-hover --btn-radius
+              --btn-pad --btn-size --btn-tracking --btn-weight
+     Card   : --card-bg --card-fg --card-border --card-radius --card-pad
+     Form   : --field-bg --field-fg --field-border --field-border-focus
+              --field-radius --field-label --field-placeholder
+     Nav    : --nav-bg --nav-fg --nav-border --nav-accent
+     Footer : --foot-bg --foot-fg --foot-head --foot-link --foot-border
+
+   ── SHARED COMPONENTS / CLASSES ─────────────────────────────────────────
+     Layout   : .wrap, .section, .section-head
+     Eyebrow  : .eyebrow, .kicker
+     Buttons  : .btn, .btn.ghost
+     Card     : .card
+     Forms    : .form, .field, .form-row, label, input, select, textarea
+                (controls inside .form/.field are token-driven)
+     Nav/Foot : .site-nav (+children), .site-footer (+children), .back
+
+   ── PER-FOCUS SCOPING ───────────────────────────────────────────────────
+     Set the focus on <body> with one of: .focus-klinik | .focus-workout |
+     .focus-pp. Each tunes the component knobs above to its tone. Pages then
+     only need genuinely page-unique CSS in their inline <style>.
+   ========================================================================== */
 :root {
   /* Greens */
   --c-sage: #b8c0a6;        /* primary accent */
@@ -21,6 +56,37 @@
   --font-body: "Work Sans", system-ui, sans-serif;
 
   --maxw: 1080px;
+  --section-pad: 72px;
+
+  /* Button knobs (neutral slate default; overridden per focus) */
+  --btn-bg: var(--c-slate);
+  --btn-fg: #fff;
+  --btn-bg-hover: var(--c-near-black);
+  --btn-fg-hover: #fff;
+  --btn-radius: 999px;
+  --btn-pad: 15px 34px;
+  --btn-size: 14px;
+  --btn-tracking: .12em;
+  --btn-weight: 500;
+  --btn-transition: background .2s, transform .15s;
+  --btn-translate-hover: 0;
+
+  /* Card knobs */
+  --card-bg: #fff;
+  --card-fg: var(--c-text);
+  --card-border: var(--c-sage-light);
+  --card-radius: 16px;
+  --card-pad: 30px;
+
+  /* Form / field knobs (neutral; each focus can tint) */
+  --field-bg: #fff;
+  --field-fg: var(--c-text);
+  --field-border: var(--c-sage-light);
+  --field-border-focus: var(--c-sage-muted);
+  --field-radius: 10px;
+  --field-pad: 12px 14px;
+  --field-label: var(--c-slate);
+  --field-placeholder: #9aa39c;
 }
 
 * { box-sizing: border-box; }
@@ -41,6 +107,151 @@ h1, h2, h3, h4 {
 img { max-width: 100%; display: block; }
 a { color: inherit; }
 .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+/* ==========================================================================
+   LAYOUT — section + section heading
+   ========================================================================== */
+.section { padding: var(--section-pad) 0; }
+.section-head { max-width: 640px; margin-bottom: 44px; }
+.section-head h2 { margin-top: 10px; }
+
+/* ==========================================================================
+   EYEBROW / KICKER — small uppercase labels above headings
+   .eyebrow: quiet, letter-spaced label (Klinik / P&P).
+   .kicker:  badge-style accent label (Workout).
+   ========================================================================== */
+.eyebrow {
+  font-family: var(--font-head); text-transform: uppercase;
+  letter-spacing: .3em; font-size: 13px; color: var(--c-sage-muted);
+  margin-bottom: 18px;
+}
+.kicker {
+  display: inline-block; font-family: var(--font-head); font-weight: 600;
+  text-transform: uppercase; letter-spacing: .2em; font-size: 13px;
+  color: var(--c-near-black); background: var(--c-sage);
+  padding: 6px 14px; border-radius: 4px; margin-bottom: 22px;
+}
+
+/* ==========================================================================
+   BUTTONS — .btn (solid) and .btn.ghost (outline). Token-driven; each focus
+   overrides the --btn-* knobs (see per-focus scoping below).
+   ========================================================================== */
+.btn {
+  display: inline-block; font-family: var(--font-head); font-weight: var(--btn-weight);
+  text-transform: uppercase; letter-spacing: var(--btn-tracking);
+  font-size: var(--btn-size); text-decoration: none; cursor: pointer;
+  padding: var(--btn-pad); border: 0; border-radius: var(--btn-radius);
+  background: var(--btn-bg); color: var(--btn-fg);
+  transition: var(--btn-transition);
+}
+.btn:hover {
+  background: var(--btn-bg-hover); color: var(--btn-fg-hover);
+  transform: translateY(var(--btn-translate-hover));
+}
+.btn.ghost {
+  background: transparent; color: var(--btn-bg);
+  border: 1px solid var(--btn-bg);
+}
+.btn.ghost:hover { background: var(--btn-bg); color: var(--btn-fg); }
+
+/* ==========================================================================
+   CARD — generic content card; token-driven so each focus can tint it.
+   ========================================================================== */
+.card {
+  background: var(--card-bg); color: var(--card-fg);
+  border: 1px solid var(--card-border); border-radius: var(--card-radius);
+  padding: var(--card-pad);
+}
+
+/* ==========================================================================
+   FORMS — primitives shared by the mock booking / signup / contact UIs.
+   Markup pattern:
+     <form class="form">
+       <div class="form-row">                 (multi-column row; stacks <=560px)
+         <div class="field">
+           <label for="name">Navn</label>
+           <input id="name" type="text" placeholder="…">
+         </div>
+         <div class="field"> … </div>
+       </div>
+       <div class="field"> <label>…</label> <textarea></textarea> </div>
+       <button class="btn" type="submit">Send</button>
+     </form>
+   All controls read the --field-* knobs, so a focus tints them by overriding
+   those (e.g. dark fields on Workout). Visually neutral by default.
+   ========================================================================== */
+.form { display: grid; gap: 18px; }
+.field { display: flex; flex-direction: column; gap: 7px; }
+.field label,
+.form label {
+  font-family: var(--font-head); text-transform: uppercase;
+  letter-spacing: .1em; font-size: 12px; color: var(--field-label);
+}
+.form-row {
+  display: grid; gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+.field input,
+.field select,
+.field textarea,
+.form input,
+.form select,
+.form textarea {
+  width: 100%; font-family: var(--font-body); font-size: 15px;
+  color: var(--field-fg); background: var(--field-bg);
+  border: 1px solid var(--field-border); border-radius: var(--field-radius);
+  padding: var(--field-pad); transition: border-color .2s, box-shadow .2s;
+}
+.field textarea, .form textarea { min-height: 130px; resize: vertical; }
+.field select, .form select { appearance: none; cursor: pointer; }
+.field input:focus,
+.field select:focus,
+.field textarea:focus,
+.form input:focus,
+.form select:focus,
+.form textarea:focus {
+  outline: none; border-color: var(--field-border-focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--field-border-focus) 30%, transparent);
+}
+.field input::placeholder,
+.field textarea::placeholder,
+.form input::placeholder,
+.form textarea::placeholder { color: var(--field-placeholder); }
+
+/* ==========================================================================
+   PER-FOCUS SCOPING — set one of these on <body>. Only the component knobs
+   that differ from the neutral defaults are overridden here.
+   ========================================================================== */
+/* Klinik — calm slate pill button, airy fields */
+.focus-klinik {
+  --section-pad: 72px;
+  --btn-bg: var(--c-slate); --btn-fg: #fff;
+  --btn-bg-hover: var(--c-near-black); --btn-fg-hover: #fff;
+  --btn-radius: 999px; --btn-pad: 15px 34px; --btn-size: 14px;
+}
+
+/* Workout — bold sage button on dark, dark fields */
+.focus-workout {
+  --section-pad: 80px;
+  --btn-bg: var(--c-sage); --btn-fg: var(--c-near-black);
+  --btn-bg-hover: #c8d0b6; --btn-fg-hover: var(--c-near-black);
+  --btn-radius: 4px; --btn-pad: 17px 40px; --btn-size: 15px;
+  --btn-tracking: .14em; --btn-weight: 600; --btn-translate-hover: -2px;
+  --card-bg: #11181f; --card-fg: #c3c9bd; --card-border: #2c3f46;
+  --card-radius: 8px; --card-pad: 26px;
+  --field-bg: #11181f; --field-fg: #e9ece6; --field-border: #2c3f46;
+  --field-border-focus: var(--c-sage); --field-label: var(--c-sage);
+  --field-placeholder: #6f776c;
+}
+
+/* People & Performance — premium sand button, refined fields */
+.focus-pp {
+  --section-pad: 84px;
+  --btn-bg: var(--c-sand); --btn-fg: var(--c-slate);
+  --btn-bg-hover: #efece3; --btn-fg-hover: var(--c-slate);
+  --btn-radius: 6px; --btn-pad: 16px 36px; --btn-size: 14px;
+  --btn-translate-hover: -2px;
+}
 
 /* shared "back to hub" pill (legacy / optional) */
 .back {
