@@ -186,6 +186,52 @@
   .receipt .r-value { font-size: 15px; color: var(--c-slate); text-align: right; }
   .booking-confirm .confirm-foot { font-size: 13.5px; color: var(--c-text-soft); margin: 0; }
 
+  /* ── Practical info: address, map & how to find the clinic (issue #9) ───── */
+  .practical { background: #fff; }
+  .practical .grid {
+    display: grid; gap: clamp(28px, 5vw, 56px);
+    grid-template-columns: .9fr 1.1fr; align-items: start;
+  }
+  @media (max-width: 760px){ .practical .grid { grid-template-columns: 1fr; } }
+
+  .practical .info h3 {
+    font-family: var(--font-head); font-weight: 500; font-size: 19px;
+    color: var(--c-slate); margin: 0 0 8px;
+  }
+  .practical .info .block { margin-bottom: 28px; }
+  .practical .info .block:last-child { margin-bottom: 0; }
+  .practical .info address {
+    font-style: normal; font-size: 17px; line-height: 1.7; color: var(--c-slate);
+  }
+  .practical .info p { font-size: 16px; color: var(--c-text); margin: 0 0 12px; max-width: 52ch; }
+  .practical .info p:last-child { margin-bottom: 0; }
+  .practical .info ul {
+    list-style: none; padding: 0; margin: 0;
+    font-size: 16px; color: var(--c-text); line-height: 1.6;
+  }
+  .practical .info ul li { position: relative; padding-left: 22px; margin-bottom: 10px; }
+  .practical .info ul li:last-child { margin-bottom: 0; }
+  .practical .info ul li::before {
+    content: ""; position: absolute; left: 0; top: .55em;
+    width: 7px; height: 7px; border-radius: 999px; background: var(--c-sage-muted);
+  }
+  .practical .contact-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 6px; }
+
+  /* Map: rounded card framing the embed; placeholder fallback if not embedded */
+  .practical .map {
+    border-radius: 16px; overflow: hidden;
+    border: 1px solid var(--c-sage-light);
+    box-shadow: 0 14px 40px rgba(44,63,70,.10);
+    background: var(--c-wash);
+    min-height: 340px; position: relative;
+  }
+  .practical .map iframe { display: block; width: 100%; height: 100%; min-height: 380px; border: 0; }
+  .practical .map .map-caption {
+    font-size: 13px; color: var(--c-text-soft);
+    padding: 12px 16px; background: #fff; border-top: 1px solid var(--c-sage-light);
+  }
+  .practical .map .map-caption a { color: var(--c-slate); }
+
   /* Klinik tone: light, calm top-nav; dark slate footer */
   .site-nav { --nav-bg: rgba(255,255,255,.92); --nav-fg: var(--c-slate); --nav-border: var(--c-sage-light); --nav-accent: var(--c-sage-muted); }
   .site-footer { --foot-bg: var(--c-slate); --foot-fg: #cdd4cf; --foot-head: #fff; --foot-link: #fff; }
@@ -447,6 +493,62 @@
           <div class="r-row"><span class="r-label">Klinik</span><span class="r-value">Vejlegade 12, kld. th.<br>2100 København Ø</span></div>
         </div>
         <p class="confirm-foot">Behov for at ændre? Ring 25 61 60 00 eller skriv til vinnie@davida-sondergaard.dk. (Demo — ingen rigtig booking er oprettet.)</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section practical" id="praktisk">
+    <div class="wrap">
+      <div class="section-head" style="margin-inline:auto;text-align:center;max-width:560px">
+        <div class="eyebrow">Praktisk</div>
+        <h2>Sådan finder du klinikken</h2>
+      </div>
+      <div class="grid">
+        <div class="info">
+          <div class="block">
+            <h3>Adresse</h3>
+            <address>
+              Vejlegade 12, kld. th.<br>
+              2100 København Ø
+            </address>
+          </div>
+
+          <div class="block">
+            <h3>Find vej</h3>
+            <p>Klinikken ligger i kælderen (kld. th.) på Vejlegade på Østerbro. Gå ned ad trappen til kælderniveau – døren til højre. Der er som regel god parkering i området, og det er kun få minutters gang fra Trianglen og Østerport.</p>
+          </div>
+
+          <div class="block">
+            <h3>Inden du kommer</h3>
+            <ul>
+              <li>Tag gerne behageligt tøj på, eller tøj du nemt kan klæde dig af i.</li>
+              <li>Kom et par minutter før din tid, så vi kan starte i ro.</li>
+              <li>Skal du afbestille eller ændre din tid, så giv besked senest dagen før.</li>
+            </ul>
+          </div>
+
+          <div class="block">
+            <h3>Åbning &amp; booking</h3>
+            <p>Behandlinger foregår efter aftale. Vælg en ledig tid i kalenderen ovenfor, eller kontakt mig direkte – så finder vi et tidspunkt, der passer.</p>
+            <div class="contact-actions">
+              <a class="btn" href="tel:+4525616000">Ring 25 61 60 00</a>
+              <a class="btn ghost" href="mailto:vinnie@davida-sondergaard.dk?subject=Sp%C3%B8rgsm%C3%A5l%20-%20klinik">Skriv en mail</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="map">
+          <iframe
+            title="Kort over klinikken, Vejlegade 12, 2100 København Ø"
+            src="https://www.google.com/maps?q=Vejlegade+12,+2100+K%C3%B8benhavn+%C3%98&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+          <div class="map-caption">
+            Vejlegade 12, kld. th., 2100 København Ø ·
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Vejlegade+12,+2100+K%C3%B8benhavn+%C3%98" target="_blank" rel="noopener">Åbn i Google Maps</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
