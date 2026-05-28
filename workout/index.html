@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workout — Udendørs TRX | Vinnie Davida Søndergaard</title>
+<meta name="description" content="Udendørs TRX og funktionel træning under åben himmel, lige ved vandet. 12 pladser pr. hold. Tilmeld dig nu.">
+<link rel="icon" href="../assets/images/source/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  /* Workout tone: bold, dark, energetic, punchy */
+  body { background: var(--c-near-black); color: #e9ece6; }
+  h1, h2, h3 { color: #fff; text-transform: uppercase; letter-spacing: .01em; }
+
+  .hero { position: relative; min-height: 92vh; display: flex; align-items: flex-end;
+    background: url('../assets/images/source/split-trx.jpg') center/cover; }
+  .hero::after { content:""; position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(8,13,18,.55) 0%, rgba(8,13,18,.35) 40%, rgba(8,13,18,.95) 100%); }
+  .hero .wrap { position: relative; z-index: 1; padding-bottom: 64px; padding-top: 120px; }
+  .kicker { display:inline-block; font-family: var(--font-head); font-weight: 600; text-transform: uppercase;
+    letter-spacing: .2em; font-size: 13px; color: var(--c-near-black); background: var(--c-sage);
+    padding: 6px 14px; border-radius: 4px; margin-bottom: 22px; }
+  .hero h1 { font-size: clamp(44px, 9vw, 104px); font-weight: 700; line-height: .92; margin-bottom: 20px; }
+  .hero p { font-size: 19px; max-width: 50ch; color: #d4d8d0; margin-bottom: 30px; }
+
+  .btn { display:inline-block; font-family: var(--font-head); font-weight: 600; text-transform: uppercase;
+    letter-spacing: .14em; font-size: 15px; text-decoration: none; padding: 17px 40px; border-radius: 4px;
+    background: var(--c-sage); color: var(--c-near-black); transition: transform .15s, background .2s; }
+  .btn:hover { transform: translateY(-2px); background: #c8d0b6; }
+
+  .stats { background: var(--c-sage); color: var(--c-near-black); }
+  .stats .wrap { display: grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap: 24px; padding: 44px 24px; text-align: center; }
+  .stats .n { font-family: var(--font-head); font-weight: 700; font-size: 46px; line-height: 1; }
+  .stats .l { text-transform: uppercase; letter-spacing: .12em; font-size: 13px; font-weight: 600; }
+
+  section { padding: 80px 0; }
+  .about .wrap { max-width: 760px; }
+  .about h2 { font-size: clamp(28px,4vw,44px); margin-bottom: 20px; }
+  .about p { font-size: 18px; color: #c3c9bd; }
+
+  .schedule .wrap { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); }
+  .slot { border: 1px solid #2c3f46; border-radius: 8px; padding: 26px; background: #11181f; }
+  .slot .day { font-family: var(--font-head); font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--c-sage); }
+  .slot .time { font-family: var(--font-head); font-size: 30px; color:#fff; margin: 4px 0; }
+  .slot .spots { font-size: 14px; color:#8f978c; }
+
+  .signup { text-align: center; background: #11181f; }
+  .signup h2 { font-size: clamp(30px,5vw,52px); }
+  .signup p { color:#c3c9bd; max-width: 46ch; margin: 0 auto 30px; font-size: 17px; }
+
+  footer { text-align:center; padding: 46px 24px; color:#8f978c; border-top: 1px solid #1c252c; }
+  footer a { color: var(--c-sage); }
+</style>
+</head>
+<body>
+  <a class="back" href="../">← Forside</a>
+
+  <header class="hero">
+    <div class="wrap">
+      <span class="kicker">Udendørs holdtræning</span>
+      <h1>Træn under<br>åben himmel</h1>
+      <p>TRX og funktionel træning lige ved vandet — styrke, puls, balance og teknik. Høj kvalitet, godt humør og afsluttende afspænding.</p>
+      <a class="btn" href="#signup">Tilmeld dig nu</a>
+    </div>
+  </header>
+
+  <section class="stats">
+    <div class="wrap">
+      <div><div class="n">12</div><div class="l">pladser pr. hold</div></div>
+      <div><div class="n">60</div><div class="l">minutter</div></div>
+      <div><div class="n">100%</div><div class="l">udendørs</div></div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="wrap">
+      <h2>Invester i din styrke og dit immunforsvar</h2>
+      <p>Har du lyst til at investere i din sundhed, din styrke og dit immunforsvar? Så kom med under åben himmel. I smukke omgivelser lige ved vandet guider jeg dig igennem en time med både styrke, puls, balance og teknik. Træningen er altid med høj kvalitet, godt humør og afsluttende afspænding.</p>
+    </div>
+  </section>
+
+  <section class="schedule">
+    <div class="wrap">
+      <div class="slot"><div class="day">Mandag</div><div class="time">06:30</div><div class="spots">Få pladser tilbage</div></div>
+      <div class="slot"><div class="day">Onsdag</div><div class="time">17:00</div><div class="spots">Ledige pladser</div></div>
+      <div class="slot"><div class="day">Lørdag</div><div class="time">09:00</div><div class="spots">Ledige pladser</div></div>
+    </div>
+  </section>
+
+  <section class="signup" id="signup">
+    <div class="wrap">
+      <h2>Sikr dig en plads</h2>
+      <p>Der er kun 12 pladser på hvert hold. Skriv dig op, så vender jeg tilbage med det hele.</p>
+      <a class="btn" href="mailto:vinnie@davida-sondergaard.dk?subject=Tilmelding%20-%20udend%C3%B8rs%20TRX">Tilmeld dig nu</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>Vinnie Davida Søndergaard · +45 25 61 60 00 · <a href="mailto:vinnie@davida-sondergaard.dk">vinnie@davida-sondergaard.dk</a></p>
+  </footer>
+</body>
+</html>

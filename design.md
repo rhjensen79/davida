@@ -2,8 +2,9 @@
 
 This file is the **design source of truth** for this test site. It captures the
 brand, content, and media reference material extracted from the original site
-[vinnie-davida-sondergaard.dk](https://vinnie-davida-sondergaard.dk/), so it can
-be reused when building and testing new designs here.
+[vinnie-davida-sondergaard.dk](https://vinnie-davida-sondergaard.dk/), plus the
+planned structure for the new site, so it can be reused when building and
+testing designs here.
 
 > Source platform: WordPress (theme `number-three` + child theme). Language: Danish (`da_DK`).
 > Original design credit: Standoutmedia.
@@ -20,9 +21,46 @@ be reused when building and testing new designs here.
 
 ---
 
-## 2. Color palette
+## 2. Site focuses — three sub-sites
 
-Earthy, natural palette — sage/olive greens, warm sand, and a dark slate.
+The site is built around **three distinct focuses**. Each should look and feel
+different in tone, while all three stay recognisably part of the same brand
+(shared logo, the natural palette in §3, and the Oswald/Work Sans type system in
+§4). Think of them as three "moods" of one brand.
+
+### 2.1 Klinik — Fysiurgisk massage
+- **Purpose:** Treatment clinic. The site's job is to **lead to booking** — calendar, availability, and practical information around treatments.
+- **Tone:** Calm, clean, clinical-but-warm, trustworthy, healing. Lots of whitespace, soft edges, reassuring.
+- **Primary action:** `Book tid` → booking/calendar. Surface the clinic address and practical info clearly.
+- **Suggested palette emphasis:** light & airy — pale green wash `#f0f3f0`, light sage `#d6ddd5`, white, with `#2c3f46` for calm, readable text. Minimal accent.
+- **Suggested type feel:** Work Sans-led, soft and highly readable; Oswald used sparingly and gently (not shouty).
+- **Imagery:** body-treatment / clinic / hands-on photography (e.g. `vinnie-davida-soendergaard-photo-martin-kaufmann-*`), calm and close-up.
+- **Maps to content:** Kropsbehandling · clinic address (Vejlegade 12, kld. th., 2100 København Ø) · contact.
+
+### 2.2 Workout — Outdoor training
+- **Purpose:** Outdoor workouts with **signup**. Currently primarily **TRX**, but may expand to more formats in the future — keep the structure open/extensible.
+- **Tone:** Energetic, dynamic, motivating, outdoorsy, raw. Movement and momentum.
+- **Primary action:** `Tilmeld dig nu` → class signup. Show the schedule and remaining spots (**12 pladser pr. hold**).
+- **Suggested palette emphasis:** bold & high-contrast — strong sage/olive `#b8c0a6`, near-black `#080d12` / dark slate `#2c3f46`, punchy.
+- **Suggested type feel:** Oswald, bold and uppercase, condensed and punchy for headlines.
+- **Imagery:** outdoor/by-the-water action shots, `split-trx.jpg`, training in motion.
+- **Maps to content:** Udendørs TRX holdtræning (*"…I smukke omgivelser lige ved vandet guider jeg dig igennem en time med både styrke, puls, balance og teknik… Der er 12 pladser på hvert hold."*). Built to add more workout types later.
+
+### 2.3 People & Performance — Business
+- **Purpose:** B2B / professional services aimed at **businesses and organizations**.
+- **Tone:** Professional, premium, confident, refined, corporate. Structured and editorial.
+- **Primary action:** `Lad os komme i gang` / `Jeg vil gerne høre mere` → lead/contact.
+- **Suggested palette emphasis:** sophisticated & restrained — dark slate `#2c3f46` dominant, sand `#e0ddd4` accents, muted greens, generous structure.
+- **Suggested type feel:** Oswald + Work Sans in an editorial pairing — larger headings, generous spacing, confident.
+- **Imagery:** professional portrait photography (Martin Kaufmann), partner logos, polished.
+- **Maps to content:** Huscoach i virksomheden · 1:1 mentoring & forløb · Play Your Talent · Workshops & foredrag · Ergonomi & APV · MiBo Gold · partners/clients · testimonials · podcast *Mod til Indsigt & Udvikling*.
+
+---
+
+## 3. Color palette
+
+Earthy, natural palette — sage/olive greens, warm sand, and a dark slate. Shared
+across all three focuses; each focus leans on a different subset (see §2).
 
 | Role | Hex | Notes |
 |------|-----|-------|
@@ -38,7 +76,7 @@ Earthy, natural palette — sage/olive greens, warm sand, and a dark slate.
 
 ---
 
-## 3. Typography
+## 4. Typography
 
 Served via **Adobe Fonts (Typekit)**.
 
@@ -50,7 +88,7 @@ Work Sans (available on Google Fonts).
 
 ---
 
-## 4. Navigation / site structure
+## 5. Navigation / site structure (original)
 
 - **Ydelser** (Services)
   - Huscoach i virksomheden
@@ -80,7 +118,7 @@ Work Sans (available on Google Fonts).
 
 ---
 
-## 5. Services (copy)
+## 6. Services (copy)
 
 - **Huscoach i virksomheden** — *"Jeg kan hjælpe dig og din organisation mod performance og vækst, i et sundt miljø hvor vindermindset, trivsel, talentudvikling og selvledelse er i fokus."*
 - **Ergonomi & APV** — same focus on healthy, high-performing work environments.
@@ -104,7 +142,7 @@ Fysisk og mental balance · Helhed og autenticitet · Performanceoptimering · S
 
 ---
 
-## 6. Testimonials
+## 7. Testimonials
 
 - **Peter Schmeichel** (tidligere professionel fodboldmålmand) — *"Jeg har trænet med Vinnie i næsten 4 år. Det er den bedste og mest udfordrende træning jeg har lavet, siden jeg stoppede med fodbold… Siden vi startede, er jeg blevet stærkere og meget mere stabil…"*
 - **Ida Krause** (junior elite tennisspiller) — *"…Vinnie er super sød og inspirerende og så har hun forståelse for, hvad det vil sige at dyrke en individuel sport… Hvis jeg kunne ha' min egen fysiske træner hver dag, skulle det helt klart være Vinnie."*
@@ -113,19 +151,19 @@ Fysisk og mental balance · Helhed og autenticitet · Performanceoptimering · S
 
 ---
 
-## 7. Partners / clients
+## 8. Partners / clients
 
 Saxo Bank · NOR · Champs Camp · Weesgaard Dental Kirurgi · AirCat · BloxHub · Generous Development · AndNumbers · NPV
 
 ---
 
-## 8. Calls to action
+## 9. Calls to action
 
-`Lad os komme i gang` · `Læs mere` · `Tilmeld dig nu` · `Jeg vil gerne høre mere` · `Skriv til os` · `Ring til os`
+`Lad os komme i gang` · `Læs mere` · `Tilmeld dig nu` · `Jeg vil gerne høre mere` · `Skriv til os` · `Ring til os` · `Book tid`
 
 ---
 
-## 9. Contact
+## 10. Contact
 
 - **Phone:** +45 25 61 60 00
 - **Email:** vinnie@davida-sondergaard.dk
@@ -137,7 +175,7 @@ Saxo Bank · NOR · Champs Camp · Weesgaard Dental Kirurgi · AirCat · BloxHub
 
 ---
 
-## 10. Media assets
+## 11. Media assets
 
 All media downloaded from the original site lives in
 [`assets/images/source/`](assets/images/source/). Reuse freely when building test designs.
