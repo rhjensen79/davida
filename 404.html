@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Siden blev ikke fundet (404) — Vinnie Davida Søndergaard</title>
+<meta name="description" content="Vi kunne ikke finde den side, du ledte efter. Find vej tilbage til klinik, udendørs træning eller People & Performance.">
+<meta name="robots" content="noindex">
+
+<!--
+  PATH NOTE — this site is served from a GitHub *Project* Pages URL:
+  https://rhjensen79.github.io/davida/ . GitHub Pages serves /404.html for any
+  unknown path, at ANY depth (e.g. /davida/klinik/whatever). Relative paths
+  would therefore resolve differently depending on the requested URL, and
+  root-relative paths like /klinik/ would wrongly point at
+  rhjensen79.github.io/klinik/ (outside the project). So every link and asset
+  below uses the absolute project path prefix "/davida/..." which always
+  resolves correctly on Pages regardless of where the 404 is served.
+  (Trade-off: under a plain `python3 -m http.server` at the repo root these
+  /davida/ paths won't resolve locally — that is expected; they are correct
+  for the deployed site.)
+-->
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="/davida/assets/images/source/favicon.png">
+<link rel="apple-touch-icon" href="/davida/assets/images/source/favicon.png">
+<meta name="theme-color" content="#2c3f46">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Vinnie Davida Søndergaard">
+<meta property="og:locale" content="da_DK">
+<meta property="og:title" content="Siden blev ikke fundet (404) — Vinnie Davida Søndergaard">
+<meta property="og:description" content="Vi kunne ikke finde den side, du ledte efter.">
+<meta property="og:url" content="https://rhjensen79.github.io/davida/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/davida/assets/css/tokens.css">
+<style>
+  body { background: var(--c-wash); min-height: 100vh; display: flex; flex-direction: column; }
+
+  .err-hero {
+    flex: 1 0 auto;
+    text-align: center; padding: 96px 24px 64px;
+    background: var(--c-slate); color: #fff;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+  }
+  .err-hero .eyebrow-line {
+    font-family: var(--font-head); text-transform: uppercase; letter-spacing: .35em;
+    font-size: 13px; color: var(--c-sage); margin-bottom: 18px;
+  }
+  .err-hero .code {
+    font-family: var(--font-head); font-weight: 600; line-height: 1;
+    font-size: clamp(72px, 16vw, 160px); margin: 0 0 .15em; color: #fff;
+  }
+  .err-hero h1 {
+    font-size: clamp(26px, 4.5vw, 42px); font-weight: 500; max-width: 18ch; margin: 0 auto .5em;
+  }
+  .err-hero p { max-width: 52ch; margin: 0 auto; color: #cdd4cf; font-size: 17px; }
+
+  .err-nav {
+    flex-shrink: 0;
+    max-width: 1080px; margin: -40px auto 0; padding: 0 24px 80px;
+    display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+  .err-nav .nav-card {
+    background: #fff; border: 1px solid var(--c-sage-light); border-radius: 14px;
+    padding: 26px 24px; text-decoration: none; color: var(--c-text);
+    box-shadow: 0 18px 36px -26px rgba(0,0,0,.35);
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .err-nav .nav-card:hover {
+    transform: translateY(-4px); border-color: var(--c-sage-muted);
+    box-shadow: 0 24px 44px -24px rgba(0,0,0,.42);
+  }
+  .err-nav .nav-card .tag {
+    font-family: var(--font-head); text-transform: uppercase; letter-spacing: .18em;
+    font-size: 12px; color: var(--c-sage-muted); margin-bottom: 6px;
+  }
+  .err-nav .nav-card h2 { font-size: 22px; margin: 0 0 8px; color: var(--c-slate); }
+  .err-nav .nav-card p { margin: 0 0 14px; font-size: 14px; color: var(--c-text-soft); }
+  .err-nav .nav-card .go {
+    font-family: var(--font-head); text-transform: uppercase; letter-spacing: .1em;
+    font-size: 13px; color: var(--c-slate);
+  }
+
+  .err-nav .nav-card.hub {
+    grid-column: 1 / -1; background: var(--c-slate); border-color: var(--c-slate); color: #fff;
+    display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  }
+  .err-nav .nav-card.hub .tag { color: var(--c-sage); }
+  .err-nav .nav-card.hub h2 { color: #fff; margin: 0; }
+  .err-nav .nav-card.hub .go { color: #fff; }
+
+  @media (max-width: 600px) {
+    .err-hero { padding: 72px 20px 56px; }
+    .err-nav { padding: 0 20px 56px; }
+  }
+</style>
+</head>
+<body>
+  <header class="err-hero">
+    <div class="eyebrow-line">Vinnie Davida Søndergaard</div>
+    <div class="code">404</div>
+    <h1>Siden blev ikke fundet</h1>
+    <p>Beklager — den side, du ledte efter, findes ikke eller er flyttet. Lad os hjælpe dig videre herunder.</p>
+  </header>
+
+  <main class="err-nav">
+    <!-- Hub -->
+    <a class="nav-card hub" href="/davida/">
+      <div>
+        <div class="tag">Forside</div>
+        <h2>Tilbage til forsiden</h2>
+      </div>
+      <div class="go">Gå til forsiden →</div>
+    </a>
+
+    <!-- The three focuses -->
+    <a class="nav-card" href="/davida/klinik/">
+      <div class="tag">Klinik</div>
+      <h2>Fysiurgisk massage</h2>
+      <p>Behandling der løsner op og fremskynder restitution. Book din tid på Østerbro.</p>
+      <div class="go">Book tid →</div>
+    </a>
+
+    <a class="nav-card" href="/davida/workout/">
+      <div class="tag">Workout</div>
+      <h2>Udendørs træning</h2>
+      <p>TRX og funktionel træning under åben himmel, lige ved vandet.</p>
+      <div class="go">Tilmeld dig nu →</div>
+    </a>
+
+    <a class="nav-card" href="/davida/people-performance/">
+      <div class="tag">People &amp; Performance</div>
+      <h2>For virksomheder</h2>
+      <p>Performance, trivsel og selvledelse i organisationen.</p>
+      <div class="go">Lad os komme i gang →</div>
+    </a>
+  </main>
+</body>
+</html>
