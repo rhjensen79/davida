@@ -67,6 +67,19 @@
   .slot .time { font-family: var(--font-head); font-size: 30px; color:#fff; margin: 4px 0; }
   .slot .spots { font-size: 14px; color:#8f978c; }
 
+  /* Per-slot capacity indicator (static mock numbers) */
+  .slot .capacity { margin-top: 14px; display: grid; gap: 8px; }
+  .slot .cap-bar { height: 7px; border-radius: 999px; background: #1c252c; overflow: hidden; }
+  .slot .cap-fill { display: block; height: 100%; border-radius: 999px; background: var(--c-sage); }
+  .slot .cap-fill--low { background: #e6b450; }       /* nearly full — amber */
+  .slot .cap-fill--full { background: #c4554d; }      /* sold out — red */
+  .slot .spots strong { color: #fff; font-family: var(--font-head); }
+  .slot .spots--full { color: #e08079; font-family: var(--font-head); font-weight: 600;
+    text-transform: uppercase; letter-spacing: .1em; }
+  /* Sold-out slot: visibly disabled */
+  .slot.is-full { opacity: .55; }
+  .slot.is-full .time { color: #8f978c; }
+
   /* "Kommer snart" type: visually de-emphasized. */
   .class-type.is-coming { opacity: .62; }
   .class-type.is-coming .class-type-head { border-bottom-color: #1c252c; }
@@ -77,6 +90,18 @@
   .signup { text-align: center; background: #11181f; }
   .signup h2 { font-size: clamp(30px,5vw,52px); }
   .signup p { color:#c3c9bd; max-width: 46ch; margin: 0 auto 30px; font-size: 17px; }
+  /* Signup form: constrain width, left-align fields within the centered section */
+  .signup .signup-form { max-width: 620px; margin: 0 auto; text-align: left; }
+  .signup .signup-form .signup-submit { justify-self: start; margin-top: 6px; }
+  .signup select { color: var(--field-fg); }
+  /* Static confirmation/success panel (toggled visual-only) */
+  .signup-success { max-width: 620px; margin: 0 auto; padding: 40px 30px;
+    background: #11181f; border: 1px solid var(--c-sage); border-radius: 8px; text-align: center; }
+  .signup-success-mark { width: 56px; height: 56px; margin: 0 auto 18px; border-radius: 999px;
+    display: grid; place-items: center; background: var(--c-sage); color: var(--c-near-black);
+    font-family: var(--font-head); font-weight: 700; font-size: 30px; line-height: 1; }
+  .signup-success h3 { font-size: clamp(22px,3vw,30px); margin-bottom: 12px; }
+  .signup-success p { margin-bottom: 26px; }
 
   /* Workout tone: dark, bold top-nav over the hero; near-black footer */
   .site-nav { --nav-bg: rgba(8,13,18,.55); --nav-fg: #fff; --nav-border: rgba(255,255,255,.12); --nav-accent: var(--c-sage); }
@@ -134,10 +159,38 @@
           <span class="badge">12 pladser pr. hold</span>
           <p class="lead">TRX og funktionel træning lige ved vandet — styrke, puls, balance og teknik, med afsluttende afspænding.</p>
         </header>
+        <!-- Capacity numbers below are STATIC MOCK values (non-functional). -->
         <div class="slots">
-          <div class="slot"><div class="day">Mandag</div><div class="time">06:30</div><div class="spots">Få pladser tilbage</div></div>
-          <div class="slot"><div class="day">Onsdag</div><div class="time">17:00</div><div class="spots">Ledige pladser</div></div>
-          <div class="slot"><div class="day">Lørdag</div><div class="time">09:00</div><div class="spots">Ledige pladser</div></div>
+          <div class="slot">
+            <div class="day">Mandag</div>
+            <div class="time">06:30</div>
+            <div class="capacity">
+              <div class="cap-bar" role="img" aria-label="2 af 12 pladser tilbage">
+                <span class="cap-fill cap-fill--low" style="width:83%"></span>
+              </div>
+              <div class="spots"><strong>2</strong> af 12 pladser tilbage</div>
+            </div>
+          </div>
+          <div class="slot">
+            <div class="day">Onsdag</div>
+            <div class="time">17:00</div>
+            <div class="capacity">
+              <div class="cap-bar" role="img" aria-label="7 af 12 pladser tilbage">
+                <span class="cap-fill" style="width:42%"></span>
+              </div>
+              <div class="spots"><strong>7</strong> af 12 pladser tilbage</div>
+            </div>
+          </div>
+          <div class="slot is-full" aria-disabled="true">
+            <div class="day">Lørdag</div>
+            <div class="time">09:00</div>
+            <div class="capacity">
+              <div class="cap-bar" role="img" aria-label="Fuldt booket">
+                <span class="cap-fill cap-fill--full" style="width:100%"></span>
+              </div>
+              <div class="spots spots--full">FULDT BOOKET</div>
+            </div>
+          </div>
         </div>
       </article>
 
@@ -153,11 +206,58 @@
     </div>
   </section>
 
+  <!-- ========================================================================
+       SIGNUP — NON-FUNCTIONAL MOCK. The form does not submit anywhere; the
+       "Tilmeld dig nu" button is type=button and only toggles a static
+       confirmation panel via signup.js (visual demo only, no backend).
+       ===================================================================== -->
   <section class="section signup" id="signup">
     <div class="wrap">
       <h2>Sikr dig en plads</h2>
       <p>Der er kun 12 pladser på hvert hold. Skriv dig op, så vender jeg tilbage med det hele.</p>
-      <a class="btn" href="mailto:vinnie@davida-sondergaard.dk?subject=Tilmelding%20-%20udend%C3%B8rs%20TRX">Tilmeld dig nu</a>
+
+      <form class="form signup-form" id="signup-form" novalidate>
+        <div class="form-row">
+          <div class="field">
+            <label for="su-navn">Navn</label>
+            <input id="su-navn" name="navn" type="text" placeholder="Dit fulde navn" autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="su-email">Email</label>
+            <input id="su-email" name="email" type="email" placeholder="dig@email.dk" autocomplete="email">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="su-tlf">Telefon</label>
+            <input id="su-tlf" name="telefon" type="tel" placeholder="+45 12 34 56 78" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="su-hold">Vælg hold / tid</label>
+            <select id="su-hold" name="hold">
+              <option value="" selected>Vælg et hold…</option>
+              <optgroup label="Udendørs TRX">
+                <option value="ma-0630">Mandag 06:30 — 2 pladser tilbage</option>
+                <option value="on-1700">Onsdag 17:00 — 7 pladser tilbage</option>
+                <option value="lo-0900" disabled>Lørdag 09:00 — FULDT BOOKET</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="su-besked">Besked</label>
+          <textarea id="su-besked" name="besked" placeholder="Har du spørgsmål, skader eller særlige ønsker? Skriv det her."></textarea>
+        </div>
+        <button class="btn signup-submit" type="button" id="signup-submit">Tilmeld dig nu</button>
+      </form>
+
+      <!-- Static confirmation/success state — hidden until the button toggles it. -->
+      <div class="signup-success" id="signup-success" hidden>
+        <div class="signup-success-mark" aria-hidden="true">✓</div>
+        <h3>Tak for din tilmelding — du er på holdet!</h3>
+        <p>Vi har modtaget din tilmelding og vender tilbage med en bekræftelse på mail. Vi ses under åben himmel.</p>
+        <button class="btn ghost" type="button" id="signup-reset">Tilmeld endnu en</button>
+      </div>
     </div>
   </section>
 
@@ -187,5 +287,7 @@
     <div class="foot-base">© <span id="year">2026</span> Vinnie Davida Søndergaard · CVR 30259939</div>
   </footer>
   <script src="../assets/js/nav.js" defer></script>
+  <!-- Visual-only signup toggle (non-functional mock) — see assets/js/signup.js. -->
+  <script src="../assets/js/signup.js" defer></script>
 </body>
 </html>
