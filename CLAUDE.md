@@ -18,3 +18,10 @@ It is a safe place to test different designs, layouts, and ideas — a sandbox f
 Always read and follow `design.md` when creating or testing any design here. It
 contains the brand, color palette, typography, content/copy, and the catalogue
 of reusable media assets in [`assets/images/source/`](assets/images/source/).
+
+The site has **three distinct focuses** (each should look/feel different in tone;
+see `design.md` §2):
+
+- **Klinik** — Fysiurgisk massage; calm/clinical, leads to booking & calendar.
+- **Workout** — Outdoor training (currently TRX, may expand); energetic, with signup.
+- **People & Performance** — B2B professional services; polished and premium.
