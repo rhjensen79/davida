@@ -25,3 +25,22 @@ see `design.md` §2):
 - **Klinik** — Fysiurgisk massage; calm/clinical, leads to booking & calendar.
 - **Workout** — Outdoor training (currently TRX, may expand); energetic, with signup.
 - **People & Performance** — B2B professional services; polished and premium.
+
+## Local preview — ALWAYS run after each new feature
+
+After implementing each new feature/change, **start a local test server so I can
+verify it in the browser**. This is a static site, so serve from the repo root:
+
+```bash
+python3 -m http.server 8765
+```
+
+Then share the URLs to check:
+- Landing: http://localhost:8765/
+- Klinik: http://localhost:8765/klinik/
+- Workout: http://localhost:8765/workout/
+- People & Performance: http://localhost:8765/people-performance/
+
+Notes:
+- If port 8765 is busy, free it (`pkill -f "http.server 8765"`) or pick another port.
+- Run the server in the background so work can continue, and stop it when no longer needed.
