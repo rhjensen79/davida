@@ -98,14 +98,49 @@
 
   .partners { background: var(--c-slate); color:#fff; text-align:center; }
   .partners h2 { color:#fff; }
-  .logos { display:flex; flex-wrap:wrap; gap: 40px; align-items:center; justify-content:center; margin-top: 36px; }
-  .logos img { height: 38px; width:auto; filter: brightness(0) invert(1); opacity:.85; }
+  .partners .section-head .eyebrow { color: var(--c-sand); }
+  .logos {
+    display:grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 28px 36px; align-items:center; justify-items:center; margin-top: 40px;
+  }
+  .logos .logo {
+    display:flex; align-items:center; justify-content:center;
+    height: 56px; width:100%; padding: 4px 8px;
+  }
+  /* Coloured/dark logos: knock out to white so they read on slate. */
+  .logos .logo img { max-height: 40px; max-width: 100%; width:auto;
+    filter: brightness(0) invert(1); opacity:.82; transition: opacity .2s ease; }
+  .logos .logo:hover img { opacity: 1; }
+  /* Logos already supplied white-on-transparent must NOT be inverted. */
+  .logos .logo.is-white img { filter: none; opacity: .92; }
+  .logos .logo.is-white:hover img { opacity: 1; }
+  /* Full-colour circular badge (e.g. Champs Camp): keep as-is, just round it. */
+  .logos .logo.is-badge img { filter: none; opacity: .95; max-height: 52px; border-radius: 50%; }
+  .logos .logo.is-badge:hover img { opacity: 1; }
+  /* Styled text wordmark fallback for partners without a logo file. */
+  .logos .wordmark {
+    font-family: var(--font-head); font-weight: 500; text-transform: uppercase;
+    letter-spacing: .12em; font-size: 17px; line-height: 1.1; color: #fff; opacity: .82;
+    border: 1px solid rgba(255,255,255,.28); border-radius: 6px;
+    padding: 12px 18px; transition: opacity .2s ease, border-color .2s ease;
+  }
+  .logos .wordmark:hover { opacity: 1; border-color: rgba(255,255,255,.5); }
 
-  .quotes .wrap { display:grid; gap:24px; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); }
-  .quote { border-left: 3px solid var(--c-sage); padding: 6px 0 6px 24px; }
-  .quote p { font-size: 16px; color: var(--c-text); }
-  .quote .who { display:flex; align-items:center; gap:12px; margin-top: 14px; }
-  .quote .who img { width:48px; height:48px; border-radius:50%; object-fit:cover; }
+  .quotes .wrap { display:grid; gap:28px; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); }
+  .quote {
+    border-left: 3px solid var(--c-sage); padding: 6px 0 6px 26px;
+    display:flex; flex-direction:column;
+  }
+  .quote p { font-size: 16.5px; color: var(--c-text); line-height: 1.7; margin: 0; flex: 1 1 auto; }
+  .quote .who { display:flex; align-items:center; gap:14px; margin-top: 20px; }
+  .quote .who img,
+  .quote .who .avatar { width:52px; height:52px; border-radius:50%; object-fit:cover; flex:none; }
+  /* Monogram avatar fallback when no portrait file exists. */
+  .quote .who .avatar {
+    display:flex; align-items:center; justify-content:center;
+    background: var(--c-slate); color:#fff;
+    font-family: var(--font-head); font-weight: 500; font-size: 17px; letter-spacing: .04em;
+  }
   .quote .who b { font-family: var(--font-head); font-weight: 500; color: var(--c-slate); display:block; }
   .quote .who span { font-size: 13px; color: var(--c-text-soft); }
 
@@ -242,13 +277,20 @@
 
   <section class="section partners">
     <div class="wrap">
-      <div class="section-head" style="margin: 0 auto 0; text-align:center;"><h2>Udvalgte samarbejdspartnere</h2></div>
+      <div class="section-head" style="max-width:none; margin: 0 auto 0; text-align:center;">
+        <div class="eyebrow">Partnerskaber</div>
+        <h2>Udvalgte samarbejdspartnere</h2>
+      </div>
       <div class="logos">
-        <img src="../assets/images/source/saxobanklogo.png" alt="Saxo Bank">
-        <img src="../assets/images/source/nor-primary-logo-w-tagline-rgb-pos-large-e1539977408170.png" alt="NOR">
-        <img src="../assets/images/source/19tii81qktc-champs-camp-logo-415.png" alt="Champs Camp">
-        <img src="../assets/images/source/logo-generous-development-black-final.png" alt="Generous Development">
-        <img src="../assets/images/source/npv-logo-cmyk-pos-002.png" alt="NPV">
+        <span class="logo"><img src="../assets/images/source/saxobanklogo.png" alt="Saxo Bank"></span>
+        <span class="logo"><img src="../assets/images/source/nor-primary-logo-w-tagline-rgb-pos-large-e1539977408170.png" alt="NOR"></span>
+        <span class="logo is-badge"><img src="../assets/images/source/19tii81qktc-champs-camp-logo-415.png" alt="Champs Camp"></span>
+        <span class="logo is-white"><img src="../assets/images/source/weesgaard-dental-kirurgi-since-1962-horizontal-logo-white-12-2025-1920x315.webp" alt="Weesgaard Dental Kirurgi"></span>
+        <span class="wordmark" title="AirCat">AirCat</span>
+        <span class="wordmark" title="BloxHub">BloxHub</span>
+        <span class="logo"><img src="../assets/images/source/logo-generous-development-black-final.png" alt="Generous Development"></span>
+        <span class="wordmark" title="AndNumbers">AndNumbers</span>
+        <span class="logo"><img src="../assets/images/source/npv-logo-cmyk-pos-002.png" alt="NPV"></span>
       </div>
     </div>
   </section>
@@ -259,12 +301,20 @@
     </div>
     <div class="wrap">
       <div class="quote">
-        <p>"Det er den bedste og mest udfordrende træning jeg har lavet, siden jeg stoppede med fodbold. Siden vi startede, er jeg blevet stærkere og meget mere stabil."</p>
+        <p>"Jeg har trænet med Vinnie i næsten 4 år. Det er den bedste og mest udfordrende træning jeg har lavet, siden jeg stoppede med fodbold. Siden vi startede, er jeg blevet stærkere og meget mere stabil."</p>
         <div class="who"><img src="../assets/images/source/ref-peter-schmeichel1-180x160-1.jpg" alt="Peter Schmeichel"><span><b>Peter Schmeichel</b>Tidl. professionel fodboldmålmand</span></div>
       </div>
       <div class="quote">
-        <p>"Vinnie er super sød og inspirerende, og hun har forståelse for, hvad det vil sige at dyrke en individuel sport. Hun har også kunnet hjælpe mig mentalt."</p>
+        <p>"Vinnie er super sød og inspirerende, og så har hun forståelse for, hvad det vil sige at dyrke en individuel sport. Hvis jeg kunne ha' min egen fysiske træner hver dag, skulle det helt klart være Vinnie."</p>
         <div class="who"><img src="../assets/images/source/ref-ida-krause-180x180-1.jpg" alt="Ida Krause"><span><b>Ida Krause</b>Junior elite tennisspiller</span></div>
+      </div>
+      <div class="quote">
+        <p>"Det har været en kæmpe succes. Vinnie bruger mange forskellige træningsmetoder, som er utrolig effektive og kan bruges af alle i alle aldre. Jeg kan varmt anbefale Vinnie Søndergaard."</p>
+        <div class="who"><span class="avatar" aria-hidden="true">NT</span><span><b>Nils Trier</b>Juniorcheftræner, Birkerød tennisklub</span></div>
+      </div>
+      <div class="quote">
+        <p>"Efter et forløb på snart to måneder har hun formået at løsne op og fremskynde restitutionsprocessen, så jeg har haft mulighed for at være konkurrenceklar. Flotte anbefalinger herfra!"</p>
+        <div class="who"><span class="avatar" aria-hidden="true">JK</span><span><b>Julie Kissow Kristensen</b>Elite landsholdsgymnast</span></div>
       </div>
     </div>
   </section>
