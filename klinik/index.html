@@ -49,7 +49,7 @@
   .treatments .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); }
   .card h3 { font-size: 21px; margin-bottom: 8px; }
   .card p { color: var(--c-text); margin: 0 0 14px; }
-  .card .meta { font-family: var(--font-head); color: var(--c-sage-muted); font-size: 14px; letter-spacing: .06em; text-transform: uppercase; }
+  .card .meta { font-family: var(--font-head); color: var(--c-eyebrow); font-size: 14px; letter-spacing: .06em; text-transform: uppercase; }
 
   /* Approach / about the clinic — warm, calm two-column block */
   .approach { background: var(--c-wash); }
@@ -105,7 +105,7 @@
   .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
   .cal-dow {
     font-family: var(--font-head); text-transform: uppercase; letter-spacing: .08em;
-    font-size: 11px; color: var(--c-sage-muted); text-align: center; padding: 4px 0 8px;
+    font-size: 11px; color: var(--c-eyebrow); text-align: center; padding: 4px 0 8px;
   }
   .cal-day {
     aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center;
@@ -182,7 +182,7 @@
   .receipt { border: 1px solid var(--c-sage-light); border-radius: 12px; background: var(--c-wash); padding: 4px 20px; margin-bottom: 22px; }
   .receipt .r-row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 13px 0; border-bottom: 1px solid var(--c-sage-light); }
   .receipt .r-row:last-child { border-bottom: 0; }
-  .receipt .r-label { font-family: var(--font-head); text-transform: uppercase; letter-spacing: .08em; font-size: 11.5px; color: var(--c-sage-muted); }
+  .receipt .r-label { font-family: var(--font-head); text-transform: uppercase; letter-spacing: .08em; font-size: 11.5px; color: var(--c-eyebrow); }
   .receipt .r-value { font-size: 15px; color: var(--c-slate); text-align: right; }
   .booking-confirm .confirm-foot { font-size: 13.5px; color: var(--c-text-soft); margin: 0; }
 
@@ -243,13 +243,15 @@
 <body class="focus-klinik">
   <!-- ===================================================================
        CANONICAL SHARED TOP-NAV (sub-sites) — see .site-nav in tokens.css.
-       Identical structure on klinik / workout / people-performance; only the
-       logo variant (logo2 on light bg, logolight on dark) and which link
-       carries .is-current differ per page.
+       Identical structure on klinik / workout / people-performance; the brand
+       wordmark (logolight.png) is the same everywhere — dark text reads as-is on
+       the light Klinik nav, and is inverted to white on the dark Workout / P&P
+       navs via CSS (see .focus-workout/.focus-pp .site-nav .brand img in
+       tokens.css). Only which link carries .is-current differs per page.
        =================================================================== -->
   <nav class="site-nav">
     <a class="brand" href="../" aria-label="Vinnie Davida Søndergaard — forside">
-      <img src="../assets/images/source/logo2.png" alt="Vinnie Davida Søndergaard">
+      <img src="../assets/images/source/logolight.png" alt="Vinnie Davida Søndergaard">
     </a>
     <button class="nav-toggle" type="button" aria-label="Åbn menu" aria-expanded="false" aria-controls="primary-nav">
       <span class="bars" aria-hidden="true"></span>
