@@ -45,9 +45,33 @@
   .intro h2 { font-size: 30px; margin-bottom: 18px; }
   .intro p { font-size: 18px; color: var(--c-text); }
 
-  .treatments .wrap { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); }
+  .treatments { background: #fff; }
+  .treatments .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); }
   .card h3 { font-size: 21px; margin-bottom: 8px; }
-  .card .price { font-family: var(--font-head); color: var(--c-sage-muted); font-size: 15px; letter-spacing: .05em; }
+  .card p { color: var(--c-text); margin: 0 0 14px; }
+  .card .meta { font-family: var(--font-head); color: var(--c-sage-muted); font-size: 14px; letter-spacing: .06em; text-transform: uppercase; }
+
+  /* Approach / about the clinic — warm, calm two-column block */
+  .approach { background: var(--c-wash); }
+  .approach .grid { display: grid; gap: clamp(32px,5vw,64px); grid-template-columns: .85fr 1.15fr; align-items: center; }
+  .approach .photo { border-radius: 16px; overflow: hidden; box-shadow: 0 14px 40px rgba(44,63,70,.12); }
+  .approach .photo img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/5; }
+  .approach h2 { font-size: clamp(26px,3.4vw,34px); margin-bottom: 18px; }
+  .approach p { font-size: 17px; color: var(--c-text); margin: 0 0 16px; max-width: 56ch; }
+  .approach .signature { font-family: var(--font-head); color: var(--c-slate); letter-spacing: .04em; margin-top: 26px; }
+  @media (max-width: 760px){ .approach .grid { grid-template-columns: 1fr; } }
+
+  /* Pricing — clean, editable price list */
+  .pricing { background: #fff; }
+  .pricing .price-list { max-width: 720px; margin: 0 auto; background: var(--c-wash); border: 1px solid var(--c-sage-light); border-radius: 16px; padding: clamp(20px,4vw,40px); }
+  .pricing .price-row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--c-sage-light); }
+  .pricing .price-row:last-child { border-bottom: 0; }
+  .pricing .price-row .name { font-family: var(--font-head); font-size: 18px; color: var(--c-slate); }
+  .pricing .price-row .name small { display: block; font-family: var(--font-body); font-size: 14px; color: var(--c-text-soft); text-transform: none; letter-spacing: 0; margin-top: 3px; }
+  .pricing .price-row .dots { flex: 1; border-bottom: 1px dotted var(--c-sage-muted); transform: translateY(-4px); min-width: 16px; }
+  .pricing .price-row .amount { font-family: var(--font-head); font-size: 18px; color: var(--c-slate); white-space: nowrap; letter-spacing: .04em; }
+  .pricing .price-note { max-width: 720px; margin: 18px auto 0; font-size: 14px; color: var(--c-text-soft); text-align: center; }
+  @media (max-width: 520px){ .pricing .price-row .dots { display: none; } }
 
   .booking { background: var(--c-sage-light); text-align: center; }
   .booking h2 { font-size: 30px; }
@@ -103,11 +127,86 @@
     </div>
   </section>
 
-  <section class="section treatments">
+  <section class="section treatments" id="behandlinger">
     <div class="wrap">
-      <div class="card"><h3>Fysiurgisk massage</h3><p>Dybdegående behandling af muskler og spændinger.</p><div class="price">60 min</div></div>
-      <div class="card"><h3>Restitution &amp; stræk</h3><p>Målrettet genopbygning efter træning eller skade.</p><div class="price">45 min</div></div>
-      <div class="card"><h3>Forløb</h3><p>Tilbagevendende behandling skræddersyet til dine mål.</p><div class="price">Efter aftale</div></div>
+      <div class="section-head">
+        <div class="eyebrow">Behandlinger</div>
+        <h2>Hvad jeg tilbyder</h2>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h3>Fysiurgisk massage</h3>
+          <p>Dybdegående behandling af muskler og bindevæv, der løsner spændinger og fastlåste områder. Vi arbejder roligt og grundigt med de steder, hvor kroppen bærer på belastning – så du får mere bevægelighed og ro i kroppen.</p>
+          <div class="meta">60 min</div>
+        </div>
+        <div class="card">
+          <h3>Kropsbehandling</h3>
+          <p>Jeg har altid haft en stor interesse for, hvordan kroppen fungerer – og hvordan vi i et samarbejde kan få den til at fungere endnu bedre på alle niveauer. En helhedsorienteret behandling, der ser på hele dig, ikke kun symptomet.</p>
+          <div class="meta">75 min</div>
+        </div>
+        <div class="card">
+          <h3>Restitution &amp; stræk</h3>
+          <p>Målrettet genopbygning og udstrækning efter træning, belastning eller skade. Behandlingen fremskynder restitutionsprocessen, så du hurtigere er klar igen – uanset om du er i konkurrence eller blot vil have din hverdag tilbage.</p>
+          <div class="meta">45 min</div>
+        </div>
+        <div class="card">
+          <h3>Forløb</h3>
+          <p>Et skræddersyet behandlingsforløb til dig, der ønsker at investere i krop og balance over tid. Jeg tilrettelægger altid forløbet efter dit udgangspunkt, dine ressourcer og dine mål – ofte over flere uger.</p>
+          <div class="meta">Efter aftale</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section approach" id="tilgang">
+    <div class="wrap">
+      <div class="grid">
+        <div class="photo">
+          <img src="../assets/images/source/vinnie-davida-soendergaard-photo-martin-kaufmann-dsc-4688-330x380.jpg"
+               alt="Vinnie Davida Søndergaard i klinikken" loading="lazy" width="330" height="380">
+        </div>
+        <div class="text">
+          <div class="eyebrow">Min tilgang</div>
+          <h2>Roligt, grundigt og tilpasset din krop</h2>
+          <p>Jeg har altid haft en stor interesse for, hvordan kroppen fungerer, og hvordan vi i et samarbejde kan få den til at fungere endnu bedre på alle niveauer. I klinikken får du tid og ro – ingen samlebånd, ingen hastværk.</p>
+          <p>Det er i bund og grund også en toppræstation at lære sig selv at kende på en ny måde, og måske bygge sig selv op fra bunden. Jeg hjælper dig med genopbygning og restitution efter belastning, stress eller skade – og med at finde tilbage til styrke og balance.</p>
+          <p>Hver behandling tager udgangspunkt i lige netop dig: din krop, din hverdag og det, du gerne vil opnå.</p>
+          <p class="signature">— Vinnie Davida Søndergaard</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pricing" id="priser">
+    <div class="wrap">
+      <div class="section-head" style="margin-inline:auto;text-align:center;max-width:560px">
+        <div class="eyebrow">Priser</div>
+        <h2>Behandlinger og varighed</h2>
+      </div>
+      <!-- Placeholder prices — rediger frit her. Format: navn / varighed / pris. -->
+      <div class="price-list">
+        <div class="price-row">
+          <span class="name">Fysiurgisk massage <small>Dybdegående muskelbehandling</small></span>
+          <span class="dots" aria-hidden="true"></span>
+          <span class="amount">60 min · 750 kr</span>
+        </div>
+        <div class="price-row">
+          <span class="name">Kropsbehandling <small>Helhedsorienteret behandling</small></span>
+          <span class="dots" aria-hidden="true"></span>
+          <span class="amount">75 min · 895 kr</span>
+        </div>
+        <div class="price-row">
+          <span class="name">Restitution &amp; stræk <small>Genopbygning efter belastning</small></span>
+          <span class="dots" aria-hidden="true"></span>
+          <span class="amount">45 min · 595 kr</span>
+        </div>
+        <div class="price-row">
+          <span class="name">Forløb <small>Skræddersyet, fx 5 behandlinger</small></span>
+          <span class="dots" aria-hidden="true"></span>
+          <span class="amount">Efter aftale</span>
+        </div>
+      </div>
+      <p class="price-note">Vejledende priser. Et forløb tilrettelægges altid individuelt – kontakt mig for et tilbud.</p>
     </div>
   </section>
 
