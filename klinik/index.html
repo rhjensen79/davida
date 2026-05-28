@@ -47,13 +47,32 @@
   .placeholder-cal { max-width: 720px; margin: 36px auto 0; background: #fff; border: 1px dashed var(--c-sage-muted);
     border-radius: 16px; padding: 40px; color: var(--c-text-soft); font-style: italic; }
 
-  footer { background: var(--c-slate); color: #cdd4cf; text-align: center; padding: 48px 24px; }
-  footer a { color: #fff; }
+  /* Klinik tone: light, calm top-nav; dark slate footer */
+  .site-nav { --nav-bg: rgba(255,255,255,.92); --nav-fg: var(--c-slate); --nav-border: var(--c-sage-light); --nav-accent: var(--c-sage-muted); }
+  .site-footer { --foot-bg: var(--c-slate); --foot-fg: #cdd4cf; --foot-head: #fff; --foot-link: #fff; }
+  /* offset first section for the fixed nav */
+  .hero { padding-top: 60px; }
   @media (max-width: 760px){ .hero { grid-template-columns: 1fr; } .hero .photo { min-height: 320px; order: -1; } }
 </style>
 </head>
 <body>
-  <a class="back" href="../">← Forside</a>
+  <!-- ===================================================================
+       CANONICAL SHARED TOP-NAV (sub-sites) — see .site-nav in tokens.css.
+       Identical structure on klinik / workout / people-performance; only the
+       logo variant (logo2 on light bg, logolight on dark) and which link
+       carries .is-current differ per page.
+       =================================================================== -->
+  <nav class="site-nav">
+    <a class="brand" href="../" aria-label="Vinnie Davida Søndergaard — forside">
+      <img src="../assets/images/source/logo2.png" alt="Vinnie Davida Søndergaard">
+    </a>
+    <div class="nav-links">
+      <a href="../">Forside</a>
+      <a href="../klinik/" class="is-current">Klinik</a>
+      <a href="../workout/">Workout</a>
+      <a href="../people-performance/">People &amp; Performance</a>
+    </div>
+  </nav>
 
   <header class="hero">
     <div class="text">
@@ -92,9 +111,30 @@
     </div>
   </section>
 
-  <footer>
-    <p>Vinnie Davida Søndergaard · Vejlegade 12, kld. th., 2100 København Ø<br>
-    +45 25 61 60 00 · <a href="mailto:vinnie@davida-sondergaard.dk">vinnie@davida-sondergaard.dk</a></p>
+  <!-- CANONICAL SHARED FOOTER — identical across all pages (see tokens.css). -->
+  <footer class="site-footer">
+    <div class="foot-inner">
+      <div>
+        <p class="foot-brand">Vinnie Davida Søndergaard</p>
+        <p>Jeg er drevet af at udvikle og optimere mennesker — klinik, udendørs træning og People &amp; Performance.</p>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <p><a href="tel:+4525616000">+45 25 61 60 00</a></p>
+        <p><a href="mailto:vinnie@davida-sondergaard.dk">vinnie@davida-sondergaard.dk</a></p>
+        <p>Vejlegade 12, kld. th.<br>2100 København Ø</p>
+        <p>CVR 30259939</p>
+      </div>
+      <div>
+        <h4>Følg med</h4>
+        <div class="social">
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.facebook.com/lifepoweredthroughinside" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.instagram.com/vinnie_davida_sondergaard" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-base">© <span id="year">2026</span> Vinnie Davida Søndergaard · CVR 30259939</div>
   </footer>
 </body>
 </html>

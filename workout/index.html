@@ -51,12 +51,24 @@
   .signup h2 { font-size: clamp(30px,5vw,52px); }
   .signup p { color:#c3c9bd; max-width: 46ch; margin: 0 auto 30px; font-size: 17px; }
 
-  footer { text-align:center; padding: 46px 24px; color:#8f978c; border-top: 1px solid #1c252c; }
-  footer a { color: var(--c-sage); }
+  /* Workout tone: dark, bold top-nav over the hero; near-black footer */
+  .site-nav { --nav-bg: rgba(8,13,18,.55); --nav-fg: #fff; --nav-border: rgba(255,255,255,.12); --nav-accent: var(--c-sage); }
+  .site-footer { --foot-bg: var(--c-near-black); --foot-fg: #8f978c; --foot-head: #fff; --foot-link: var(--c-sage); --foot-border: #1c252c; }
 </style>
 </head>
 <body>
-  <a class="back" href="../">← Forside</a>
+  <!-- CANONICAL SHARED TOP-NAV (sub-sites) — see .site-nav in tokens.css. -->
+  <nav class="site-nav">
+    <a class="brand" href="../" aria-label="Vinnie Davida Søndergaard — forside">
+      <img src="../assets/images/source/logolight.png" alt="Vinnie Davida Søndergaard">
+    </a>
+    <div class="nav-links">
+      <a href="../">Forside</a>
+      <a href="../klinik/">Klinik</a>
+      <a href="../workout/" class="is-current">Workout</a>
+      <a href="../people-performance/">People &amp; Performance</a>
+    </div>
+  </nav>
 
   <header class="hero">
     <div class="wrap">
@@ -98,8 +110,30 @@
     </div>
   </section>
 
-  <footer>
-    <p>Vinnie Davida Søndergaard · +45 25 61 60 00 · <a href="mailto:vinnie@davida-sondergaard.dk">vinnie@davida-sondergaard.dk</a></p>
+  <!-- CANONICAL SHARED FOOTER — identical across all pages (see tokens.css). -->
+  <footer class="site-footer">
+    <div class="foot-inner">
+      <div>
+        <p class="foot-brand">Vinnie Davida Søndergaard</p>
+        <p>Jeg er drevet af at udvikle og optimere mennesker — klinik, udendørs træning og People &amp; Performance.</p>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <p><a href="tel:+4525616000">+45 25 61 60 00</a></p>
+        <p><a href="mailto:vinnie@davida-sondergaard.dk">vinnie@davida-sondergaard.dk</a></p>
+        <p>Vejlegade 12, kld. th.<br>2100 København Ø</p>
+        <p>CVR 30259939</p>
+      </div>
+      <div>
+        <h4>Følg med</h4>
+        <div class="social">
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.facebook.com/lifepoweredthroughinside" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.instagram.com/vinnie_davida_sondergaard" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-base">© <span id="year">2026</span> Vinnie Davida Søndergaard · CVR 30259939</div>
   </footer>
 </body>
 </html>
