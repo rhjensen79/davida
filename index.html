@@ -58,8 +58,8 @@
   .c-pp .veil { background: linear-gradient(180deg, rgba(44,63,70,.25) 0%, rgba(44,63,70,.92) 100%); }
   .c-pp .tag { color: var(--c-sand); }
 
-  footer { text-align: center; padding: 0 24px 56px; color: var(--c-text-soft); font-size: 14px; }
-  footer a { color: var(--c-slate); }
+  /* Landing footer tone: dark slate, on the pale-green page */
+  .site-footer { --foot-bg: var(--c-slate); --foot-fg: #cdd4cf; --foot-head: #fff; --foot-link: #fff; }
 </style>
 </head>
 <body>
@@ -101,8 +101,36 @@
     </a>
   </main>
 
-  <footer>
-    <p>+45 25 61 60 00 · <a href="mailto:vinnie@davida-sondergaard.dk">vinnie@davida-sondergaard.dk</a> · Vejlegade 12, kld. th., 2100 København Ø</p>
+  <!-- ===================================================================
+       CANONICAL SHARED FOOTER (see assets/css/tokens.css .site-footer)
+       This exact markup is duplicated on all four pages. Keep it identical;
+       only the asset/href path prefix differs ("" on the hub, "../" on
+       sub-sites) and tone is set via the .site-footer custom properties in
+       each page's <style>.
+       =================================================================== -->
+  <footer class="site-footer">
+    <div class="foot-inner">
+      <div>
+        <p class="foot-brand">Vinnie Davida Søndergaard</p>
+        <p>Jeg er drevet af at udvikle og optimere mennesker — klinik, udendørs træning og People &amp; Performance.</p>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <p><a href="tel:+4525616000">+45 25 61 60 00</a></p>
+        <p><a href="mailto:vinnie@davida-sondergaard.dk">vinnie@davida-sondergaard.dk</a></p>
+        <p>Vejlegade 12, kld. th.<br>2100 København Ø</p>
+        <p>CVR 30259939</p>
+      </div>
+      <div>
+        <h4>Følg med</h4>
+        <div class="social">
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.facebook.com/lifepoweredthroughinside" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.instagram.com/vinnie_davida_sondergaard" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-base">© <span id="year">2026</span> Vinnie Davida Søndergaard · CVR 30259939</div>
   </footer>
 </body>
 </html>

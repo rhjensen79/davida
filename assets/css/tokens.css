@@ -42,7 +42,7 @@ img { max-width: 100%; display: block; }
 a { color: inherit; }
 .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
 
-/* shared "back to hub" pill */
+/* shared "back to hub" pill (legacy / optional) */
 .back {
   position: fixed; top: 18px; left: 18px; z-index: 50;
   font-family: var(--font-head); font-size: 13px; letter-spacing: .08em;
@@ -52,3 +52,82 @@ a { color: inherit; }
   backdrop-filter: blur(6px); border: 1px solid rgba(0,0,0,.08);
 }
 .back:hover { background: #fff; }
+
+/* ==========================================================================
+   SHARED TOP-NAV (sub-sites only) — canonical markup, see HTML comment in each
+   sub-site page. Structure/classes are identical across pages; per-page tone
+   is set with the --nav-* / --foot-* custom properties below, scoped in each
+   page's <style>.
+   ========================================================================== */
+:root {
+  /* Header/nav tone knobs (overridden per page) */
+  --nav-bg: rgba(255,255,255,.92);
+  --nav-fg: var(--c-slate);
+  --nav-border: rgba(0,0,0,.08);
+  --nav-accent: var(--c-sage-muted);
+
+  /* Footer tone knobs (overridden per page) */
+  --foot-bg: var(--c-slate);
+  --foot-fg: #cdd4cf;
+  --foot-head: #ffffff;
+  --foot-link: #ffffff;
+  --foot-border: rgba(255,255,255,.12);
+}
+
+.site-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; padding: 14px clamp(18px, 4vw, 40px);
+  background: var(--nav-bg); color: var(--nav-fg);
+  border-bottom: 1px solid var(--nav-border);
+  backdrop-filter: blur(8px);
+}
+.site-nav .brand { display: flex; align-items: center; text-decoration: none; }
+.site-nav .brand img { height: 30px; width: auto; }
+.site-nav .nav-links {
+  display: flex; align-items: center; gap: clamp(14px, 3vw, 30px);
+  font-family: var(--font-head); text-transform: uppercase;
+  letter-spacing: .1em; font-size: 13px;
+}
+.site-nav .nav-links a {
+  color: var(--nav-fg); text-decoration: none; opacity: .85;
+  padding: 4px 0; border-bottom: 2px solid transparent; transition: opacity .2s, border-color .2s;
+}
+.site-nav .nav-links a:hover { opacity: 1; border-bottom-color: var(--nav-accent); }
+.site-nav .nav-links a.is-current { opacity: 1; border-bottom-color: var(--nav-accent); }
+
+/* ==========================================================================
+   SHARED FOOTER — canonical markup, identical across all four pages.
+   Full contact block (phone, email, clinic address, CVR) + social links.
+   ========================================================================== */
+.site-footer {
+  background: var(--foot-bg); color: var(--foot-fg);
+  padding: 56px clamp(24px, 5vw, 48px) 40px;
+}
+.site-footer a { color: var(--foot-link); }
+.site-footer .foot-inner {
+  max-width: var(--maxw); margin: 0 auto;
+  display: grid; gap: 36px; grid-template-columns: 1.4fr 1fr 1fr;
+}
+.site-footer .foot-brand {
+  font-family: var(--font-head); text-transform: uppercase;
+  letter-spacing: .14em; font-size: 15px; color: var(--foot-head); margin: 0 0 10px;
+}
+.site-footer h4 {
+  font-family: var(--font-head); text-transform: uppercase; letter-spacing: .14em;
+  font-size: 12px; color: var(--foot-head); opacity: .9; margin: 0 0 12px;
+}
+.site-footer p { margin: 0 0 6px; font-size: 14px; line-height: 1.7; }
+.site-footer .social { display: flex; flex-direction: column; gap: 8px; }
+.site-footer .social a {
+  font-size: 14px; text-decoration: none; opacity: .9;
+}
+.site-footer .social a:hover { opacity: 1; text-decoration: underline; }
+.site-footer .foot-base {
+  max-width: var(--maxw); margin: 36px auto 0; padding-top: 22px;
+  border-top: 1px solid var(--foot-border);
+  font-size: 12px; letter-spacing: .04em; opacity: .8;
+}
+@media (max-width: 720px) {
+  .site-footer .foot-inner { grid-template-columns: 1fr; gap: 28px; }
+}
