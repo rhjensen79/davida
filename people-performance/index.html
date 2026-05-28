@@ -52,11 +52,49 @@
   .lead blockquote { margin:0; font-family: var(--font-head); font-weight: 300; font-size: clamp(22px,3vw,34px);
     line-height: 1.3; color: var(--c-slate); }
 
-  .services .wrap { display: grid; gap: 1px; background: var(--c-sage-light);
-    grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); border: 1px solid var(--c-sage-light); }
-  .svc { background:#fff; padding: 34px 30px; }
-  .svc h3 { font-size: 20px; margin-bottom: 10px; }
-  .svc p { font-size: 15px; color: var(--c-text-soft); margin:0; }
+  /* Services — editorial, generously spaced detail blocks */
+  .services .wrap { max-width: 980px; }
+  .svc-list { display: grid; gap: 64px; margin-top: 8px; }
+  .svc {
+    display: grid; grid-template-columns: 220px 1fr; gap: clamp(28px, 5vw, 64px);
+    align-items: start; padding-bottom: 64px; border-bottom: 1px solid var(--c-sage-light);
+  }
+  .svc:last-child { padding-bottom: 0; border-bottom: 0; }
+  .svc-index {
+    font-family: var(--font-head); font-weight: 300; font-size: 15px;
+    letter-spacing: .28em; text-transform: uppercase; color: var(--c-sage-muted);
+    border-top: 2px solid var(--c-slate); padding-top: 16px;
+  }
+  .svc-body h3 { font-size: clamp(23px, 2.4vw, 30px); margin-bottom: 16px; }
+  .svc-body p { font-size: 17px; color: var(--c-text); line-height: 1.7; margin: 0 0 16px; max-width: 60ch; }
+  .svc-body p:last-child { margin-bottom: 0; }
+  .svc-meta {
+    display: inline-block; margin-top: 6px; font-family: var(--font-head);
+    text-transform: uppercase; letter-spacing: .16em; font-size: 12px; font-weight: 500;
+    color: var(--c-slate); background: var(--c-sand); padding: 7px 14px; border-radius: 5px;
+  }
+  @media (max-width: 680px){
+    .svc { grid-template-columns: 1fr; gap: 18px; padding-bottom: 48px; }
+    .svc-list { gap: 48px; }
+    .svc-index { border-top: 0; padding-top: 0; }
+  }
+
+  /* MiBo Gold — signature method block on slate */
+  .mibo { background: var(--c-slate); color:#fff; }
+  .mibo .wrap { max-width: 980px; }
+  .mibo .eyebrow { color: var(--c-sand); }
+  .mibo h2 { color:#fff; font-size: clamp(30px, 4vw, 48px); margin-bottom: 20px; }
+  .mibo .mibo-lead { font-family: var(--font-head); font-weight: 300; font-size: clamp(20px, 2.6vw, 28px);
+    line-height: 1.4; color: #eef0ec; max-width: 40ch; margin: 0 0 8px; }
+  .mibo-philosophy { font-size: 18px; color: #cdd4cf; line-height: 1.75; max-width: 56ch; margin: 28px 0 0; }
+  .mibo-grid { display: grid; gap: 28px; grid-template-columns: 1fr 1fr; margin-top: 48px; }
+  .mibo-force {
+    border-top: 2px solid var(--c-sand); padding-top: 22px;
+  }
+  .mibo-force h3 { color:#fff; font-weight: 500; font-size: 21px; margin-bottom: 10px; }
+  .mibo-force p { color: #cdd4cf; font-size: 15px; line-height: 1.7; margin: 0; }
+  .mibo-foot { margin-top: 44px; font-size: 17px; color:#eef0ec; line-height: 1.7; max-width: 58ch; }
+  @media (max-width: 680px){ .mibo-grid { grid-template-columns: 1fr; gap: 22px; } }
 
   .partners { background: var(--c-slate); color:#fff; text-align:center; }
   .partners h2 { color:#fff; }
@@ -119,14 +157,86 @@
     </div>
   </section>
 
-  <section class="section services">
+  <section class="section services" id="ydelser">
     <div class="wrap">
-      <div class="svc"><h3>Huscoach i virksomheden</h3><p>Fast tilstedeværelse, der løfter trivsel, mindset og selvledelse i hele organisationen.</p></div>
-      <div class="svc"><h3>1:1 mentoring &amp; forløb</h3><p>For dig der løbende vil investere i og vedligeholde dig selv fysisk og mentalt.</p></div>
-      <div class="svc"><h3>Play Your Talent</h3><p>Evidensbaseret værktøj der giver indsigt i hver person og hele teamet.</p></div>
-      <div class="svc"><h3>Workshops &amp; foredrag</h3><p>Skræddersyede sessioner om performance, trivsel og balance.</p></div>
-      <div class="svc"><h3>Ergonomi &amp; APV</h3><p>Et sundt fysisk arbejdsmiljø som fundament for performance.</p></div>
-      <div class="svc"><h3>MiBo Gold</h3><p>Min metode — balancen mellem den maskuline og feminine kraft.</p></div>
+      <div class="section-head">
+        <div class="eyebrow">Ydelser</div>
+        <h2>Skræddersyede forløb til din organisation</h2>
+      </div>
+      <div class="svc-list">
+
+        <article class="svc">
+          <div class="svc-index">01 — Huscoach</div>
+          <div class="svc-body">
+            <h3>Huscoach i virksomheden</h3>
+            <p>Jeg hjælper dig og din organisation mod performance og vækst — i et sundt miljø, hvor vindermindset, trivsel, talentudvikling og selvledelse er i fokus. Som fast huscoach er jeg en tilbagevendende, fortrolig sparringspartner, der kender jeres kultur indefra.</p>
+            <p>Det giver mulighed for at arbejde vedholdende med både den enkelte medarbejder og dynamikken i teamet — ikke som et enkeltstående arrangement, men som en kontinuerlig investering i mennesker og resultater.</p>
+          </div>
+        </article>
+
+        <article class="svc">
+          <div class="svc-index">02 — Mentoring</div>
+          <div class="svc-body">
+            <h3>1:1 mentoring &amp; forløb</h3>
+            <p>For dig, der løbende ønsker at investere i og vedligeholde dig selv fysisk og mentalt, men som selv har styr på den overordnede proces og ramme. Vi arbejder fokuseret med dit mindset, din balance og din vej mod næste niveau.</p>
+            <p>Jeg skræddersyr altid mine forløb, da udgangspunkt, ressourcer og rammer er forskellige. Et <strong>8-ugers forløb</strong> har jeg særligt god erfaring med — men det kan tilrettelægges både kortere og længere, alt efter dit mål.</p>
+            <span class="svc-meta">8-ugers forløb · skræddersyet</span>
+          </div>
+        </article>
+
+        <article class="svc">
+          <div class="svc-index">03 — Talent</div>
+          <div class="svc-body">
+            <h3>Play Your Talent</h3>
+            <p>Et evidensbaseret talent- og teamværktøj, som er en stærk og vigtig del af mine 1:1- og virksomhedsforløb. Det giver dyb indsigt i den enkelte og i teamet som helhed — hvilke styrker hver person spiller bedst på, og hvordan I komplementerer hinanden.</p>
+            <p>Den indsigt kan bruges til at optimere hver eneste parameter, så I bliver stærkere både sammen og hver for sig — og bygger samarbejde på det, mennesker rent faktisk er gode til.</p>
+          </div>
+        </article>
+
+        <article class="svc">
+          <div class="svc-index">04 — Workshops</div>
+          <div class="svc-body">
+            <h3>Workshops &amp; foredrag</h3>
+            <p>Skræddersyede workshops og foredrag om performance, trivsel, balance og selvledelse — tilpasset jeres tema, niveau og udfordringer. Fra det inspirerende oplæg til den fælles ledergruppe til det praktiske, fordybende forløb for et helt team.</p>
+            <p>Altid med afsæt i, at hele, autentiske mennesker skaber hele, stærke virksomheder — og at sundhed og styrke bygges indefra og ud.</p>
+          </div>
+        </article>
+
+        <article class="svc">
+          <div class="svc-index">05 — Arbejdsmiljø</div>
+          <div class="svc-body">
+            <h3>Ergonomi &amp; APV</h3>
+            <p>Et sundt fysisk arbejdsmiljø er fundamentet for både performance og trivsel. Jeg hjælper jer med ergonomi og arbejdspladsvurdering (APV), så kroppen understøtter arbejdet i stedet for at slide på det.</p>
+            <p>Jeg hjælper også dig og din organisation med genopbygning og restitution efter stress eller sygdom. Det er i bund og grund også en toppræstation at lære sig selv at kende på en ny måde — og måske bygge sig selv op fra bunden.</p>
+            <span class="svc-meta">Tilbage til styrke og balance</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section mibo" id="mibo-gold">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom: 36px;">
+        <div class="eyebrow">MiBo Gold · Min metode</div>
+        <h2>Den maskuline og feminine kraft</h2>
+        <p class="mibo-lead">Et signaturkoncept om at finde modet til at balancere de to kræfter, vi alle besidder.</p>
+      </div>
+      <p class="mibo-philosophy">Den maskuline og feminine kraft er noget, vi alle besidder. Når du finder modet til at balancere de to sider, vil du og din organisation performe og trives på en ny, sund og stærk måde. MiBo Gold er den røde tråd gennem alt mit arbejde — fra 1:1-mentoring til ledergrupper og hele organisationer.</p>
+
+      <div class="mibo-grid">
+        <div class="mibo-force">
+          <h3>Den maskuline kraft</h3>
+          <p>Retning, drive og handlekraft. Evnen til at sætte mål, træffe beslutninger og holde kursen — at performe under pres og levere, når det gælder.</p>
+        </div>
+        <div class="mibo-force">
+          <h3>Den feminine kraft</h3>
+          <p>Nærvær, intuition og relation. Evnen til at mærke sig selv og andre, skabe tryghed og trivsel — og lede mennesker i en sund og bæredygtig retning.</p>
+        </div>
+      </div>
+
+      <p class="mibo-foot">Det handler ikke om at vælge den ene frem for den anden, men om balancen. Når begge kræfter er i spil, opstår den helhed og autenticitet, der får både mennesker og virksomheder til at vokse — indefra og ud.</p>
     </div>
   </section>
 
