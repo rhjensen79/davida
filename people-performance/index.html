@@ -188,6 +188,35 @@
   .cta h2 { font-size: clamp(30px,4vw,48px); }
   .cta p { font-size: 18px; max-width: 46ch; margin: 0 auto 30px; }
 
+  /* ── Lead/contact form + confirmation (issue #15) — premium P&P tone ───── */
+  /* The form sits on the sand CTA band: lift it onto a calm white card so the
+     fields read crisply, and tint the shared --field-* knobs to the slate
+     palette used elsewhere on this page. */
+  .contact-card {
+    max-width: 680px; margin: 8px auto 0; text-align: left;
+    background: #fff; border: 1px solid var(--c-sage-light); border-radius: 16px;
+    padding: clamp(28px, 4vw, 44px);
+    box-shadow: 0 18px 46px rgba(44,63,70,.12);
+    --field-bg: #fff; --field-fg: var(--c-text);
+    --field-border: var(--c-sage-light); --field-border-focus: var(--c-slate);
+    --field-label: var(--c-slate); --field-placeholder: #9aa39c;
+    --field-radius: 8px;
+  }
+  .contact-form select { color: var(--field-fg); }
+  .contact-form .contact-submit { justify-self: start; margin-top: 6px; }
+  .contact-note { font-size: 13px; color: var(--c-text-soft); margin: 14px 0 0; }
+
+  /* Static confirmation panel — hidden until the button toggles it. */
+  .contact-success { text-align: left; }
+  .contact-success-mark {
+    width: 56px; height: 56px; margin: 0 0 20px; border-radius: 999px;
+    display: grid; place-items: center; background: var(--c-slate); color: #fff;
+    font-family: var(--font-head); font-weight: 500; font-size: 28px; line-height: 1;
+  }
+  .contact-success h3 { font-size: clamp(23px, 3vw, 32px); margin: 0 0 12px; }
+  .contact-success p { font-size: 17px; color: var(--c-text); line-height: 1.7; margin: 0 0 24px; max-width: 52ch; }
+  .contact-success .contact-foot { font-size: 13px; color: var(--c-text-soft); margin: 22px 0 0; }
+
   /* People & Performance tone: refined, light-on-slate top-nav; near-black footer */
   .site-nav { --nav-bg: rgba(44,63,70,.78); --nav-fg: #fff; --nav-border: rgba(255,255,255,.14); --nav-accent: var(--c-sand); }
   .site-footer { --foot-bg: var(--c-near-black); --foot-fg: #9aa39c; --foot-head: #fff; --foot-link: #fff; --foot-border: rgba(255,255,255,.1); }
@@ -409,11 +438,66 @@
     </div>
   </section>
 
+  <!-- ========================================================================
+       KONTAKT / LEAD — NON-FUNCTIONAL MOCK. The lead form does not submit
+       anywhere; "Jeg vil gerne høre mere" is type=button and only toggles a
+       static confirmation panel via contact.js (visual demo only, no backend).
+       ===================================================================== -->
   <section class="section cta" id="kontakt">
     <div class="wrap">
       <h2>Lad os komme i gang</h2>
       <p>Fortæl om din organisation, så skræddersyr vi et forløb der passer til jeres udgangspunkt, ressourcer og rammer.</p>
-      <a class="btn" href="mailto:vinnie@davida-sondergaard.dk?subject=People%20%26%20Performance">Jeg vil gerne høre mere</a>
+
+      <form class="form contact-form contact-card" id="contact-form" novalidate>
+        <div class="form-row">
+          <div class="field">
+            <label for="ct-navn">Navn</label>
+            <input id="ct-navn" name="navn" type="text" placeholder="Dit fulde navn" autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="ct-virksomhed">Virksomhed</label>
+            <input id="ct-virksomhed" name="virksomhed" type="text" placeholder="Virksomhedens navn" autocomplete="organization">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="ct-email">Email</label>
+            <input id="ct-email" name="email" type="email" placeholder="dig@virksomhed.dk" autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="ct-tlf">Telefon</label>
+            <input id="ct-tlf" name="telefon" type="tel" placeholder="+45 12 34 56 78" autocomplete="tel">
+          </div>
+        </div>
+        <div class="field">
+          <label for="ct-interesse">Hvad er du interesseret i?</label>
+          <select id="ct-interesse" name="interesse">
+            <option value="" selected>Vælg et område…</option>
+            <option value="huscoach">Huscoach i virksomheden</option>
+            <option value="mentoring">1:1 mentoring &amp; forløb</option>
+            <option value="play-your-talent">Play Your Talent</option>
+            <option value="workshops">Workshops &amp; foredrag</option>
+            <option value="ergonomi-apv">Ergonomi &amp; APV</option>
+            <option value="andet">Andet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="ct-besked">Besked</label>
+          <textarea id="ct-besked" name="besked" placeholder="Fortæl kort om din organisation, jeres udgangspunkt og hvad I gerne vil opnå."></textarea>
+        </div>
+        <!-- type="button": this is a non-functional mock, no real submit. -->
+        <button class="btn contact-submit" type="button" id="contact-submit">Jeg vil gerne høre mere</button>
+        <p class="contact-note">Vi behandler din henvendelse fortroligt og vender tilbage hurtigst muligt.</p>
+      </form>
+
+      <!-- Static confirmation panel (mockup of the success state). -->
+      <div class="contact-card contact-success" id="contact-success" role="status" aria-live="polite" hidden>
+        <div class="contact-success-mark" aria-hidden="true">✓</div>
+        <h3>Tak — vi vender tilbage hurtigst muligt</h3>
+        <p>Din henvendelse er modtaget. Jeg ser personligt på den og vender tilbage med et bud på et forløb, der passer til jeres udgangspunkt, ressourcer og rammer.</p>
+        <button class="btn ghost" type="button" id="contact-reset">Send en ny henvendelse</button>
+        <p class="contact-foot">Foretrækker du at skrive direkte? Ring 25 61 60 00 eller skriv til vinnie@davida-sondergaard.dk. (Demo — ingen henvendelse er sendt.)</p>
+      </div>
     </div>
   </section>
 
@@ -443,5 +527,6 @@
     <div class="foot-base">© <span id="year">2026</span> Vinnie Davida Søndergaard · CVR 30259939</div>
   </footer>
   <script src="../assets/js/nav.js" defer></script>
+  <script src="../assets/js/contact.js" defer></script>
 </body>
 </html>
