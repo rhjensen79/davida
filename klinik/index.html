@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Klinik — Fysiurgisk massage | Vinnie Davida Søndergaard</title>
+<meta name="description" content="Fysiurgisk massage og kropsbehandling i klinikken på Østerbro. Book din tid online.">
+<link rel="icon" href="../assets/images/source/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  /* Klinik tone: calm, clean, airy, healing */
+  body { background: var(--c-wash); color: var(--c-slate); }
+  h1, h2, h3 { font-weight: 400; color: var(--c-slate); }
+
+  .hero { display: grid; grid-template-columns: 1.1fr .9fr; min-height: 78vh; }
+  .hero .text { display: flex; flex-direction: column; justify-content: center; padding: 80px clamp(24px,6vw,96px); }
+  .hero .photo { background: url('../assets/images/source/vinnie-davida-soendergaard-photo-martin-kaufmann-dsc-4499.jpg') center/cover; }
+  .eyebrow { font-family: var(--font-head); text-transform: uppercase; letter-spacing: .3em; font-size: 13px; color: var(--c-sage-muted); margin-bottom: 18px; }
+  .hero h1 { font-size: clamp(34px, 5vw, 58px); line-height: 1.05; margin-bottom: 22px; }
+  .hero p { font-size: 18px; color: var(--c-text); max-width: 46ch; margin-bottom: 32px; }
+
+  .btn { display: inline-block; font-family: var(--font-head); text-transform: uppercase; letter-spacing: .12em;
+    font-size: 14px; text-decoration: none; padding: 15px 34px; border-radius: 999px;
+    background: var(--c-slate); color: #fff; transition: background .2s; }
+  .btn:hover { background: var(--c-near-black); }
+  .btn.ghost { background: transparent; color: var(--c-slate); border: 1px solid var(--c-slate); }
+  .btn.ghost:hover { background: var(--c-slate); color: #fff; }
+
+  section { padding: 72px 0; }
+  .intro { background: #fff; }
+  .intro .wrap { max-width: 720px; text-align: center; }
+  .intro h2 { font-size: 30px; margin-bottom: 18px; }
+  .intro p { font-size: 18px; color: var(--c-text); }
+
+  .treatments .wrap { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); }
+  .card { background: #fff; border-radius: 16px; padding: 30px; border: 1px solid var(--c-sage-light); }
+  .card h3 { font-size: 21px; margin-bottom: 8px; }
+  .card .price { font-family: var(--font-head); color: var(--c-sage-muted); font-size: 15px; letter-spacing: .05em; }
+
+  .booking { background: var(--c-sage-light); text-align: center; }
+  .booking h2 { font-size: 30px; }
+  .booking p { font-size: 17px; max-width: 48ch; margin: 0 auto 28px; }
+  .booking .actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .placeholder-cal { max-width: 720px; margin: 36px auto 0; background: #fff; border: 1px dashed var(--c-sage-muted);
+    border-radius: 16px; padding: 40px; color: var(--c-text-soft); font-style: italic; }
+
+  footer { background: var(--c-slate); color: #cdd4cf; text-align: center; padding: 48px 24px; }
+  footer a { color: #fff; }
+  @media (max-width: 760px){ .hero { grid-template-columns: 1fr; } .hero .photo { min-height: 320px; order: -1; } }
+</style>
+</head>
+<body>
+  <a class="back" href="../">← Forside</a>
+
+  <header class="hero">
+    <div class="text">
+      <div class="eyebrow">Klinik · Østerbro</div>
+      <h1>Fysiurgisk massage &amp; kropsbehandling</h1>
+      <p>Jeg har altid haft en stor interesse for, hvordan kroppen fungerer – og hvordan vi i et samarbejde kan få den til at fungere endnu bedre på alle niveauer.</p>
+      <div><a class="btn" href="#book">Book tid</a></div>
+    </div>
+    <div class="photo" role="img" aria-label="Kropsbehandling"></div>
+  </header>
+
+  <section class="intro">
+    <div class="wrap">
+      <h2>Tilbage til styrke og balance</h2>
+      <p>Behandlingen løsner op, fremskynder restitutionsprocessen og hjælper dig tilbage efter belastning, stress eller skade. Roligt, grundigt og tilpasset din krop.</p>
+    </div>
+  </section>
+
+  <section class="treatments">
+    <div class="wrap">
+      <div class="card"><h3>Fysiurgisk massage</h3><p>Dybdegående behandling af muskler og spændinger.</p><div class="price">60 min</div></div>
+      <div class="card"><h3>Restitution &amp; stræk</h3><p>Målrettet genopbygning efter træning eller skade.</p><div class="price">45 min</div></div>
+      <div class="card"><h3>Forløb</h3><p>Tilbagevendende behandling skræddersyet til dine mål.</p><div class="price">Efter aftale</div></div>
+    </div>
+  </section>
+
+  <section class="booking" id="book">
+    <div class="wrap">
+      <h2>Book din tid</h2>
+      <p>Vælg en ledig tid i kalenderen, eller ring og hør nærmere. Klinikken ligger på Vejlegade 12, kld. th., 2100 København Ø.</p>
+      <div class="actions">
+        <a class="btn" href="mailto:vinnie@davida-sondergaard.dk?subject=Booking%20-%20fysiurgisk%20massage">Book via mail</a>
+        <a class="btn ghost" href="tel:+4525616000">Ring 25 61 60 00</a>
+      </div>
+      <div class="placeholder-cal">📅 Kalender / booking-system indsættes her (fx Calendly, Acuity eller lignende).</div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Vinnie Davida Søndergaard · Vejlegade 12, kld. th., 2100 København Ø<br>
+    +45 25 61 60 00 · <a href="mailto:vinnie@davida-sondergaard.dk">vinnie@davida-sondergaard.dk</a></p>
+  </footer>
+</body>
+</html>

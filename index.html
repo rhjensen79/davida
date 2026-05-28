@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vinnie Davida Søndergaard</title>
+<meta name="description" content="Jeg er drevet af at udvikle og optimere mennesker — klinik, udendørs træning og People & Performance.">
+<link rel="icon" href="assets/images/source/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<style>
+  body { background: var(--c-wash); }
+  header.hero {
+    text-align: center; padding: 88px 24px 56px; background: var(--c-slate); color: #fff;
+  }
+  header.hero .brand {
+    font-family: var(--font-head); text-transform: uppercase; letter-spacing: .35em;
+    font-size: 14px; color: var(--c-sage); margin-bottom: 22px;
+  }
+  header.hero h1 {
+    font-size: clamp(30px, 5vw, 52px); font-weight: 500; max-width: 16ch; margin: 0 auto .4em;
+  }
+  header.hero p { max-width: 56ch; margin: 0 auto; color: #cdd4cf; font-size: 17px; }
+
+  .focuses { max-width: 1180px; margin: -36px auto 0; padding: 0 24px 72px;
+    display: grid; gap: 22px; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); }
+  .card {
+    position: relative; border-radius: 16px; overflow: hidden; text-decoration: none;
+    min-height: 460px; display: flex; flex-direction: column; justify-content: flex-end;
+    color: #fff; box-shadow: 0 20px 40px -24px rgba(0,0,0,.4);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .card:hover { transform: translateY(-6px); box-shadow: 0 28px 54px -24px rgba(0,0,0,.5); }
+  .card .bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform .5s ease; }
+  .card:hover .bg { transform: scale(1.05); }
+  .card .veil { position: absolute; inset: 0; }
+  .card .body { position: relative; padding: 28px; }
+  .card .tag { font-family: var(--font-head); text-transform: uppercase; letter-spacing: .18em; font-size: 12px; opacity: .9; }
+  .card h2 { font-size: 30px; margin: 6px 0 8px; }
+  .card p { margin: 0 0 16px; font-size: 15px; opacity: .92; max-width: 34ch; }
+  .card .go { font-family: var(--font-head); text-transform: uppercase; letter-spacing: .1em; font-size: 13px;
+    border-top: 1px solid rgba(255,255,255,.3); padding-top: 14px; }
+
+  /* Klinik — light & calm */
+  .c-klinik .bg { background-image: url('assets/images/source/vinnie-davida-soendergaard-photo-martin-kaufmann-dsc-4499.jpg'); }
+  .c-klinik .veil { background: linear-gradient(180deg, rgba(240,243,240,0) 30%, rgba(44,63,70,.78) 100%); }
+
+  /* Workout — bold & dark */
+  .c-workout .bg { background-image: url('assets/images/source/split-trx.jpg'); }
+  .c-workout .veil { background: linear-gradient(180deg, rgba(8,13,18,.15) 20%, rgba(8,13,18,.88) 100%); }
+  .c-workout h2 { text-transform: uppercase; letter-spacing: .02em; }
+  .c-workout .tag { color: var(--c-sage); }
+
+  /* People & Performance — refined slate */
+  .c-pp .bg { background-image: url('assets/images/source/vinnie-davida-soendergaard-photo-martin-kaufmann-dsc-3914-1.jpg'); }
+  .c-pp .veil { background: linear-gradient(180deg, rgba(44,63,70,.25) 0%, rgba(44,63,70,.92) 100%); }
+  .c-pp .tag { color: var(--c-sand); }
+
+  footer { text-align: center; padding: 0 24px 56px; color: var(--c-text-soft); font-size: 14px; }
+  footer a { color: var(--c-slate); }
+</style>
+</head>
+<body>
+  <header class="hero">
+    <div class="brand">Vinnie Davida Søndergaard</div>
+    <h1>Jeg er drevet af at udvikle og optimere mennesker.</h1>
+    <p>En ærlig, nysgerrig og helhedsorienteret tilgang, der vægter balancen mellem performance, trivsel og sundhed – både fysisk og mentalt.</p>
+  </header>
+
+  <main class="focuses">
+    <a class="card c-klinik" href="klinik/">
+      <div class="bg"></div><div class="veil"></div>
+      <div class="body">
+        <div class="tag">Klinik</div>
+        <h2>Fysiurgisk massage</h2>
+        <p>Behandling der løsner op og fremskynder restitution. Book din tid i klinikken på Østerbro.</p>
+        <div class="go">Book tid →</div>
+      </div>
+    </a>
+
+    <a class="card c-workout" href="workout/">
+      <div class="bg"></div><div class="veil"></div>
+      <div class="body">
+        <div class="tag">Workout</div>
+        <h2>Udendørs træning</h2>
+        <p>TRX og funktionel træning under åben himmel, lige ved vandet. 12 pladser pr. hold.</p>
+        <div class="go">Tilmeld dig nu →</div>
+      </div>
+    </a>
+
+    <a class="card c-pp" href="people-performance/">
+      <div class="bg"></div><div class="veil"></div>
+      <div class="body">
+        <div class="tag">People &amp; Performance</div>
+        <h2>For virksomheder</h2>
+        <p>Performance, trivsel og selvledelse i organisationen. Det hele starter med mennesket.</p>
+        <div class="go">Lad os komme i gang →</div>
+      </div>
+    </a>
+  </main>
+
+  <footer>
+    <p>+45 25 61 60 00 · <a href="mailto:vinnie@davida-sondergaard.dk">vinnie@davida-sondergaard.dk</a> · Vejlegade 12, kld. th., 2100 København Ø</p>
+  </footer>
+</body>
+</html>
