@@ -385,6 +385,83 @@ a { color: inherit; }
 @media (max-width: 720px) {
   .site-footer .foot-inner { grid-template-columns: 1fr; gap: 28px; }
 }
+/* Footer legal links (privacy + cookie policy, #16) */
+.site-footer .foot-legal { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 14px; }
+.site-footer .foot-legal a { font-size: 14px; text-decoration: none; opacity: .9; }
+.site-footer .foot-legal a:hover { opacity: 1; text-decoration: underline; }
+
+/* ==========================================================================
+   COOKIE CONSENT BANNER (#16) — shared, dismissible, visual-only.
+   Markup is injected/toggled by assets/js/cookie.js. The banner is hidden
+   by default and only revealed (.is-visible) when consent hasn't been
+   stored yet, so it never flashes on pages a visitor has already accepted.
+   ========================================================================== */
+.cookie-banner {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 1000;
+  display: none;
+  background: var(--c-slate); color: #e6eae6;
+  padding: 18px clamp(20px, 5vw, 40px);
+  box-shadow: 0 -12px 30px -18px rgba(0,0,0,.55);
+}
+.cookie-banner.is-visible { display: block; }
+.cookie-banner .cookie-inner {
+  max-width: var(--maxw); margin: 0 auto;
+  display: flex; align-items: center; gap: 22px 28px; flex-wrap: wrap;
+}
+.cookie-banner .cookie-text { flex: 1 1 320px; font-size: 14px; line-height: 1.6; margin: 0; }
+.cookie-banner .cookie-text a { color: var(--c-sage); text-decoration: underline; }
+.cookie-banner .cookie-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.cookie-banner .cookie-btn {
+  font-family: var(--font-head); text-transform: uppercase;
+  letter-spacing: .1em; font-size: 13px; font-weight: 500;
+  border: 1px solid var(--c-sage); border-radius: 999px;
+  padding: 11px 26px; cursor: pointer; background: transparent; color: #fff;
+  transition: background .2s, color .2s;
+}
+.cookie-banner .cookie-btn:hover { background: var(--c-sage); color: var(--c-near-black); }
+.cookie-banner .cookie-btn.accept { background: var(--c-sage); color: var(--c-near-black); }
+.cookie-banner .cookie-btn.accept:hover { background: #fff; border-color: #fff; }
+@media (max-width: 560px) {
+  .cookie-banner .cookie-actions { width: 100%; }
+  .cookie-banner .cookie-btn { flex: 1 1 auto; text-align: center; }
+}
+
+/* ==========================================================================
+   LEGAL / POLICY PAGES (#16) — privatlivspolitik & cookie-politik.
+   Simple, readable, light-background article layout.
+   ========================================================================== */
+.legal-header {
+  background: var(--c-slate); color: #fff;
+  padding: 64px clamp(24px, 5vw, 48px) 48px; text-align: center;
+}
+.legal-header .eyebrow-line {
+  font-family: var(--font-head); text-transform: uppercase; letter-spacing: .3em;
+  font-size: 12px; color: var(--c-sage); margin-bottom: 16px;
+}
+.legal-header h1 { font-size: clamp(28px, 4.5vw, 42px); font-weight: 500; margin: 0; }
+.legal-main { background: #fff; }
+.legal-main .legal-inner { max-width: 760px; margin: 0 auto; padding: 56px 24px 72px; }
+.legal-main .updated { color: var(--c-text-soft); font-size: 14px; margin: 0 0 36px; }
+.legal-main h2 {
+  color: var(--c-slate); font-size: 22px; margin: 40px 0 12px;
+  padding-top: 8px;
+}
+.legal-main h2:first-of-type { margin-top: 0; }
+.legal-main p, .legal-main li { color: var(--c-text); font-size: 16px; line-height: 1.75; }
+.legal-main ul { padding-left: 22px; margin: 0 0 16px; }
+.legal-main li { margin-bottom: 8px; }
+.legal-main a { color: var(--c-slate); text-decoration: underline; }
+.legal-main .legal-contact {
+  margin-top: 40px; padding: 24px 26px; background: var(--c-wash);
+  border-radius: 14px; border: 1px solid var(--c-sage-light);
+}
+.legal-main .legal-contact p { margin: 0 0 4px; }
+.legal-main .legal-back {
+  display: inline-block; margin-top: 36px; font-family: var(--font-head);
+  text-transform: uppercase; letter-spacing: .12em; font-size: 13px;
+  text-decoration: none; color: var(--c-slate);
+}
+.legal-main .legal-back:hover { text-decoration: underline; }
 
 /* ==========================================================================
    GLOBAL SMALL-SCREEN PASS (#4) — tighten generous section padding and keep
