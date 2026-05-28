@@ -77,8 +77,75 @@
   .booking h2 { font-size: 30px; }
   .booking p { font-size: 17px; max-width: 48ch; margin: 0 auto 28px; }
   .booking .actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-  .placeholder-cal { max-width: 720px; margin: 36px auto 0; background: #fff; border: 1px dashed var(--c-sage-muted);
-    border-radius: 16px; padding: 40px; color: var(--c-text-soft); font-style: italic; }
+
+  /* ── Mock booking widget — calm, airy two-column card ──────────────────── */
+  .booking-widget {
+    max-width: 880px; margin: 40px auto 0; text-align: left;
+    background: #fff; border: 1px solid var(--c-sage-light);
+    border-radius: 18px; padding: clamp(20px, 4vw, 36px);
+    box-shadow: 0 14px 44px rgba(44,63,70,.08);
+    display: grid; gap: clamp(24px, 4vw, 44px);
+    grid-template-columns: 1.15fr .85fr;
+  }
+  @media (max-width: 720px){ .booking-widget { grid-template-columns: 1fr; } }
+
+  /* Calendar */
+  .cal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+  .cal-title { font-family: var(--font-head); font-weight: 500; font-size: 19px; color: var(--c-slate); letter-spacing: .02em; text-transform: capitalize; }
+  .cal-nav { display: flex; gap: 8px; }
+  .cal-nav button {
+    width: 38px; height: 38px; border-radius: 999px; cursor: pointer;
+    background: var(--c-wash); border: 1px solid var(--c-sage-light); color: var(--c-slate);
+    font-size: 16px; line-height: 1; display: inline-flex; align-items: center; justify-content: center;
+    transition: background .2s, border-color .2s;
+  }
+  .cal-nav button:hover { background: var(--c-sage-light); }
+  .cal-nav button:disabled { opacity: .35; cursor: not-allowed; }
+
+  .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
+  .cal-dow {
+    font-family: var(--font-head); text-transform: uppercase; letter-spacing: .08em;
+    font-size: 11px; color: var(--c-sage-muted); text-align: center; padding: 4px 0 8px;
+  }
+  .cal-day {
+    aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-body); font-size: 15px; color: var(--c-slate);
+    background: var(--c-wash); border: 1px solid transparent; border-radius: 10px;
+    cursor: pointer; transition: background .18s, border-color .18s, color .18s, box-shadow .18s;
+  }
+  .cal-day:hover:not(:disabled):not([aria-pressed="true"]) { background: var(--c-sage-light); border-color: var(--c-sage); }
+  .cal-day.is-empty { background: transparent; border: 0; cursor: default; }
+  .cal-day:disabled, .cal-day.is-past { color: #b7c0bb; background: transparent; cursor: not-allowed; }
+  .cal-day.is-unavailable { color: #c3ccc6; background: repeating-linear-gradient(135deg, #fff, #fff 4px, #f0f3f0 4px, #f0f3f0 8px); cursor: not-allowed; text-decoration: line-through; }
+  .cal-day.is-today { font-weight: 600; box-shadow: inset 0 0 0 1px var(--c-sage-muted); }
+  .cal-day[aria-pressed="true"] { background: var(--c-slate); color: #fff; border-color: var(--c-slate); box-shadow: 0 6px 16px rgba(44,63,70,.22); }
+
+  .cal-legend { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 18px; font-size: 12.5px; color: var(--c-text-soft); }
+  .cal-legend span { display: inline-flex; align-items: center; gap: 7px; }
+  .cal-legend i { width: 14px; height: 14px; border-radius: 4px; display: inline-block; }
+  .cal-legend .sw-free { background: var(--c-wash); border: 1px solid var(--c-sage-light); }
+  .cal-legend .sw-sel { background: var(--c-slate); }
+  .cal-legend .sw-un { background: repeating-linear-gradient(135deg, #fff, #fff 3px, #e3e8e2 3px, #e3e8e2 6px); border: 1px solid var(--c-sage-light); }
+
+  /* Time slots */
+  .slots { border-left: 1px solid var(--c-sage-light); padding-left: clamp(0px, 4vw, 36px); }
+  @media (max-width: 720px){ .slots { border-left: 0; padding-left: 0; border-top: 1px solid var(--c-sage-light); padding-top: 28px; } }
+  .slots h3 { font-family: var(--font-head); font-weight: 500; font-size: 17px; color: var(--c-slate); margin: 0 0 4px; }
+  .slots .slots-sub { font-size: 13.5px; color: var(--c-text-soft); margin: 0 0 18px; }
+  .slots-empty { color: var(--c-text-soft); font-size: 15px; line-height: 1.6; padding: 8px 0; }
+  .slot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); gap: 10px; }
+  .slot {
+    font-family: var(--font-body); font-size: 15px; color: var(--c-slate);
+    background: #fff; border: 1px solid var(--c-sage); border-radius: 10px;
+    padding: 11px 6px; cursor: pointer; text-align: center;
+    transition: background .18s, color .18s, border-color .18s, box-shadow .18s;
+  }
+  .slot:hover:not(:disabled):not([aria-pressed="true"]) { background: var(--c-wash); }
+  .slot:disabled { color: #b7c0bb; background: var(--c-off); border-color: var(--c-sage-light); cursor: not-allowed; text-decoration: line-through; }
+  .slot[aria-pressed="true"] { background: var(--c-slate); color: #fff; border-color: var(--c-slate); box-shadow: 0 6px 16px rgba(44,63,70,.22); }
+  .slots .continue { margin-top: 24px; display: none; }
+  .slots .continue.is-visible { display: block; }
+  .slots .continue p { font-size: 14px; color: var(--c-text-soft); margin: 0 0 14px; text-align: left; }
 
   /* Klinik tone: light, calm top-nav; dark slate footer */
   .site-nav { --nav-bg: rgba(255,255,255,.92); --nav-fg: var(--c-slate); --nav-border: var(--c-sage-light); --nav-accent: var(--c-sage-muted); }
@@ -218,7 +285,60 @@
         <a class="btn" href="mailto:vinnie@davida-sondergaard.dk?subject=Booking%20-%20fysiurgisk%20massage">Book via mail</a>
         <a class="btn ghost" href="tel:+4525616000">Ring 25 61 60 00</a>
       </div>
-      <div class="placeholder-cal">📅 Kalender / booking-system indsættes her (fx Calendly, Acuity eller lignende).</div>
+
+      <!-- ===================================================================
+           MOCK BOOKING WIDGET — NON-FUNCTIONAL / VISUAL ONLY.
+           This is a realistic-looking calendar + time-slot picker for design
+           testing. It does NOT book anything: there is no backend, no real
+           availability, and no network calls. The calendar is generated for
+           the CURRENT month by assets/js/booking.js, and the available/booked
+           states are mock data purely for visual demonstration.
+           In production a real scheduling system (Calendly, Acuity or similar)
+           would slot in here. The booking FORM (navn/email/bekræft) follows in
+           issue #8 — see the #book-form anchor below.
+           =================================================================== -->
+      <div class="booking-widget" id="booking-widget" aria-label="Vælg dag og tidspunkt (demo)">
+        <div class="calendar">
+          <div class="cal-head">
+            <div class="cal-title" id="cal-title">Måned</div>
+            <div class="cal-nav">
+              <button type="button" id="cal-prev" aria-label="Forrige måned">‹</button>
+              <button type="button" id="cal-next" aria-label="Næste måned">›</button>
+            </div>
+          </div>
+          <div class="cal-grid" id="cal-dow">
+            <div class="cal-dow">Man</div>
+            <div class="cal-dow">Tir</div>
+            <div class="cal-dow">Ons</div>
+            <div class="cal-dow">Tor</div>
+            <div class="cal-dow">Fre</div>
+            <div class="cal-dow">Lør</div>
+            <div class="cal-dow">Søn</div>
+          </div>
+          <div class="cal-grid" id="cal-days" role="grid" aria-label="Dage i måneden"></div>
+          <div class="cal-legend" aria-hidden="true">
+            <span><i class="sw-free"></i> Ledig</span>
+            <span><i class="sw-sel"></i> Valgt</span>
+            <span><i class="sw-un"></i> Optaget</span>
+          </div>
+        </div>
+
+        <div class="slots" id="slots" aria-live="polite">
+          <h3 id="slots-title">Vælg en dag</h3>
+          <p class="slots-sub" id="slots-sub">Klik på en ledig dag i kalenderen for at se ledige tider.</p>
+          <div class="slots-empty" id="slots-empty">Ingen dag valgt endnu.</div>
+          <div class="slot-grid" id="slot-grid" role="group" aria-label="Ledige tidspunkter" hidden></div>
+          <div class="continue" id="slots-continue">
+            <p id="continue-summary"></p>
+            <!-- Anchor for the booking form (issue #8): the name/email/confirm
+                 step will render here under #book-form. -->
+            <a class="btn" href="#book-form" id="continue-btn">Fortsæt</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Placeholder anchor for the booking form built in issue #8. -->
+      <div id="book-form" aria-hidden="true"></div>
     </div>
   </section>
 
@@ -248,5 +368,6 @@
     <div class="foot-base">© <span id="year">2026</span> Vinnie Davida Søndergaard · CVR 30259939</div>
   </footer>
   <script src="../assets/js/nav.js" defer></script>
+  <script src="../assets/js/booking.js" defer></script>
 </body>
 </html>
