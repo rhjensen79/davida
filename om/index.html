@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Om Vinnie Davida Søndergaard | Klinik, Workout & People & Performance</title>
+<meta name="description" content="Lær Vinnie Davida Søndergaard at kende — mennesket, historien og tilgangen bag klinik, udendørs træning og People & Performance. Drevet af at udvikle og optimere mennesker.">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="../assets/images/source/favicon.png">
+<link rel="apple-touch-icon" href="../assets/images/source/favicon.png">
+<meta name="theme-color" content="#2c3f46">
+
+<!-- Open Graph -->
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Vinnie Davida Søndergaard">
+<meta property="og:locale" content="da_DK">
+<meta property="og:title" content="Om Vinnie Davida Søndergaard">
+<meta property="og:description" content="Lær Vinnie Davida Søndergaard at kende — mennesket, historien og tilgangen bag klinik, udendørs træning og People & Performance.">
+<meta property="og:url" content="https://rhjensen79.github.io/davida/om/">
+<meta property="og:image" content="https://rhjensen79.github.io/davida/assets/images/source/vinnie-davida-soendergaard-portrait-muusfoto.jpg">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Om Vinnie Davida Søndergaard">
+<meta name="twitter:description" content="Lær Vinnie Davida Søndergaard at kende — mennesket, historien og tilgangen bag klinik, udendørs træning og People & Performance.">
+<meta name="twitter:image" content="https://rhjensen79.github.io/davida/assets/images/source/vinnie-davida-soendergaard-portrait-muusfoto.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<style>
+  /* Om — personal, warm-editorial tone. Reuses the premium .focus-pp token
+     base (sand button), with its own portrait-led storytelling layout. */
+  body { background: #fff; color: var(--c-text); }
+  h1, h2, h3 { color: var(--c-slate); font-weight: 500; }
+
+  /* ── Hero: portrait + intro on dark slate ─────────────────────────────── */
+  .hero { background: var(--c-slate); color: #fff; }
+  .hero .wrap {
+    display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(36px, 6vw, 72px);
+    align-items: center; padding: 120px 24px 88px;
+  }
+  .hero .portrait { border-radius: 16px; overflow: hidden; aspect-ratio: 330/380; box-shadow: 0 24px 60px rgba(0,0,0,.35); }
+  .hero .portrait img { width: 100%; height: 100%; object-fit: cover; }
+  .hero .eyebrow { font-family: var(--font-head); text-transform: uppercase; letter-spacing: .32em;
+    font-size: 13px; color: var(--c-sand); margin-bottom: 20px; }
+  .hero h1 { color: #fff; font-size: clamp(32px, 4.6vw, 56px); line-height: 1.05; margin-bottom: 22px; }
+  .hero p { font-size: 18px; color: #cdd4cf; max-width: 50ch; margin-bottom: 32px; }
+  .hero .actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  @media (max-width: 820px){
+    .hero .wrap { grid-template-columns: 1fr; padding-top: 100px; }
+    .hero .portrait { max-width: 320px; order: -1; }
+  }
+
+  /* ── Story / Om mig — editorial narrative with a pull quote ────────────── */
+  .story { background: #fff; }
+  .story .wrap { max-width: 760px; }
+  .story p { font-size: 18px; color: var(--c-text); line-height: 1.8; margin: 0 0 22px; }
+  .story p:last-child { margin-bottom: 0; }
+  .story .pull {
+    margin: 40px 0; padding: 4px 0 4px 28px; border-left: 3px solid var(--c-sage);
+    font-family: var(--font-head); font-weight: 300; font-size: clamp(22px, 3vw, 30px);
+    line-height: 1.35; color: var(--c-slate);
+  }
+  .story .signature { font-family: var(--font-head); color: var(--c-slate); letter-spacing: .04em; margin-top: 8px; }
+  .story .story-lead { font-family: var(--font-head); font-weight: 400; font-size: clamp(20px, 2.6vw, 26px);
+    line-height: 1.45; color: var(--c-slate); margin: 0 0 30px; }
+
+  /* ── Values — three pillars from the brand promise ─────────────────────── */
+  .values { background: var(--c-wash); }
+  .values .grid { display: grid; gap: 22px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin-top: 8px; }
+  .value-card { background: #fff; border: 1px solid var(--c-sage-light); border-radius: 14px; padding: 30px 28px; }
+  .value-card .v-index {
+    font-family: var(--font-head); font-weight: 300; font-size: 13px; letter-spacing: .26em;
+    text-transform: uppercase; color: var(--c-eyebrow); display: block; margin-bottom: 14px;
+  }
+  .value-card h3 { font-size: 22px; margin-bottom: 10px; }
+  .value-card p { font-size: 16px; color: var(--c-text); line-height: 1.7; margin: 0; }
+
+  /* ── Boksekarriere — background story with a stat row ──────────────────── */
+  .boxing { background: var(--c-slate); color: #fff; }
+  .boxing .wrap { max-width: 980px; }
+  .boxing .eyebrow { color: var(--c-sand); }
+  .boxing h2 { color: #fff; font-size: clamp(28px, 3.8vw, 44px); margin-bottom: 20px; }
+  .boxing .box-lead { font-size: 18px; color: #cdd4cf; line-height: 1.75; max-width: 58ch; margin: 0 0 16px; }
+  .boxing .box-lead:last-of-type { margin-bottom: 0; }
+  .box-stats { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin-top: 48px; }
+  .box-stat { border-top: 2px solid var(--c-sand); padding-top: 18px; }
+  .box-stat .num { font-family: var(--font-head); font-weight: 500; font-size: clamp(28px, 3.6vw, 40px); color: #fff; line-height: 1.05; }
+  .box-stat .lbl { display: block; margin-top: 10px; font-size: 14px; color: #cdd4cf; }
+  .box-titles { display: grid; gap: clamp(28px, 5vw, 56px); grid-template-columns: 1fr 1fr; margin-top: 52px; }
+  .box-title-col h3 { color: #fff; font-weight: 500; font-size: 20px; margin: 0 0 16px;
+    border-top: 2px solid var(--c-sand); padding-top: 18px; }
+  .box-title-col ul { list-style: none; padding: 0; margin: 0; }
+  .box-title-col li { position: relative; padding-left: 20px; margin-bottom: 11px; color: #cdd4cf; font-size: 15.5px; line-height: 1.6; }
+  .box-title-col li:last-child { margin-bottom: 0; }
+  .box-title-col li::before { content: ""; position: absolute; left: 0; top: .62em; width: 6px; height: 6px; border-radius: 50%; background: var(--c-sand); }
+  .box-quote { margin: 52px 0 0; padding-left: 26px; border-left: 3px solid var(--c-sage);
+    font-family: var(--font-head); font-weight: 300; font-size: clamp(20px, 2.6vw, 28px); line-height: 1.4; color: #eef0ec; max-width: 54ch; }
+  @media (max-width: 680px){ .box-titles { grid-template-columns: 1fr; gap: 28px; } }
+
+  /* ── Uddannelse & erfaring — credentials timeline ──────────────────────── */
+  .education { background: var(--c-wash); }
+  .education .wrap { max-width: 820px; }
+  .edu-list { list-style: none; padding: 0; margin: 8px 0 0; }
+  .edu-list li { display: grid; grid-template-columns: 120px 1fr; gap: 22px; align-items: baseline;
+    padding: 16px 0; border-bottom: 1px solid var(--c-sage-light); }
+  .edu-list li:last-child { border-bottom: 0; }
+  .edu-year { font-family: var(--font-head); letter-spacing: .06em; font-size: 15px; color: var(--c-eyebrow); }
+  .edu-what { font-size: 16.5px; color: var(--c-text); line-height: 1.65; }
+  @media (max-width: 560px){ .edu-list li { grid-template-columns: 1fr; gap: 3px; } }
+
+  /* ── De tre fokusområder — recap linking back to the sub-sites ─────────── */
+  .focuses { background: #fff; }
+  .focuses .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-top: 8px; }
+  .focus-link {
+    display: flex; flex-direction: column; text-decoration: none;
+    background: #fff; border: 1px solid var(--c-sage-light); border-radius: 14px;
+    padding: 28px 26px; transition: border-color .2s, transform .15s, box-shadow .2s;
+  }
+  .focus-link:hover { border-color: var(--c-sage-muted); transform: translateY(-3px); box-shadow: 0 14px 32px rgba(44,63,70,.12); }
+  .focus-link .f-tag { font-family: var(--font-head); text-transform: uppercase; letter-spacing: .2em;
+    font-size: 12px; color: var(--c-eyebrow); margin-bottom: 10px; }
+  .focus-link h3 { font-size: 22px; margin-bottom: 10px; }
+  .focus-link p { font-size: 15.5px; color: var(--c-text); line-height: 1.7; margin: 0 0 18px; flex: 1 1 auto; }
+  .focus-link .f-go { font-family: var(--font-head); text-transform: uppercase; letter-spacing: .12em;
+    font-size: 13px; font-weight: 500; color: var(--c-slate); }
+
+  /* ── Galleri — small photo grid ────────────────────────────────────────── */
+  .gallery { background: var(--c-wash); }
+  .gallery .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 8px; }
+  .gallery figure { margin: 0; border-radius: 14px; overflow: hidden; aspect-ratio: 4/5;
+    box-shadow: 0 12px 30px rgba(44,63,70,.12); }
+  .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+  .gallery figure:hover img { transform: scale(1.05); }
+
+  /* ── Testimonials ──────────────────────────────────────────────────────── */
+  .quotes .wrap { display: block; }
+  .quotes .q-grid { display: grid; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-top: 8px; }
+  .quote { border-left: 3px solid var(--c-sage); padding: 6px 0 6px 26px; display: flex; flex-direction: column; }
+  .quote p { font-size: 16.5px; color: var(--c-text); line-height: 1.7; margin: 0; flex: 1 1 auto; }
+  .quote .who { display: flex; align-items: center; gap: 14px; margin-top: 20px; }
+  .quote .who img, .quote .who .avatar { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; flex: none; }
+  .quote .who .avatar { display: flex; align-items: center; justify-content: center; background: var(--c-slate);
+    color: #fff; font-family: var(--font-head); font-weight: 500; font-size: 17px; letter-spacing: .04em; }
+  .quote .who b { font-family: var(--font-head); font-weight: 500; color: var(--c-slate); display: block; }
+  .quote .who span { font-size: 13px; color: var(--c-text-soft); }
+
+  /* ── Contact CTA ───────────────────────────────────────────────────────── */
+  .cta { text-align: center; background: var(--c-sand); }
+  .cta h2 { font-size: clamp(30px, 4vw, 48px); }
+  .cta p { font-size: 18px; max-width: 48ch; margin: 0 auto 30px; }
+  .cta .actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  /* Om tone: refined light-on-slate top-nav; near-black footer (matches P&P) */
+  .site-nav { --nav-bg: rgba(44,63,70,.78); --nav-fg: #fff; --nav-border: rgba(255,255,255,.14); --nav-accent: var(--c-sand); }
+  .site-footer { --foot-bg: var(--c-near-black); --foot-fg: #9aa39c; --foot-head: #fff; --foot-link: #fff; --foot-border: rgba(255,255,255,.1); }
+</style>
+</head>
+<body class="focus-pp">
+  <!-- CANONICAL SHARED TOP-NAV (sub-sites) — see .site-nav in tokens.css. -->
+  <nav class="site-nav">
+    <a class="brand" href="../" aria-label="Vinnie Davida Søndergaard — forside">
+      <img src="../assets/images/source/logolight.png" alt="Vinnie Davida Søndergaard">
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Åbn menu" aria-expanded="false" aria-controls="primary-nav">
+      <span class="bars" aria-hidden="true"></span>
+    </button>
+    <div class="nav-links" id="primary-nav">
+      <a href="../">Forside</a>
+      <a href="../klinik/">Klinik</a>
+      <a href="../workout/">Workout</a>
+      <a href="../people-performance/">People &amp; Performance</a>
+      <a href="../om/" class="is-current">Om</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="portrait">
+        <img src="../assets/images/source/vinnie-davida-soendergaard-portrait-muusfoto.jpg"
+             alt="Portræt af Vinnie Davida Søndergaard">
+      </div>
+      <div>
+        <div class="eyebrow">Om mig</div>
+        <h1>Jeg er drevet af at udvikle og optimere mennesker.</h1>
+        <p>En ærlig, nysgerrig og helhedsorienteret tilgang, der vægter balancen mellem performance, trivsel og sundhed – både fysisk og mentalt.</p>
+        <div class="actions">
+          <a class="btn" href="#kontakt">Kom i kontakt</a>
+          <a class="btn ghost" href="#fokus">Se mine fokusområder</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Om mig: personal narrative ──────────────────────────────────────── -->
+  <section class="section story" id="historie">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Min baggrund</div>
+        <h2>Min historie</h2>
+      </div>
+      <p class="story-lead">Min mission er at inspirere, udvikle og flytte mennesker – med udgangspunkt i helhed og balance i det fysiske, psykiske, mentale og spirituelle. For kun dér finder du styrken og nøglen til forandring og vækst.</p>
+      <p>Jeg er født i 1980 i Vejle og vokset op på en gård på landet. Sport og fysisk aktivitet har altid fyldt meget i mit liv. Derudover har jeg altid haft en stor nysgerrighed for, hvordan mennesker fungerer – fysisk, psykisk og spirituelt – og ikke mindst hvordan jeg optimerer mig selv og bliver den bedste udgave af mig.</p>
+      <p>Jeg har altid bevæget mig i en mandeverden – lige fra jeg som lille spillede fodbold, kørte ræs på cyklen og helst ville se Formel 1 og fodbold på tv. Det har gjort mig ekstra hårdfør og lært mig at se alt som en udfordring og en mulighed for at lære og udvikle mig.</p>
+      <blockquote class="pull">Leg, glæde og nysgerrighed er ikke noget, vi lærer – det er noget, vi glemmer.</blockquote>
+      <p>Det har altid været vigtigt for mig at have en fin balance mellem det maskuline og feminine. I dag ved jeg, at jeg er bedst og mest powerful, når jeg har rum og ro til fordybelse og stilhed – samtidig med at jeg er udadvendt, social, maskulin og stærk. Den balance er for mig livsnødvendig.</p>
+      <p>Jeg elsker det direkte, rene og ærlige. Jeg kan ikke lade som om, og derfor har det altid været naturligt for mig – med stor nysgerrighed – at kigge på det, der er svært, også selvom det kan gøre ondt. Jeg ønsker at opnå det fulde potentiale på alle plan, og så er jeg klar til at gøre det, der skal til.</p>
+      <blockquote class="pull">Kroppen fortæller os alt, hvad den behøver – men det kan være nødvendigt at være stille for at høre, hvad der bliver sagt.</blockquote>
+      <p class="signature">— Vinnie Davida Søndergaard</p>
+    </div>
+  </section>
+
+  <!-- ── Værdier: the brand promise as three pillars ─────────────────────── -->
+  <section class="section values" id="vaerdier">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Min tilgang</div>
+        <h2>Tre ting, du altid kan regne med</h2>
+      </div>
+      <div class="grid">
+        <div class="value-card">
+          <span class="v-index">01</span>
+          <h3>Ærlig</h3>
+          <p>Jeg siger tingene, som de er – med respekt og omsorg. Ægte udvikling kræver ærlighed om, hvor du står i dag, og hvor du gerne vil hen.</p>
+        </div>
+        <div class="value-card">
+          <span class="v-index">02</span>
+          <h3>Nysgerrig</h3>
+          <p>Jeg stiller spørgsmål og lytter, før jeg konkluderer. Hvert menneske og hver organisation er forskellig, så jeg tilrettelægger altid efter dit udgangspunkt.</p>
+        </div>
+        <div class="value-card">
+          <span class="v-index">03</span>
+          <h3>Helhedsorienteret</h3>
+          <p>Krop og sind, performance og trivsel, individ og fællesskab. Jeg arbejder med balancen mellem det hele – fordi det er der, den varige styrke ligger.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section boxing" id="boksekarriere">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom: 28px;">
+        <div class="eyebrow">Boksekarriere</div>
+        <h2>13 år i ringen</h2>
+      </div>
+      <p class="box-lead">Jeg boksede som amatør fra 1998 til 2007. Samme år blev jeg professionel, og i 2008 flyttede jeg til København for at optimere min professionelle karriere. I januar 2011 indstillede jeg karrieren – som regerende Europamester og i top 10 på verdensranglisten.</p>
+      <p class="box-lead">Jeg ramte en periode i dansk professionel boksning med stilstand og ringe forhold: få stævner, sjælden tv-dækning og næsten ingen sponsorer. I lange perioder var jeg min egen manager udenfor ringen og kæmpede for at holde økonomien kørende, mens jeg boksede mod nogle af verdens bedste. Det har givet mig en masse indsigt og sejre på vejen – for mig har det været en livslang uddannelse.</p>
+      <p class="box-lead">Alle kampene, alle glæderne, blodet, sveden og tårerne må nødvendigvis komme andre til gode. Det er den indsigt, jeg i dag bruger, når jeg arbejder med andre mennesker.</p>
+
+      <div class="box-stats">
+        <div class="box-stat">
+          <div class="num">1998–2011</div>
+          <span class="lbl">år i bokseringen, amatør og professionel</span>
+        </div>
+        <div class="box-stat">
+          <div class="num">74</div>
+          <span class="lbl">amatørkampe (60 sejre – 14 tab)</span>
+        </div>
+        <div class="box-stat">
+          <div class="num">11</div>
+          <span class="lbl">professionelle kampe (10–1, 4 på knockout)</span>
+        </div>
+        <div class="box-stat">
+          <div class="num">Top 10</div>
+          <span class="lbl">på verdensranglisten ved karrierestop</span>
+        </div>
+      </div>
+
+      <div class="box-titles">
+        <div class="box-title-col">
+          <h3>Amatørtitler</h3>
+          <ul>
+            <li>2× Europamester – første kvinde i Danmarks historie</li>
+            <li>EU-mester og bedste bokser</li>
+            <li>VM-bronze</li>
+            <li>5× jysk, 4× dansk og 3× nordisk mester</li>
+          </ul>
+        </div>
+        <div class="box-title-col">
+          <h3>Professionelle titler</h3>
+          <ul>
+            <li>EBU Europamester</li>
+            <li>WBC junior-mester</li>
+            <li>WIBF-mester</li>
+            <li>Indstillede karrieren i 2011 som regerende Europamester</li>
+          </ul>
+        </div>
+      </div>
+
+      <blockquote class="box-quote">Det kræver ærlighed og mod at lægge en plan og tage det første skridt. Dernæst handler det om at have modet til at fejle – og modet til at vinde.</blockquote>
+    </div>
+  </section>
+
+  <!-- ── Uddannelse & erfaring ───────────────────────────────────────────── -->
+  <section class="section education" id="uddannelse">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Uddannelse &amp; erfaring</div>
+        <h2>Fagligheden bag</h2>
+      </div>
+      <ul class="edu-list">
+        <li><span class="edu-year">2007</span><span class="edu-what">Uddannet fysiurgisk massør</span></li>
+        <li><span class="edu-year">2008</span><span class="edu-what">Uddannet kranio-sakral terapeut</span></li>
+        <li><span class="edu-year">2017</span><span class="edu-what">Uddannet biodynamisk kranio-sakral terapeut</span></li>
+        <li><span class="edu-year">2010–17</span><span class="edu-what">Træner i TRX Suspension Training (STC 2010, SMSTC 2012, FTC 2017)</span></li>
+        <li><span class="edu-year">2011–</span><span class="edu-what">Personlig træning i Well-come Fitness</span></li>
+        <li><span class="edu-year">2008–11</span><span class="edu-what">Coach og træner i Fightklub.dk</span></li>
+        <li><span class="edu-year">2008–15</span><span class="edu-what">Arbejdet med unge gennem Breath SMART / Prison SMART</span></li>
+        <li><span class="edu-year">2008–</span><span class="edu-what">Kropsterapeut (fysiurgisk massage, kranio-sakral terapi, healing og akupunktur) — Sportsfyssen, Fysioteam og NOR: Nordic Health House</span></li>
+        <li><span class="edu-year">—</span><span class="edu-what">Mentor i Det Lærende Fængsel</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── De tre fokusområder — recap that links back to the sub-sites ─────── -->
+  <section class="section focuses" id="fokus">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Hvad jeg tilbyder</div>
+        <h2>Tre fokusområder, ét menneske</h2>
+      </div>
+      <div class="grid">
+        <a class="focus-link" href="../klinik/">
+          <div class="f-tag">Klinik</div>
+          <h3>Fysiurgisk massage</h3>
+          <p>Behandling der løsner op og fremskynder restitution. Rolig, grundig kropsbehandling i klinikken på Østerbro.</p>
+          <span class="f-go">Book tid →</span>
+        </a>
+        <a class="focus-link" href="../workout/">
+          <div class="f-tag">Workout</div>
+          <h3>Udendørs træning</h3>
+          <p>TRX og funktionel træning under åben himmel, lige ved vandet. Styrke, puls, balance og teknik – 12 pladser pr. hold.</p>
+          <span class="f-go">Tilmeld dig nu →</span>
+        </a>
+        <a class="focus-link" href="../people-performance/">
+          <div class="f-tag">People &amp; Performance</div>
+          <h3>For virksomheder</h3>
+          <p>Performance, trivsel og selvledelse i organisationen — huscoach, mentoring, workshops og MiBo Gold.</p>
+          <span class="f-go">Lad os komme i gang →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Galleri ─────────────────────────────────────────────────────────── -->
+  <section class="section gallery" id="galleri">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Galleri</div>
+        <h2>Glimt fra arbejdet</h2>
+      </div>
+      <div class="grid">
+        <figure>
+          <img src="../assets/images/source/vinnie-davida-soendergaard-photo-martin-kaufmann-dsc-3914-1.jpg"
+               alt="Vinnie Davida Søndergaard – portræt" loading="lazy">
+        </figure>
+        <figure>
+          <img src="../assets/images/source/vinnie-davida-soendergaard-photo-martin-kaufmann-dsc-4379-kopi-330x380.jpg"
+               alt="Vinnie Davida Søndergaard i arbejde" loading="lazy" width="330" height="380">
+        </figure>
+        <figure>
+          <img src="../assets/images/source/vinnie-davida-soendergaard-photo-martin-kaufmann-dsc-4688-330x380.jpg"
+               alt="Vinnie Davida Søndergaard i klinikken" loading="lazy" width="330" height="380">
+        </figure>
+        <figure>
+          <img src="../assets/images/source/vinnie-davida-soendergaard-photo-martin-kaufmann-dsc-4499.jpg"
+               alt="Kropsbehandling i klinikken" loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Testimonials ────────────────────────────────────────────────────── -->
+  <section class="section quotes" id="testimonials">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Testimonials</div>
+        <h2>Det siger de</h2>
+      </div>
+      <div class="q-grid">
+        <div class="quote">
+          <p>"Jeg har trænet med Vinnie i næsten 4 år. Det er den bedste og mest udfordrende træning jeg har lavet, siden jeg stoppede med fodbold. Siden vi startede, er jeg blevet stærkere og meget mere stabil."</p>
+          <div class="who"><img src="../assets/images/source/ref-peter-schmeichel1-180x160-1.jpg" alt="Peter Schmeichel"><span><b>Peter Schmeichel</b>Tidl. professionel fodboldmålmand</span></div>
+        </div>
+        <div class="quote">
+          <p>"Vinnie er super sød og inspirerende, og så har hun forståelse for, hvad det vil sige at dyrke en individuel sport. Hvis jeg kunne ha' min egen fysiske træner hver dag, skulle det helt klart være Vinnie."</p>
+          <div class="who"><img src="../assets/images/source/ref-ida-krause-180x180-1.jpg" alt="Ida Krause"><span><b>Ida Krause</b>Junior elite tennisspiller</span></div>
+        </div>
+        <div class="quote">
+          <p>"Det har været en kæmpe succes. Vinnie bruger mange forskellige træningsmetoder, som er utrolig effektive og kan bruges af alle i alle aldre. Jeg kan varmt anbefale Vinnie Søndergaard, hvis du vil udfordres på alle områder – både fysisk og mentalt."</p>
+          <div class="who"><span class="avatar" aria-hidden="true">NT</span><span><b>Nils Trier</b>Juniorcheftræner, Birkerød tennisklub</span></div>
+        </div>
+        <div class="quote">
+          <p>"Efter et forløb på snart to måneder har hun formået at løsne op og fremskynde restitutionsprocessen, så jeg har haft mulighed for at være konkurrenceklar til sæsonens sidste konkurrencer. Flotte anbefalinger herfra!"</p>
+          <div class="who"><span class="avatar" aria-hidden="true">JK</span><span><b>Julie Kissow Kristensen</b>Elite landsholdsgymnast</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contact CTA ─────────────────────────────────────────────────────── -->
+  <section class="section cta" id="kontakt">
+    <div class="wrap">
+      <h2>Lad os tage en snak</h2>
+      <p>Uanset om det handler om klinik, træning eller din organisation, så starter det med en samtale. Skriv eller ring – så finder vi ud af det sammen.</p>
+      <div class="actions">
+        <a class="btn" href="mailto:vinnie@davida-sondergaard.dk?subject=Kontakt%20-%20Vinnie%20Davida%20S%C3%B8ndergaard">Skriv til mig</a>
+        <a class="btn ghost" href="tel:+4525616000">Ring 25 61 60 00</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CANONICAL SHARED FOOTER — identical across all pages (see tokens.css). -->
+  <footer class="site-footer">
+    <div class="foot-inner">
+      <div>
+        <p class="foot-brand">Vinnie Davida Søndergaard</p>
+        <p>Jeg er drevet af at udvikle og optimere mennesker — klinik, udendørs træning og People &amp; Performance.</p>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <p><a href="tel:+4525616000">+45 25 61 60 00</a></p>
+        <p><a href="mailto:vinnie@davida-sondergaard.dk">vinnie@davida-sondergaard.dk</a></p>
+        <p>Vejlegade 12, kld. th.<br>2100 København Ø</p>
+        <p>CVR 30259939</p>
+      </div>
+      <div>
+        <h4>Følg med</h4>
+        <div class="social">
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.facebook.com/lifepoweredthroughinside" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.instagram.com/vinnie_davida_sondergaard" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-base">
+      <div class="foot-legal">
+        <a href="../privatlivspolitik.html">Privatlivspolitik</a>
+        <a href="../cookie-politik.html">Cookie-politik</a>
+      </div>
+      © <span id="year">2026</span> Vinnie Davida Søndergaard · CVR 30259939
+    </div>
+  </footer>
+  <script src="../assets/js/nav.js" defer></script>
+  <script src="../assets/js/cookie.js" data-path-prefix="../" defer></script>
+</body>
+</html>
