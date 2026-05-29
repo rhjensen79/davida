@@ -196,6 +196,7 @@ All media downloaded from the original site lives in
 - `26221195-10155130775217765-308828091607471913-o-e1655989816773.jpg`
 - `split-trx.jpg` — TRX training image
 - `lipti-cover.jpg` — cover image
+- `vinnie-davida-soendergaard-portrait-muusfoto.jpg` — B/W portrait w/ boxing gloves (photo: Muusfoto); the canonical "Om Vinnie" portrait. Used on the About page hero + landing "Om" banner.
 
 ### Testimonial portraits
 - `ref-peter-schmeichel1-180x160-1.jpg`
