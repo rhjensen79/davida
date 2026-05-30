@@ -3,7 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js');</script>
 <title>People &amp; Performance | Vinnie Davida Søndergaard</title>
+<link rel="canonical" href="https://rhjensen79.github.io/davida/people-performance/">
 <meta name="description" content="Performance, trivsel og selvledelse i organisationen. Professionelle ydelser til virksomheder — det hele starter med mennesket.">
 
 <!-- Favicon -->
@@ -221,7 +223,36 @@
   .site-nav { --nav-bg: rgba(44,63,70,.78); --nav-fg: #fff; --nav-border: rgba(255,255,255,.14); --nav-accent: var(--c-sand); }
   .site-footer { --foot-bg: var(--c-near-black); --foot-fg: #9aa39c; --foot-head: #fff; --foot-link: #fff; --foot-border: rgba(255,255,255,.1); }
   @media (max-width: 820px){ .hero .wrap { grid-template-columns: 1fr; } .hero .portrait { max-width: 320px; } }
+  /* Placeholder teasers (#23): podcast/blog links have no destination yet. */
+  .is-soon { opacity: .62; cursor: default; pointer-events: none; }
 </style>
+
+<!-- Structured data (#23): the B2B people-and-performance advisory. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Vinnie Davida Søndergaard — People & Performance",
+  "description": "Performance, trivsel og selvledelse i organisationen. Professionelle ydelser til virksomheder — det hele starter med mennesket.",
+  "url": "https://rhjensen79.github.io/davida/people-performance/",
+  "image": "https://rhjensen79.github.io/davida/assets/images/source/vinnie-davida-soendergaard-photo-martin-kaufmann-dsc-3914-1.jpg",
+  "telephone": "+4525616000",
+  "email": "vinnie@davida-sondergaard.dk",
+  "areaServed": { "@type": "Country", "name": "Danmark" },
+  "founder": { "@type": "Person", "name": "Vinnie Davida Søndergaard" },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Ydelser",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Huscoach i virksomheden" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "1:1 mentoring & forløb" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Play Your Talent" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Workshops & foredrag" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ergonomi & APV" } }
+    ]
+  }
+}
+</script>
 </head>
 <body class="focus-pp">
   <!-- CANONICAL SHARED TOP-NAV (sub-sites) — see .site-nav in tokens.css. -->
@@ -268,9 +299,9 @@
         <div class="eyebrow">Ydelser</div>
         <h2>Skræddersyede forløb til din organisation</h2>
       </div>
-      <div class="svc-list">
+      <div class="svc-list reveal-stagger">
 
-        <article class="svc">
+        <article class="svc reveal">
           <div class="svc-index">01 — Huscoach</div>
           <div class="svc-body">
             <h3>Huscoach i virksomheden</h3>
@@ -279,7 +310,7 @@
           </div>
         </article>
 
-        <article class="svc">
+        <article class="svc reveal">
           <div class="svc-index">02 — Mentoring</div>
           <div class="svc-body">
             <h3>1:1 mentoring &amp; forløb</h3>
@@ -289,7 +320,7 @@
           </div>
         </article>
 
-        <article class="svc">
+        <article class="svc reveal">
           <div class="svc-index">03 — Talent</div>
           <div class="svc-body">
             <h3>Play Your Talent</h3>
@@ -298,7 +329,7 @@
           </div>
         </article>
 
-        <article class="svc">
+        <article class="svc reveal">
           <div class="svc-index">04 — Workshops</div>
           <div class="svc-body">
             <h3>Workshops &amp; foredrag</h3>
@@ -307,7 +338,7 @@
           </div>
         </article>
 
-        <article class="svc">
+        <article class="svc reveal">
           <div class="svc-index">05 — Arbejdsmiljø</div>
           <div class="svc-body">
             <h3>Ergonomi &amp; APV</h3>
@@ -330,12 +361,12 @@
       </div>
       <p class="mibo-philosophy">Den maskuline og feminine kraft er noget, vi alle besidder. Når du finder modet til at balancere de to sider, vil du og din organisation performe og trives på en ny, sund og stærk måde. MiBo Gold er den røde tråd gennem alt mit arbejde — fra 1:1-mentoring til ledergrupper og hele organisationer.</p>
 
-      <div class="mibo-grid">
-        <div class="mibo-force">
+      <div class="mibo-grid reveal-stagger">
+        <div class="mibo-force reveal">
           <h3>Den maskuline kraft</h3>
           <p>Retning, drive og handlekraft. Evnen til at sætte mål, træffe beslutninger og holde kursen — at performe under pres og levere, når det gælder.</p>
         </div>
-        <div class="mibo-force">
+        <div class="mibo-force reveal">
           <h3>Den feminine kraft</h3>
           <p>Nærvær, intuition og relation. Evnen til at mærke sig selv og andre, skabe tryghed og trivsel — og lede mennesker i en sund og bæredygtig retning.</p>
         </div>
@@ -351,16 +382,16 @@
         <div class="eyebrow">Partnerskaber</div>
         <h2>Udvalgte samarbejdspartnere</h2>
       </div>
-      <div class="logos">
-        <span class="logo"><img src="../assets/images/source/saxobanklogo.png" alt="Saxo Bank"></span>
-        <span class="logo"><img src="../assets/images/source/nor-primary-logo-w-tagline-rgb-pos-large-e1539977408170.png" alt="NOR"></span>
-        <span class="logo is-badge"><img src="../assets/images/source/19tii81qktc-champs-camp-logo-415.png" alt="Champs Camp"></span>
-        <span class="logo is-white"><img src="../assets/images/source/weesgaard-dental-kirurgi-since-1962-horizontal-logo-white-12-2025-1920x315.webp" alt="Weesgaard Dental Kirurgi"></span>
-        <span class="wordmark" title="AirCat">AirCat</span>
-        <span class="wordmark" title="BloxHub">BloxHub</span>
-        <span class="logo"><img src="../assets/images/source/logo-generous-development-black-final.png" alt="Generous Development"></span>
-        <span class="wordmark" title="AndNumbers">AndNumbers</span>
-        <span class="logo"><img src="../assets/images/source/npv-logo-cmyk-pos-002.png" alt="NPV"></span>
+      <div class="logos reveal-stagger">
+        <span class="logo reveal"><img src="../assets/images/source/saxobanklogo.png" alt="Saxo Bank"></span>
+        <span class="logo reveal"><img src="../assets/images/source/nor-primary-logo-w-tagline-rgb-pos-large-e1539977408170.png" alt="NOR"></span>
+        <span class="logo is-badge reveal"><img src="../assets/images/source/19tii81qktc-champs-camp-logo-415.png" alt="Champs Camp"></span>
+        <span class="logo is-white reveal"><img src="../assets/images/source/weesgaard-dental-kirurgi-since-1962-horizontal-logo-white-12-2025-1920x315.webp" alt="Weesgaard Dental Kirurgi"></span>
+        <span class="wordmark reveal" title="AirCat">AirCat</span>
+        <span class="wordmark reveal" title="BloxHub">BloxHub</span>
+        <span class="logo reveal"><img src="../assets/images/source/logo-generous-development-black-final.png" alt="Generous Development"></span>
+        <span class="wordmark reveal" title="AndNumbers">AndNumbers</span>
+        <span class="logo reveal"><img src="../assets/images/source/npv-logo-cmyk-pos-002.png" alt="NPV"></span>
       </div>
     </div>
   </section>
@@ -369,20 +400,20 @@
     <div class="wrap" style="display:block">
       <div class="section-head"><div class="eyebrow">Testimonials</div><h2>Det siger de</h2></div>
     </div>
-    <div class="wrap">
-      <div class="quote">
+    <div class="wrap reveal-stagger">
+      <div class="quote reveal">
         <p>"Jeg har trænet med Vinnie i næsten 4 år. Det er den bedste og mest udfordrende træning jeg har lavet, siden jeg stoppede med fodbold. Siden vi startede, er jeg blevet stærkere og meget mere stabil."</p>
         <div class="who"><img src="../assets/images/source/ref-peter-schmeichel1-180x160-1.jpg" alt="Peter Schmeichel"><span><b>Peter Schmeichel</b>Tidl. professionel fodboldmålmand</span></div>
       </div>
-      <div class="quote">
+      <div class="quote reveal">
         <p>"Vinnie er super sød og inspirerende, og så har hun forståelse for, hvad det vil sige at dyrke en individuel sport. Hvis jeg kunne ha' min egen fysiske træner hver dag, skulle det helt klart være Vinnie."</p>
         <div class="who"><img src="../assets/images/source/ref-ida-krause-180x180-1.jpg" alt="Ida Krause"><span><b>Ida Krause</b>Junior elite tennisspiller</span></div>
       </div>
-      <div class="quote">
+      <div class="quote reveal">
         <p>"Det har været en kæmpe succes. Vinnie bruger mange forskellige træningsmetoder, som er utrolig effektive og kan bruges af alle i alle aldre. Jeg kan varmt anbefale Vinnie Søndergaard."</p>
         <div class="who"><span class="avatar" aria-hidden="true">NT</span><span><b>Nils Trier</b>Juniorcheftræner, Birkerød tennisklub</span></div>
       </div>
-      <div class="quote">
+      <div class="quote reveal">
         <p>"Efter et forløb på snart to måneder har hun formået at løsne op og fremskynde restitutionsprocessen, så jeg har haft mulighed for at være konkurrenceklar. Flotte anbefalinger herfra!"</p>
         <div class="who"><span class="avatar" aria-hidden="true">JK</span><span><b>Julie Kissow Kristensen</b>Elite landsholdsgymnast</span></div>
       </div>
@@ -396,7 +427,7 @@
         <h2>Indsigt, der bygges indefra</h2>
       </div>
 
-      <article class="podcast">
+      <article class="podcast reveal">
         <div class="podcast-cover">
           <img src="../assets/images/source/lipti-cover.jpg" alt="Podcasten Mod til Indsigt &amp; Udvikling">
         </div>
@@ -404,7 +435,8 @@
           <div class="eyebrow">Podcast</div>
           <h3>Mod til Indsigt &amp; Udvikling</h3>
           <p>En podcast, der stiller skarpt på, at hele, autentiske mennesker skaber hele virksomheder — og at sundhed, trivsel og styrke i livet først og fremmest bygges og udleves indefra.</p>
-          <a class="btn" href="#" aria-label="Lyt til podcasten Mod til Indsigt &amp; Udvikling">Lyt med</a>
+          <!-- Placeholder: no podcast URL yet — non-navigating teaser (#23). -->
+          <span class="btn is-soon" role="link" aria-disabled="true" title="Podcast-link kommer snart">Lyt med · kommer snart</span>
         </div>
       </article>
 
@@ -413,27 +445,28 @@
           <div class="eyebrow">Blog</div>
           <h3>Fire temaer at fordybe sig i</h3>
         </div>
-        <div class="theme-grid">
-          <a class="theme-card" href="#">
+        <!-- Blog not yet built: cards are non-navigating teasers (no dead #). -->
+        <div class="theme-grid reveal-stagger">
+          <div class="theme-card reveal" aria-disabled="true">
             <span class="theme-index">01</span>
             <h4>Fysisk og mental balance</h4>
-            <span class="theme-more">Læs mere</span>
-          </a>
-          <a class="theme-card" href="#">
+            <span class="theme-more">Kommer snart</span>
+          </div>
+          <div class="theme-card reveal" aria-disabled="true">
             <span class="theme-index">02</span>
             <h4>Helhed og autenticitet</h4>
-            <span class="theme-more">Læs mere</span>
-          </a>
-          <a class="theme-card" href="#">
+            <span class="theme-more">Kommer snart</span>
+          </div>
+          <div class="theme-card reveal" aria-disabled="true">
             <span class="theme-index">03</span>
             <h4>Performanceoptimering</h4>
-            <span class="theme-more">Læs mere</span>
-          </a>
-          <a class="theme-card" href="#">
+            <span class="theme-more">Kommer snart</span>
+          </div>
+          <div class="theme-card reveal" aria-disabled="true">
             <span class="theme-index">04</span>
             <h4>Styrk din feminine kraft</h4>
-            <span class="theme-more">Læs mere</span>
-          </a>
+            <span class="theme-more">Kommer snart</span>
+          </div>
         </div>
       </div>
     </div>
@@ -449,7 +482,7 @@
       <h2>Lad os komme i gang</h2>
       <p>Fortæl om din organisation, så skræddersyr vi et forløb der passer til jeres udgangspunkt, ressourcer og rammer.</p>
 
-      <form class="form contact-form contact-card" id="contact-form" novalidate>
+      <form class="form contact-form contact-card reveal" id="contact-form" novalidate>
         <div class="form-row">
           <div class="field">
             <label for="ct-navn">Navn</label>
@@ -519,7 +552,7 @@
       <div>
         <h4>Følg med</h4>
         <div class="social">
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.linkedin.com/search/results/all/?keywords=Vinnie%20Davida%20S%C3%B8ndergaard" target="_blank" rel="noopener">LinkedIn</a>
           <a href="https://www.facebook.com/lifepoweredthroughinside" target="_blank" rel="noopener">Facebook</a>
           <a href="https://www.instagram.com/vinnie_davida_sondergaard" target="_blank" rel="noopener">Instagram</a>
         </div>
@@ -534,6 +567,7 @@
     </div>
   </footer>
   <script src="../assets/js/nav.js" defer></script>
+  <script src="../assets/js/reveal.js" defer></script>
   <script src="../assets/js/contact.js" defer></script>
   <script src="../assets/js/cookie.js" data-path-prefix="../" defer></script>
 </body>

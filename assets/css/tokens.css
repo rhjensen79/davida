@@ -505,3 +505,36 @@ a { color: inherit; }
   /* comfortable tap targets for the primary buttons on mobile */
   .btn { display: inline-block; min-height: 44px; line-height: 1.4; }
 }
+
+/* ==========================================================================
+   SCROLL REVEAL (#23) — subtle staggered entrance for content as it scrolls
+   into view. Progressive enhancement: the hidden start-state is scoped to
+   html.js (a class set by a tiny inline script before paint), so if JS is
+   disabled or fails, every .reveal stays fully visible — nothing is gated
+   behind the IntersectionObserver in assets/js/reveal.js.
+   ========================================================================== */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .6s ease, transform .6s cubic-bezier(.16, .8, .3, 1);
+  will-change: opacity, transform;
+}
+.js .reveal.is-visible { opacity: 1; transform: none; }
+
+/* ==========================================================================
+   REDUCED MOTION (#23) — honour the OS "reduce motion" preference. Kills the
+   global smooth scroll, every transition/animation (hover scale, tile lift,
+   calendar fades), and forces reveal content to its final, visible state so
+   nothing stays hidden. The near-zero (not 0) durations keep transitionend /
+   animationend listeners firing.
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .js .reveal { opacity: 1 !important; transform: none !important; }
+}

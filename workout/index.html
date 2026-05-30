@@ -3,7 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js');</script>
 <title>Workout — Udendørs TRX | Vinnie Davida Søndergaard</title>
+<link rel="canonical" href="https://rhjensen79.github.io/davida/workout/">
 <meta name="description" content="Udendørs TRX og funktionel træning under åben himmel, lige ved vandet. 12 pladser pr. hold. Tilmeld dig nu.">
 
 <!-- Favicon -->
@@ -25,6 +27,8 @@
 <meta name="twitter:title" content="Workout — Udendørs TRX | Vinnie Davida Søndergaard">
 <meta name="twitter:description" content="Udendørs TRX og funktionel træning under åben himmel, lige ved vandet. 12 pladser pr. hold. Tilmeld dig nu.">
 <meta name="twitter:image" content="https://rhjensen79.github.io/davida/assets/images/source/split-trx.jpg">
+<!-- Preload the hero photo (a CSS background, otherwise discovered late) — the LCP element. -->
+<link rel="preload" as="image" href="../assets/images/source/split-trx.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -107,6 +111,26 @@
   .site-nav { --nav-bg: rgba(8,13,18,.55); --nav-fg: #fff; --nav-border: rgba(255,255,255,.12); --nav-accent: var(--c-sage); }
   .site-footer { --foot-bg: var(--c-near-black); --foot-fg: #8f978c; --foot-head: #fff; --foot-link: var(--c-sage); --foot-border: #1c252c; }
 </style>
+
+<!-- Structured data (#23): the outdoor TRX class as an offered service. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Udendørs TRX & funktionel holdtræning",
+  "name": "Udendørs TRX",
+  "description": "TRX og funktionel træning under åben himmel, lige ved vandet — styrke, puls, balance og teknik. 12 pladser pr. hold.",
+  "url": "https://rhjensen79.github.io/davida/workout/",
+  "image": "https://rhjensen79.github.io/davida/assets/images/source/split-trx.jpg",
+  "areaServed": { "@type": "City", "name": "København" },
+  "provider": {
+    "@type": "Person",
+    "name": "Vinnie Davida Søndergaard",
+    "telephone": "+4525616000",
+    "email": "vinnie@davida-sondergaard.dk"
+  }
+}
+</script>
 </head>
 <body class="focus-workout">
   <!-- CANONICAL SHARED TOP-NAV (sub-sites) — see .site-nav in tokens.css. -->
@@ -136,10 +160,10 @@
   </header>
 
   <section class="section stats">
-    <div class="wrap">
-      <div><div class="n">12</div><div class="l">pladser pr. hold</div></div>
-      <div><div class="n">60</div><div class="l">minutter</div></div>
-      <div><div class="n">100%</div><div class="l">udendørs</div></div>
+    <div class="wrap reveal-stagger">
+      <div class="reveal"><div class="n">12</div><div class="l">pladser pr. hold</div></div>
+      <div class="reveal"><div class="n">60</div><div class="l">minutter</div></div>
+      <div class="reveal"><div class="n">100%</div><div class="l">udendørs</div></div>
     </div>
   </section>
 
@@ -151,10 +175,10 @@
   </section>
 
   <section class="section schedule">
-    <div class="wrap">
+    <div class="wrap reveal-stagger">
 
       <!-- CLASS TYPE: duplicate this whole <article class="class-type"> block to add a new type. -->
-      <article class="class-type">
+      <article class="class-type reveal">
         <header class="class-type-head">
           <h3>Udendørs TRX</h3>
           <span class="badge">12 pladser pr. hold</span>
@@ -196,7 +220,7 @@
       </article>
 
       <!-- CLASS TYPE (placeholder): proves extensibility — no slots until launch. -->
-      <article class="class-type is-coming">
+      <article class="class-type is-coming reveal">
         <header class="class-type-head">
           <h3>Funktionel styrke</h3>
           <span class="badge">Kommer snart</span>
@@ -217,7 +241,7 @@
       <h2>Sikr dig en plads</h2>
       <p>Der er kun 12 pladser på hvert hold. Skriv dig op, så vender jeg tilbage med det hele.</p>
 
-      <form class="form signup-form" id="signup-form" novalidate>
+      <form class="form signup-form reveal" id="signup-form" novalidate>
         <div class="form-row">
           <div class="field">
             <label for="su-navn">Navn</label>
@@ -279,7 +303,7 @@
       <div>
         <h4>Følg med</h4>
         <div class="social">
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.linkedin.com/search/results/all/?keywords=Vinnie%20Davida%20S%C3%B8ndergaard" target="_blank" rel="noopener">LinkedIn</a>
           <a href="https://www.facebook.com/lifepoweredthroughinside" target="_blank" rel="noopener">Facebook</a>
           <a href="https://www.instagram.com/vinnie_davida_sondergaard" target="_blank" rel="noopener">Instagram</a>
         </div>
@@ -294,6 +318,7 @@
     </div>
   </footer>
   <script src="../assets/js/nav.js" defer></script>
+  <script src="../assets/js/reveal.js" defer></script>
   <!-- Visual-only signup toggle (non-functional mock) — see assets/js/signup.js. -->
   <script src="../assets/js/signup.js" defer></script>
   <script src="../assets/js/cookie.js" data-path-prefix="../" defer></script>

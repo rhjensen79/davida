@@ -3,7 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Set html.js before paint so .reveal start-state applies without a flash
+     (progressive enhancement — see assets/js/reveal.js). -->
+<script>document.documentElement.classList.add('js');</script>
 <title>Vinnie Davida Søndergaard — Klinik, Workout & People & Performance</title>
+<link rel="canonical" href="https://rhjensen79.github.io/davida/">
 <meta name="description" content="Jeg er drevet af at udvikle og optimere mennesker — fysiurgisk massage, udendørs TRX-træning og People & Performance til mennesker og organisationer.">
 
 <!-- Favicon -->
@@ -25,6 +29,8 @@
 <meta name="twitter:title" content="Vinnie Davida Søndergaard — Klinik, Workout & People & Performance">
 <meta name="twitter:description" content="Jeg er drevet af at udvikle og optimere mennesker — fysiurgisk massage, udendørs TRX-træning og People & Performance til mennesker og organisationer.">
 <meta name="twitter:image" content="https://rhjensen79.github.io/davida/assets/images/source/vinnie-davida-soendergaard-photo-martin-kaufmann-dsc-3793.jpg">
+<!-- Preload the first (top-left) focus-tile image — the likely LCP element. -->
+<link rel="preload" as="image" href="assets/images/source/vinnie-davida-soendergaard-photo-martin-kaufmann-dsc-4499.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -89,6 +95,33 @@
   /* Landing footer tone: dark slate, on the pale-green page */
   .site-footer { --foot-bg: var(--c-slate); --foot-fg: #cdd4cf; --foot-head: #fff; --foot-link: #fff; }
 </style>
+
+<!-- Structured data (#23): the person/brand behind all three focuses. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Vinnie Davida Søndergaard",
+  "url": "https://rhjensen79.github.io/davida/",
+  "image": "https://rhjensen79.github.io/davida/assets/images/source/vinnie-davida-soendergaard-portrait-muusfoto.jpg",
+  "jobTitle": "Fysiurgisk massør, træner & people-and-performance-rådgiver",
+  "description": "Jeg er drevet af at udvikle og optimere mennesker — fysiurgisk massage, udendørs TRX-træning og People & Performance til mennesker og organisationer.",
+  "telephone": "+4525616000",
+  "email": "vinnie@davida-sondergaard.dk",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Vejlegade 12, kld. th.",
+    "postalCode": "2100",
+    "addressLocality": "København Ø",
+    "addressCountry": "DK"
+  },
+  "sameAs": [
+    "https://www.facebook.com/lifepoweredthroughinside",
+    "https://www.instagram.com/vinnie_davida_sondergaard"
+  ],
+  "knowsAbout": ["Fysiurgisk massage", "TRX", "Funktionel træning", "Performance", "Trivsel", "Selvledelse"]
+}
+</script>
 </head>
 <body>
   <header class="hero">
@@ -97,8 +130,8 @@
     <p>En ærlig, nysgerrig og helhedsorienteret tilgang, der vægter balancen mellem performance, trivsel og sundhed – både fysisk og mentalt.</p>
   </header>
 
-  <main class="focuses">
-    <a class="tile c-klinik" href="klinik/">
+  <main class="focuses reveal-stagger">
+    <a class="tile c-klinik reveal" href="klinik/">
       <div class="bg"></div><div class="veil"></div>
       <div class="body">
         <div class="tag">Klinik</div>
@@ -108,7 +141,7 @@
       </div>
     </a>
 
-    <a class="tile c-workout" href="workout/">
+    <a class="tile c-workout reveal" href="workout/">
       <div class="bg"></div><div class="veil"></div>
       <div class="body">
         <div class="tag">Workout</div>
@@ -118,7 +151,7 @@
       </div>
     </a>
 
-    <a class="tile c-pp" href="people-performance/">
+    <a class="tile c-pp reveal" href="people-performance/">
       <div class="bg"></div><div class="veil"></div>
       <div class="body">
         <div class="tag">People &amp; Performance</div>
@@ -128,7 +161,7 @@
       </div>
     </a>
 
-    <a class="tile c-om" href="om/">
+    <a class="tile c-om reveal" href="om/">
       <div class="bg"></div><div class="veil"></div>
       <div class="body">
         <div class="tag">Om</div>
@@ -162,7 +195,7 @@
       <div>
         <h4>Følg med</h4>
         <div class="social">
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.linkedin.com/search/results/all/?keywords=Vinnie%20Davida%20S%C3%B8ndergaard" target="_blank" rel="noopener">LinkedIn</a>
           <a href="https://www.facebook.com/lifepoweredthroughinside" target="_blank" rel="noopener">Facebook</a>
           <a href="https://www.instagram.com/vinnie_davida_sondergaard" target="_blank" rel="noopener">Instagram</a>
         </div>
@@ -177,6 +210,7 @@
     </div>
   </footer>
   <script src="assets/js/nav.js" defer></script>
+  <script src="assets/js/reveal.js" defer></script>
   <script src="assets/js/cookie.js" data-path-prefix="" defer></script>
 </body>
 </html>

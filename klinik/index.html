@@ -3,7 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js');</script>
 <title>Klinik — Fysiurgisk massage | Vinnie Davida Søndergaard</title>
+<link rel="canonical" href="https://rhjensen79.github.io/davida/klinik/">
 <meta name="description" content="Fysiurgisk massage og kropsbehandling i en rolig klinik på Østerbro, København. Book din tid online.">
 
 <!-- Favicon -->
@@ -25,6 +27,8 @@
 <meta name="twitter:title" content="Klinik — Fysiurgisk massage | Vinnie Davida Søndergaard">
 <meta name="twitter:description" content="Fysiurgisk massage og kropsbehandling i en rolig klinik på Østerbro, København. Book din tid online.">
 <meta name="twitter:image" content="https://rhjensen79.github.io/davida/assets/images/source/vinnie-davida-soendergaard-photo-martin-kaufmann-dsc-4499.jpg">
+<!-- Preload the hero photo (a CSS background, otherwise discovered late) — the LCP element. -->
+<link rel="preload" as="image" href="../assets/images/source/vinnie-davida-soendergaard-photo-martin-kaufmann-dsc-4499.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -239,6 +243,43 @@
   .hero { padding-top: 60px; }
   @media (max-width: 760px){ .hero { grid-template-columns: 1fr; } .hero .photo { min-height: 320px; order: -1; } }
 </style>
+
+<!-- Structured data (#23): the clinic as a local business, for local SEO. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "Vinnie Davida Søndergaard — Klinik",
+  "description": "Fysiurgisk massage og kropsbehandling i en rolig klinik på Østerbro, København.",
+  "url": "https://rhjensen79.github.io/davida/klinik/",
+  "image": "https://rhjensen79.github.io/davida/assets/images/source/vinnie-davida-soendergaard-photo-martin-kaufmann-dsc-4499.jpg",
+  "telephone": "+4525616000",
+  "email": "vinnie@davida-sondergaard.dk",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Vejlegade 12, kld. th.",
+    "postalCode": "2100",
+    "addressLocality": "København Ø",
+    "addressCountry": "DK"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 55.7066,
+    "longitude": 12.5780
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "description": "Behandlinger foregår efter aftale."
+  },
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fysiurgisk massage" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kropsbehandling" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Restitution & stræk" } }
+  ]
+}
+</script>
 </head>
 <body class="focus-klinik">
   <!-- ===================================================================
@@ -288,23 +329,23 @@
         <div class="eyebrow">Behandlinger</div>
         <h2>Hvad jeg tilbyder</h2>
       </div>
-      <div class="grid">
-        <div class="card">
+      <div class="grid reveal-stagger">
+        <div class="card reveal">
           <h3>Fysiurgisk massage</h3>
           <p>Dybdegående behandling af muskler og bindevæv, der løsner spændinger og fastlåste områder. Vi arbejder roligt og grundigt med de steder, hvor kroppen bærer på belastning – så du får mere bevægelighed og ro i kroppen.</p>
           <div class="meta">60 min</div>
         </div>
-        <div class="card">
+        <div class="card reveal">
           <h3>Kropsbehandling</h3>
           <p>Jeg har altid haft en stor interesse for, hvordan kroppen fungerer – og hvordan vi i et samarbejde kan få den til at fungere endnu bedre på alle niveauer. En helhedsorienteret behandling, der ser på hele dig, ikke kun symptomet.</p>
           <div class="meta">75 min</div>
         </div>
-        <div class="card">
+        <div class="card reveal">
           <h3>Restitution &amp; stræk</h3>
           <p>Målrettet genopbygning og udstrækning efter træning, belastning eller skade. Behandlingen fremskynder restitutionsprocessen, så du hurtigere er klar igen – uanset om du er i konkurrence eller blot vil have din hverdag tilbage.</p>
           <div class="meta">45 min</div>
         </div>
-        <div class="card">
+        <div class="card reveal">
           <h3>Forløb</h3>
           <p>Et skræddersyet behandlingsforløb til dig, der ønsker at investere i krop og balance over tid. Jeg tilrettelægger altid forløbet efter dit udgangspunkt, dine ressourcer og dine mål – ofte over flere uger.</p>
           <div class="meta">Efter aftale</div>
@@ -315,12 +356,12 @@
 
   <section class="section approach" id="tilgang">
     <div class="wrap">
-      <div class="grid">
-        <div class="photo">
+      <div class="grid reveal-stagger">
+        <div class="photo reveal">
           <img src="../assets/images/source/vinnie-davida-soendergaard-photo-martin-kaufmann-dsc-4688-330x380.jpg"
                alt="Vinnie Davida Søndergaard i klinikken" loading="lazy" width="330" height="380">
         </div>
-        <div class="text">
+        <div class="text reveal">
           <div class="eyebrow">Min tilgang</div>
           <h2>Roligt, grundigt og tilpasset din krop</h2>
           <p>Jeg har altid haft en stor interesse for, hvordan kroppen fungerer, og hvordan vi i et samarbejde kan få den til at fungere endnu bedre på alle niveauer. I klinikken får du tid og ro – ingen samlebånd, ingen hastværk.</p>
@@ -339,7 +380,7 @@
         <h2>Behandlinger og varighed</h2>
       </div>
       <!-- Placeholder prices — rediger frit her. Format: navn / varighed / pris. -->
-      <div class="price-list">
+      <div class="price-list reveal">
         <div class="price-row">
           <span class="name">Fysiurgisk massage <small>Dybdegående muskelbehandling</small></span>
           <span class="dots" aria-hidden="true"></span>
@@ -506,8 +547,8 @@
         <div class="eyebrow">Praktisk</div>
         <h2>Sådan finder du klinikken</h2>
       </div>
-      <div class="grid">
-        <div class="info">
+      <div class="grid reveal-stagger">
+        <div class="info reveal">
           <div class="block">
             <h3>Adresse</h3>
             <address>
@@ -540,7 +581,7 @@
           </div>
         </div>
 
-        <div class="map">
+        <div class="map reveal">
           <iframe
             title="Kort over klinikken, Vejlegade 12, 2100 København Ø"
             src="https://www.google.com/maps?q=Vejlegade+12,+2100+K%C3%B8benhavn+%C3%98&output=embed"
@@ -573,7 +614,7 @@
       <div>
         <h4>Følg med</h4>
         <div class="social">
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.linkedin.com/search/results/all/?keywords=Vinnie%20Davida%20S%C3%B8ndergaard" target="_blank" rel="noopener">LinkedIn</a>
           <a href="https://www.facebook.com/lifepoweredthroughinside" target="_blank" rel="noopener">Facebook</a>
           <a href="https://www.instagram.com/vinnie_davida_sondergaard" target="_blank" rel="noopener">Instagram</a>
         </div>
@@ -588,6 +629,7 @@
     </div>
   </footer>
   <script src="../assets/js/nav.js" defer></script>
+  <script src="../assets/js/reveal.js" defer></script>
   <script src="../assets/js/booking.js" defer></script>
   <script src="../assets/js/cookie.js" data-path-prefix="../" defer></script>
 </body>
