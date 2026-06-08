@@ -1,0 +1,6 @@
+# Raw, unoptimized source masters — kept locally only.
+# Web-ready, optimized derivatives live in assets/images/ and ARE committed.
+assets/originals/
+
+# OS cruft
+.DS_Store

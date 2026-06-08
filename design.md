@@ -180,6 +180,22 @@ Saxo Bank · NOR · Champs Camp · Weesgaard Dental Kirurgi · AirCat · BloxHub
 All media downloaded from the original site lives in
 [`assets/images/source/`](assets/images/source/). Reuse freely when building test designs.
 
+> **Image pipeline:** raw photo masters are kept locally in `assets/originals/`
+> (git-ignored, not deployed). Web-ready derivatives are exported to
+> `assets/images/` as optimized **WebP** (resized, stripped, sRGB) and committed.
+> Regenerate with ImageMagick, e.g.
+> `magick SRC -auto-orient -strip -colorspace sRGB -resize '1500x1500>' -quality 82 OUT.webp`.
+
+### Optimized photography in use (`assets/images/`)
+- **Workout** — `workout-udendoers-1/2/3.webp`: outdoor TRX holdtræning on the
+  boardwalk by the water (the "Sådan ser det ud" band).
+- **Klinik** — `klinik-balance.webp`: calm namaste/balance portrait (approach block).
+- **Om · Boksekarriere** — `om-boks-feature.webp`: boxing stance under dramatic
+  sky (section feature).
+- **Om · Galleri** — `om-galleri-boks-titel.webp` (Europamester m. bælte),
+  `om-galleri-boksesaek.webp` (heavy-bag), `om-galleri-loeb.webp` (løb),
+  `om-galleri-ro.webp` (ro ved vandet), `om-galleri-portraet.webp` (portræt).
+
 ### Logos / brand marks
 - `logo2.png`, `logolight.png` — site logos (light variant)
 - `logo-signature-dk.png` — signature logo
