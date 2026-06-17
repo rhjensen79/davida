@@ -82,6 +82,48 @@
   .booking p { font-size: 17px; max-width: 48ch; margin: 0 auto 28px; }
   .booking .actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
+  /* ── Booking overlay (EZME calendar in a lightbox) ─────────────────────── */
+  .booking-modal {
+    position: fixed; inset: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: center;
+    padding: clamp(12px, 4vw, 40px);
+  }
+  .booking-modal[hidden] { display: none; }
+  .booking-modal__backdrop {
+    position: absolute; inset: 0;
+    background: rgba(44, 63, 70, .55);
+    backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px);
+    opacity: 0; transition: opacity .28s ease;
+  }
+  .booking-modal__dialog {
+    position: relative; z-index: 1;
+    width: min(560px, 100%); max-height: 92vh;
+    display: flex; flex-direction: column;
+    background: #fff; border-radius: 18px; overflow: hidden;
+    box-shadow: 0 24px 70px rgba(44, 63, 70, .32);
+    opacity: 0; transform: translateY(14px) scale(.98);
+    transition: opacity .28s ease, transform .28s ease;
+  }
+  .booking-modal.is-open .booking-modal__backdrop { opacity: 1; }
+  .booking-modal.is-open .booking-modal__dialog { opacity: 1; transform: none; }
+  .booking-modal__close {
+    position: absolute; top: 10px; right: 12px; z-index: 2;
+    width: 40px; height: 40px; border-radius: 999px; cursor: pointer;
+    background: rgba(255, 255, 255, .92); border: 1px solid var(--c-sage-light);
+    color: var(--c-slate); font-size: 24px; line-height: 1;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: background .2s, border-color .2s;
+  }
+  .booking-modal__close:hover { background: var(--c-sage-light); border-color: var(--c-sage); }
+  .booking-modal__frame { flex: 1; min-height: 0; }
+  .booking-modal__iframe {
+    display: block; width: 100%; height: min(760px, 92vh);
+    border: 0; background: #fff;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .booking-modal__backdrop, .booking-modal__dialog { transition: none; }
+  }
+
   /* ── Practical info: address, map & how to find the clinic (issue #9) ───── */
   .practical { background: #fff; }
   .practical .grid {
@@ -203,7 +245,7 @@
       <div class="eyebrow">Klinik · Østerbro</div>
       <h1>Fysiurgisk massage &amp; kropsbehandling</h1>
       <p>Jeg har altid haft en stor interesse for, hvordan kroppen fungerer – og hvordan vi i et samarbejde kan få den til at fungere endnu bedre på alle niveauer.</p>
-      <div><a class="btn" href="https://ezme.io/c/Tf/eSrT" target="_blank" rel="noopener">Book tid</a></div>
+      <div><a class="btn" href="https://ezme.io/c/Tf/eSrT" target="_blank" rel="noopener" data-booking>Book tid</a></div>
     </div>
     <div class="photo" role="img" aria-label="Kropsbehandling"></div>
   </header>
@@ -303,7 +345,7 @@
       <h2>Book din tid</h2>
       <p>Book direkte i kalenderen online, eller ring og hør nærmere. Klinikken ligger på Vejlegade 12, kld. th., 2100 København Ø.</p>
       <div class="actions">
-        <a class="btn" href="https://ezme.io/c/Tf/eSrT" target="_blank" rel="noopener">Book tid online</a>
+        <a class="btn" href="https://ezme.io/c/Tf/eSrT" target="_blank" rel="noopener" data-booking>Book tid online</a>
         <a class="btn ghost" href="tel:+4525616000">Ring 25 61 60 00</a>
       </div>
     </div>
@@ -396,8 +438,24 @@
       © <span id="year">2026</span> Vinnie Davida Søndergaard · CVR 30259939
     </div>
   </footer>
+  <!-- Booking overlay: the EZME calendar opens in a lightbox on top of the page
+       (mirrors the live site). Progressive enhancement — without JS the
+       data-booking links above simply open EZME in a new tab. The iframe src is
+       set lazily by booking-modal.js the first time the overlay is opened. -->
+  <div class="booking-modal" id="booking-modal" hidden>
+    <div class="booking-modal__backdrop" data-booking-close></div>
+    <div class="booking-modal__dialog" role="dialog" aria-modal="true" aria-label="Book tid">
+      <button class="booking-modal__close" type="button" data-booking-close aria-label="Luk booking">&times;</button>
+      <div class="booking-modal__frame">
+        <iframe class="booking-modal__iframe" title="Book tid — online kalender"
+                data-src="https://ezme.io/c/Tf/eSrT" allow="payment"></iframe>
+      </div>
+    </div>
+  </div>
+
   <script src="../assets/js/nav.js" defer></script>
   <script src="../assets/js/reveal.js" defer></script>
   <script src="../assets/js/cookie.js" data-path-prefix="../" defer></script>
+  <script src="../assets/js/booking-modal.js" defer></script>
 </body>
 </html>
