@@ -82,114 +82,6 @@
   .booking p { font-size: 17px; max-width: 48ch; margin: 0 auto 28px; }
   .booking .actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
-  /* ── Mock booking widget — calm, airy two-column card ──────────────────── */
-  .booking-widget {
-    max-width: 880px; margin: 40px auto 0; text-align: left;
-    background: #fff; border: 1px solid var(--c-sage-light);
-    border-radius: 18px; padding: clamp(20px, 4vw, 36px);
-    box-shadow: 0 14px 44px rgba(44,63,70,.08);
-    display: grid; gap: clamp(24px, 4vw, 44px);
-    grid-template-columns: 1.15fr .85fr;
-  }
-  @media (max-width: 720px){ .booking-widget { grid-template-columns: 1fr; } }
-
-  /* Calendar */
-  .cal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
-  .cal-title { font-family: var(--font-head); font-weight: 500; font-size: 19px; color: var(--c-slate); letter-spacing: .02em; text-transform: capitalize; }
-  .cal-nav { display: flex; gap: 8px; }
-  .cal-nav button {
-    width: 38px; height: 38px; border-radius: 999px; cursor: pointer;
-    background: var(--c-wash); border: 1px solid var(--c-sage-light); color: var(--c-slate);
-    font-size: 16px; line-height: 1; display: inline-flex; align-items: center; justify-content: center;
-    transition: background .2s, border-color .2s;
-  }
-  .cal-nav button:hover { background: var(--c-sage-light); }
-  .cal-nav button:disabled { opacity: .35; cursor: not-allowed; }
-
-  .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
-  .cal-dow {
-    font-family: var(--font-head); text-transform: uppercase; letter-spacing: .08em;
-    font-size: 11px; color: var(--c-eyebrow); text-align: center; padding: 4px 0 8px;
-  }
-  .cal-day {
-    aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center;
-    font-family: var(--font-body); font-size: 15px; color: var(--c-slate);
-    background: var(--c-wash); border: 1px solid transparent; border-radius: 10px;
-    cursor: pointer; transition: background .18s, border-color .18s, color .18s, box-shadow .18s;
-  }
-  .cal-day:hover:not(:disabled):not([aria-pressed="true"]) { background: var(--c-sage-light); border-color: var(--c-sage); }
-  .cal-day.is-empty { background: transparent; border: 0; cursor: default; }
-  .cal-day:disabled, .cal-day.is-past { color: #b7c0bb; background: transparent; cursor: not-allowed; }
-  .cal-day.is-unavailable { color: #c3ccc6; background: repeating-linear-gradient(135deg, #fff, #fff 4px, #f0f3f0 4px, #f0f3f0 8px); cursor: not-allowed; text-decoration: line-through; }
-  .cal-day.is-today { font-weight: 600; box-shadow: inset 0 0 0 1px var(--c-sage-muted); }
-  .cal-day[aria-pressed="true"] { background: var(--c-slate); color: #fff; border-color: var(--c-slate); box-shadow: 0 6px 16px rgba(44,63,70,.22); }
-
-  .cal-legend { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 18px; font-size: 12.5px; color: var(--c-text-soft); }
-  .cal-legend span { display: inline-flex; align-items: center; gap: 7px; }
-  .cal-legend i { width: 14px; height: 14px; border-radius: 4px; display: inline-block; }
-  .cal-legend .sw-free { background: var(--c-wash); border: 1px solid var(--c-sage-light); }
-  .cal-legend .sw-sel { background: var(--c-slate); }
-  .cal-legend .sw-un { background: repeating-linear-gradient(135deg, #fff, #fff 3px, #e3e8e2 3px, #e3e8e2 6px); border: 1px solid var(--c-sage-light); }
-
-  /* Time slots */
-  .slots { border-left: 1px solid var(--c-sage-light); padding-left: clamp(0px, 4vw, 36px); }
-  @media (max-width: 720px){ .slots { border-left: 0; padding-left: 0; border-top: 1px solid var(--c-sage-light); padding-top: 28px; } }
-  .slots h3 { font-family: var(--font-head); font-weight: 500; font-size: 17px; color: var(--c-slate); margin: 0 0 4px; }
-  .slots .slots-sub { font-size: 13.5px; color: var(--c-text-soft); margin: 0 0 18px; }
-  .slots-empty { color: var(--c-text-soft); font-size: 15px; line-height: 1.6; padding: 8px 0; }
-  .slot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); gap: 10px; }
-  .slot {
-    font-family: var(--font-body); font-size: 15px; color: var(--c-slate);
-    background: #fff; border: 1px solid var(--c-sage); border-radius: 10px;
-    padding: 11px 6px; cursor: pointer; text-align: center;
-    transition: background .18s, color .18s, border-color .18s, box-shadow .18s;
-  }
-  .slot:hover:not(:disabled):not([aria-pressed="true"]) { background: var(--c-wash); }
-  .slot:disabled { color: #b7c0bb; background: var(--c-off); border-color: var(--c-sage-light); cursor: not-allowed; text-decoration: line-through; }
-  .slot[aria-pressed="true"] { background: var(--c-slate); color: #fff; border-color: var(--c-slate); box-shadow: 0 6px 16px rgba(44,63,70,.22); }
-  .slots .continue { margin-top: 24px; display: none; }
-  .slots .continue.is-visible { display: block; }
-  .slots .continue p { font-size: 14px; color: var(--c-text-soft); margin: 0 0 14px; text-align: left; }
-
-  /* ── Booking form + confirmation (issue #8) — calm Klinik tone ─────────── */
-  .book-step {
-    max-width: 640px; margin: 28px auto 0; text-align: left;
-    background: #fff; border: 1px solid var(--c-sage-light);
-    border-radius: 18px; padding: clamp(22px, 4vw, 40px);
-    box-shadow: 0 14px 44px rgba(44,63,70,.08);
-    scroll-margin-top: 90px;
-  }
-  .book-step .step-head { margin-bottom: 24px; }
-  .book-step .step-head h3 { font-family: var(--font-head); font-weight: 500; font-size: 22px; color: var(--c-slate); margin: 0 0 6px; }
-  .book-step .step-head p { font-size: 15px; color: var(--c-text-soft); margin: 0; max-width: 52ch; }
-  /* The prefilled date/time field reads from the calendar pick (visual). */
-  .book-step input[readonly] { background: var(--c-wash); color: var(--c-slate); cursor: default; }
-  .book-step .form-actions { margin-top: 4px; }
-  .book-step .form-note { font-size: 13px; color: var(--c-text-soft); margin: 14px 0 0; }
-
-  /* Confirmation / kvittering — static success state mockup. */
-  .booking-confirm { display: none; }
-  .booking-confirm.is-visible { display: block; }
-  .booking-confirm { text-align: left; border-color: var(--c-sage); }
-  .confirm-badge {
-    display: inline-flex; align-items: center; gap: 9px;
-    font-family: var(--font-head); letter-spacing: .04em;
-    color: var(--c-slate); font-size: 15px; margin-bottom: 18px;
-  }
-  .confirm-badge .tick {
-    width: 32px; height: 32px; border-radius: 999px; flex: none;
-    background: var(--c-slate); color: #fff;
-    display: inline-flex; align-items: center; justify-content: center; font-size: 16px;
-  }
-  .booking-confirm h3 { font-family: var(--font-head); font-weight: 500; font-size: 23px; color: var(--c-slate); margin: 0 0 10px; }
-  .booking-confirm .lead { font-size: 16px; color: var(--c-text); margin: 0 0 22px; max-width: 52ch; }
-  .receipt { border: 1px solid var(--c-sage-light); border-radius: 12px; background: var(--c-wash); padding: 4px 20px; margin-bottom: 22px; }
-  .receipt .r-row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 13px 0; border-bottom: 1px solid var(--c-sage-light); }
-  .receipt .r-row:last-child { border-bottom: 0; }
-  .receipt .r-label { font-family: var(--font-head); text-transform: uppercase; letter-spacing: .08em; font-size: 11.5px; color: var(--c-eyebrow); }
-  .receipt .r-value { font-size: 15px; color: var(--c-slate); text-align: right; }
-  .booking-confirm .confirm-foot { font-size: 13.5px; color: var(--c-text-soft); margin: 0; }
-
   /* ── Practical info: address, map & how to find the clinic (issue #9) ───── */
   .practical { background: #fff; }
   .practical .grid {
@@ -311,7 +203,7 @@
       <div class="eyebrow">Klinik · Østerbro</div>
       <h1>Fysiurgisk massage &amp; kropsbehandling</h1>
       <p>Jeg har altid haft en stor interesse for, hvordan kroppen fungerer – og hvordan vi i et samarbejde kan få den til at fungere endnu bedre på alle niveauer.</p>
-      <div><a class="btn" href="#book">Book tid</a></div>
+      <div><a class="btn" href="https://ezme.io/c/Tf/eSrT" target="_blank" rel="noopener">Book tid</a></div>
     </div>
     <div class="photo" role="img" aria-label="Kropsbehandling"></div>
   </header>
@@ -409,134 +301,10 @@
   <section class="section booking" id="book">
     <div class="wrap">
       <h2>Book din tid</h2>
-      <p>Vælg en ledig tid i kalenderen, eller ring og hør nærmere. Klinikken ligger på Vejlegade 12, kld. th., 2100 København Ø.</p>
+      <p>Book direkte i kalenderen online, eller ring og hør nærmere. Klinikken ligger på Vejlegade 12, kld. th., 2100 København Ø.</p>
       <div class="actions">
-        <a class="btn" href="mailto:vinnie@davida-sondergaard.dk?subject=Booking%20-%20fysiurgisk%20massage">Book via mail</a>
+        <a class="btn" href="https://ezme.io/c/Tf/eSrT" target="_blank" rel="noopener">Book tid online</a>
         <a class="btn ghost" href="tel:+4525616000">Ring 25 61 60 00</a>
-      </div>
-
-      <!-- ===================================================================
-           MOCK BOOKING WIDGET — NON-FUNCTIONAL / VISUAL ONLY.
-           This is a realistic-looking calendar + time-slot picker for design
-           testing. It does NOT book anything: there is no backend, no real
-           availability, and no network calls. The calendar is generated for
-           the CURRENT month by assets/js/booking.js, and the available/booked
-           states are mock data purely for visual demonstration.
-           In production a real scheduling system (Calendly, Acuity or similar)
-           would slot in here. The booking FORM (navn/email/bekræft) follows in
-           issue #8 — see the #book-form anchor below.
-           =================================================================== -->
-      <div class="booking-widget" id="booking-widget" aria-label="Vælg dag og tidspunkt (demo)">
-        <div class="calendar">
-          <div class="cal-head">
-            <div class="cal-title" id="cal-title">Måned</div>
-            <div class="cal-nav">
-              <button type="button" id="cal-prev" aria-label="Forrige måned">‹</button>
-              <button type="button" id="cal-next" aria-label="Næste måned">›</button>
-            </div>
-          </div>
-          <div class="cal-grid" id="cal-dow">
-            <div class="cal-dow">Man</div>
-            <div class="cal-dow">Tir</div>
-            <div class="cal-dow">Ons</div>
-            <div class="cal-dow">Tor</div>
-            <div class="cal-dow">Fre</div>
-            <div class="cal-dow">Lør</div>
-            <div class="cal-dow">Søn</div>
-          </div>
-          <div class="cal-grid" id="cal-days" role="grid" aria-label="Dage i måneden"></div>
-          <div class="cal-legend" aria-hidden="true">
-            <span><i class="sw-free"></i> Ledig</span>
-            <span><i class="sw-sel"></i> Valgt</span>
-            <span><i class="sw-un"></i> Optaget</span>
-          </div>
-        </div>
-
-        <div class="slots" id="slots" aria-live="polite">
-          <h3 id="slots-title">Vælg en dag</h3>
-          <p class="slots-sub" id="slots-sub">Klik på en ledig dag i kalenderen for at se ledige tider.</p>
-          <div class="slots-empty" id="slots-empty">Ingen dag valgt endnu.</div>
-          <div class="slot-grid" id="slot-grid" role="group" aria-label="Ledige tidspunkter" hidden></div>
-          <div class="continue" id="slots-continue">
-            <p id="continue-summary"></p>
-            <!-- Anchor for the booking form (issue #8): the name/email/confirm
-                 step will render here under #book-form. -->
-            <a class="btn" href="#book-form" id="continue-btn">Fortsæt</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===================================================================
-           MOCK BOOKING FORM + CONFIRMATION (issue #8) — NON-FUNCTIONAL.
-           This form does NOT submit anywhere: no backend, no validation, no
-           network call. "Bekræft booking" is type="button" and only swaps the
-           form for the static kvittering panel below (visual demo). In
-           production a real scheduling system would handle the submit. The
-           "ønsket dato/tid" field is prefilled from the calendar pick (#7) by
-           assets/js/booking.js purely for show.
-           =================================================================== -->
-      <div class="book-step" id="book-form">
-        <div class="step-head">
-          <h3>Dine oplysninger</h3>
-          <p>Udfyld dine oplysninger, så vender jeg tilbage og bekræfter din tid. Demo — der reserveres ingen tid, og intet sendes.</p>
-        </div>
-        <form class="form" id="booking-form" novalidate>
-          <div class="form-row">
-            <div class="field">
-              <label for="bf-name">Navn</label>
-              <input type="text" id="bf-name" name="name" autocomplete="name" placeholder="Dit fulde navn">
-            </div>
-            <div class="field">
-              <label for="bf-phone">Telefon</label>
-              <input type="tel" id="bf-phone" name="phone" autocomplete="tel" placeholder="+45 …">
-            </div>
-          </div>
-          <div class="field">
-            <label for="bf-email">Email</label>
-            <input type="email" id="bf-email" name="email" autocomplete="email" placeholder="dig@eksempel.dk">
-          </div>
-          <div class="form-row">
-            <div class="field">
-              <label for="bf-treatment">Behandling</label>
-              <select id="bf-treatment" name="treatment">
-                <option value="Fysiurgisk massage">Fysiurgisk massage · 60 min</option>
-                <option value="Kropsbehandling">Kropsbehandling · 75 min</option>
-                <option value="Restitution &amp; stræk">Restitution &amp; stræk · 45 min</option>
-                <option value="Forløb">Forløb · efter aftale</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="bf-datetime">Ønsket dato/tid</label>
-              <input type="text" id="bf-datetime" name="datetime" readonly
-                     placeholder="Vælg en tid i kalenderen ovenfor"
-                     aria-describedby="bf-datetime-hint">
-            </div>
-          </div>
-          <div class="field">
-            <label for="bf-message">Besked / noter</label>
-            <textarea id="bf-message" name="message" placeholder="Fortæl gerne kort, hvad du oplever, eller hvad du har brug for."></textarea>
-          </div>
-          <div class="form-actions">
-            <!-- type="button": this is a non-functional mock, no real submit. -->
-            <button class="btn" type="button" id="bf-submit">Bekræft booking</button>
-            <p class="form-note">Demo-formular — ingen data gemmes eller sendes.</p>
-          </div>
-        </form>
-      </div>
-
-      <!-- Static confirmation / kvittering panel (mockup of the success state). -->
-      <div class="book-step booking-confirm" id="booking-confirm" role="status" aria-live="polite">
-        <span class="confirm-badge"><span class="tick" aria-hidden="true">✓</span> Booking modtaget</span>
-        <h3>Tak, <span id="bc-name">Anna Jensen</span>!</h3>
-        <p class="lead">Vi har modtaget din booking. Du får en bekræftelse på mail, og jeg vender tilbage, hvis der er spørgsmål.</p>
-        <div class="receipt">
-          <div class="r-row"><span class="r-label">Behandling</span><span class="r-value" id="bc-treatment">Fysiurgisk massage · 60 min</span></div>
-          <div class="r-row"><span class="r-label">Dato &amp; tid</span><span class="r-value" id="bc-datetime">Onsdag · kl. 10:00</span></div>
-          <div class="r-row"><span class="r-label">Navn</span><span class="r-value" id="bc-fullname">Anna Jensen</span></div>
-          <div class="r-row"><span class="r-label">Email</span><span class="r-value" id="bc-email">anna@eksempel.dk</span></div>
-          <div class="r-row"><span class="r-label">Klinik</span><span class="r-value">Vejlegade 12, kld. th.<br>2100 København Ø</span></div>
-        </div>
-        <p class="confirm-foot">Behov for at ændre? Ring 25 61 60 00 eller skriv til vinnie@davida-sondergaard.dk. (Demo — ingen rigtig booking er oprettet.)</p>
       </div>
     </div>
   </section>
@@ -630,7 +398,6 @@
   </footer>
   <script src="../assets/js/nav.js" defer></script>
   <script src="../assets/js/reveal.js" defer></script>
-  <script src="../assets/js/booking.js" defer></script>
   <script src="../assets/js/cookie.js" data-path-prefix="../" defer></script>
 </body>
 </html>
