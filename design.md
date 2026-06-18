@@ -71,6 +71,7 @@ across all three focuses; each focus leans on a different subset (see §2).
 | Dark slate / teal | `#2c3f46` | Headings, dark sections, footer |
 | Near-black | `#080d12` | Strong text |
 | Sand / beige | `#e0ddd4` | Buttons, accent blocks |
+| Afdæmpet messingguld (gold) | `#b8924f` | From the logo; eyebrow/subtitle accents (e.g. landing tile tags) |
 | Body text grey | `#434343`, `#515151` | Paragraph text |
 | Off-white / neutrals | `#ffffff`, `#f5f5f5`, `#f2f2f2`, `#fafafa` | Page background |
 
